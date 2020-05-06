@@ -1,7 +1,13 @@
 # Mohm-lhf
 
 Mohm-lhf is the (in development) software that embeddeds the LHF Instrumentação milliohmmeter's.
-Developed for Raspberry Pi 3 B+ to control an already existing hardware from the company.
+
+This software is meant to run at Raspberry pi and as whole project it makes use of:
+
+* LHF Instrumentação ohmmeter's hardware;
+* PiPyADC to read analogs input that reads the data in the hardware;
+* Pymodbus enabling the raspberry pi work as an assynchronos modbus server;
+* Eel lib to make a GUI by using HTML, CSS and JavaScript as frontend meanwhile python runs at backend;
 
 The complete readme will be written as the project evolves, meanwhile the rest of it will keep as the templete standart.
 
