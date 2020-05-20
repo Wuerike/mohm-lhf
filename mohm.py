@@ -1,4 +1,5 @@
 import time
+import json
 import wiringpi as wp
 import mohm_definitions
 from mohm_definitions import *
@@ -42,12 +43,45 @@ class OHMIMETRO(object):
         # Gain and offset self-calibration
         ads.cal_self()
         
-        
+    
+    def gain_per_scale(self, escala):
+        ganhos_escala = {
+        '0': (0,0),
+        '1': (20,2),
+        '2': (2,2),
+        '3': (0.2,2),
+        '4': (20,2),
+        '5': (20,2),
+        '6': (20,2),
+        '7': (20,2),
+        }
+        return ganhos_escala.get(escala, (0,0))
+    
+
+    def read_calib(self, scale):
+        with open('calib.json') as calib_file:
+            per_scale_calib_data = json.load(calib_file)
+            offset = per_scale_calib_data[int(scale)]['offset']
+            gain = per_scale_calib_data[int(scale)]['gain']
+            return(offset,gain)
+
+
+    def write_calib(self, data):
+        with open('calib.json', 'w') as calib_file:
+            json.dump(data, calib_file)
+
+
     # Resistence measurement routine
-    def do_measurement(self, escala):
+    def do_measurement(self, scale):
                 
         # Select the ohmmimeter measurement range 
-        self.range_select(escala)
+        self.range_select(scale)
+
+        # Define the proper Ina146 hardware gain
+        ina_gain = self.gain_per_scale(scale)
+
+        # Read the calibration values
+        offset_gain = self.read_calib(scale)
         
         # Estabilization time 
         time.sleep(0.2)
@@ -56,13 +90,18 @@ class OHMIMETRO(object):
         raw_channels = ads.read_sequence(CH_SEQUENCE)
 
         # Calculate the resistance and the calibrated resistance
-        resistence = float(raw_channels[1]/20) / float(raw_channels[0]/2)
+        # Uses the INA146 gain to find the real voltages before they be amplified
+        resistance = float(raw_channels[1]/ina_gain[0]) / float(raw_channels[0]/ina_gain[1])
+
+        resistance_calib = offset_gain[0] + offset_gain[1]*resistance
         
         # Turn off the ohmmimeter's relay
         self.range_select(ESC_OFF)
         
         # Return the tuple with data
-        return resistence
+        return resistance_calib
+
+    
 
 
 

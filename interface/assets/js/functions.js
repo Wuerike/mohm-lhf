@@ -1,5 +1,6 @@
 // exposed functions
 eel.expose(recebe_resistencia);
+eel.expose(update_calib_data);
 
 // Print at python console
 eel.pythonPrint("connected!"); 
@@ -11,6 +12,66 @@ eel.pythonPrint("connected!");
 // Comunication functions
 
 // Calib functions
+function calib_page_loaded(){
+	eel.read_calib()    
+}
+
+function update_calib_data(calib_data){
+	document.getElementById('offset-1').value = calib_data[1]['offset']
+    document.getElementById('gain-1').value = calib_data[1]['gain']
+    document.getElementById('offset-2').value = calib_data[2]['offset']
+    document.getElementById('gain-2').value = calib_data[2]['gain']
+    document.getElementById('offset-3').value = calib_data[3]['offset']
+    document.getElementById('gain-3').value = calib_data[3]['gain']
+    document.getElementById('offset-4').value = calib_data[4]['offset']
+    document.getElementById('gain-4').value = calib_data[4]['gain']
+    document.getElementById('offset-5').value = calib_data[5]['offset']
+    document.getElementById('gain-5').value = calib_data[5]['gain']
+    document.getElementById('offset-6').value = calib_data[6]['offset']
+    document.getElementById('gain-6').value = calib_data[6]['gain']
+    document.getElementById('offset-7').value = calib_data[7]['offset']
+    document.getElementById('gain-7').value = calib_data[7]['gain']
+}
+
+function save_calib_data(){
+
+	var calib_data = [
+		{
+			"offset": 0, 
+			"gain": 0
+		},
+		{
+			"offset": parseInt(document.getElementById('offset-1').value), 
+			"gain": parseInt(document.getElementById('gain-1').value)
+		},
+		{
+			"offset": parseInt(document.getElementById('offset-2').value), 
+			"gain": parseInt(document.getElementById('gain-2').value)
+		},
+		{
+			"offset": parseInt(document.getElementById('offset-3').value), 
+			"gain": parseInt(document.getElementById('gain-3').value)
+		},
+		{
+			"offset": parseInt(document.getElementById('offset-4').value), 
+			"gain": parseInt(document.getElementById('gain-4').value)
+		},
+		{
+			"offset": parseInt(document.getElementById('offset-5').value), 
+			"gain": parseInt(document.getElementById('gain-5').value)
+		},
+		{
+			"offset": parseInt(document.getElementById('offset-6').value), 
+			"gain": parseInt(document.getElementById('gain-6').value)
+		},
+		{
+			"offset": parseInt(document.getElementById('offset-7').value), 
+			"gain": parseInt(document.getElementById('gain-7').value)
+		},
+	]
+
+	eel.save_calib_data(calib_data)
+}
 
 // Index functions
 function busca_escala(){
