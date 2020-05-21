@@ -41,34 +41,35 @@ function save_calib_data(){
 			"gain": 0
 		},
 		{
-			"offset": parseInt(document.getElementById('offset-1').value), 
-			"gain": parseInt(document.getElementById('gain-1').value)
+			"offset": parseFloat(document.getElementById('offset-1').value), 
+			"gain": parseFloat(document.getElementById('gain-1').value)
 		},
 		{
-			"offset": parseInt(document.getElementById('offset-2').value), 
-			"gain": parseInt(document.getElementById('gain-2').value)
+			"offset": parseFloat(document.getElementById('offset-2').value), 
+			"gain": parseFloat(document.getElementById('gain-2').value)
 		},
 		{
-			"offset": parseInt(document.getElementById('offset-3').value), 
-			"gain": parseInt(document.getElementById('gain-3').value)
+			"offset": parseFloat(document.getElementById('offset-3').value), 
+			"gain": parseFloat(document.getElementById('gain-3').value)
 		},
 		{
-			"offset": parseInt(document.getElementById('offset-4').value), 
-			"gain": parseInt(document.getElementById('gain-4').value)
+			"offset": parseFloat(document.getElementById('offset-4').value), 
+			"gain": parseFloat(document.getElementById('gain-4').value)
 		},
 		{
-			"offset": parseInt(document.getElementById('offset-5').value), 
-			"gain": parseInt(document.getElementById('gain-5').value)
+			"offset": parseFloat(document.getElementById('offset-5').value), 
+			"gain": parseFloat(document.getElementById('gain-5').value)
 		},
 		{
-			"offset": parseInt(document.getElementById('offset-6').value), 
-			"gain": parseInt(document.getElementById('gain-6').value)
+			"offset": parseFloat(document.getElementById('offset-6').value), 
+			"gain": parseFloat(document.getElementById('gain-6').value)
 		},
 		{
-			"offset": parseInt(document.getElementById('offset-7').value), 
-			"gain": parseInt(document.getElementById('gain-7').value)
+			"offset": parseFloat(document.getElementById('offset-7').value), 
+			"gain": parseFloat(document.getElementById('gain-7').value)
 		},
 	]
+
 
 	eel.save_calib_data(calib_data)
 }
@@ -204,9 +205,7 @@ function verifica_limites(){
 
 
 function recebe_resistencia(resistance_read){
-	eel.pythonPrint(resistance_read)
 	resistance_read = add_multiplier(resistance_read)
-	eel.pythonPrint(resistance_read)
     document.getElementById('resistance-field').value = resistance_read
     verifica_limites()
 }

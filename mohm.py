@@ -31,7 +31,7 @@ class OHMIMETRO(object):
             if pin is not None:
                 wp.pinMode(pin, wp.OUTPUT)
                 wp.digitalWrite(pin, wp.LOW)        
-        
+
     def range_select(self, escala):
         escala = int(escala)
         wp.digitalWrite(self.ESC1_PIN, (0x01 & escala))
@@ -42,33 +42,21 @@ class OHMIMETRO(object):
     def ADS_Calib(self):
         # Gain and offset self-calibration
         ads.cal_self()
-        
-    
-    def gain_per_scale(self, escala):
+
+
+    # compensates the each shunt and the INA's fixed gain
+    def hw_gain_per_scale(self, escala):
         ganhos_escala = {
         '0': (0,0),
-        '1': (20,2),
-        '2': (2,2),
-        '3': (0.2,2),
-        '4': (20,2),
-        '5': (20,2),
-        '6': (20,2),
-        '7': (20,2),
+        '1': (2,20),
+        '2': (20,20),
+        '3': (200,20),
+        '4': (20,20),
+        '5': (20,20),
+        '6': (20,20),
+        '7': (20,20),
         }
         return ganhos_escala.get(escala, (0,0))
-    
-
-    def read_calib(self, scale):
-        with open('calib.json') as calib_file:
-            per_scale_calib_data = json.load(calib_file)
-            offset = per_scale_calib_data[int(scale)]['offset']
-            gain = per_scale_calib_data[int(scale)]['gain']
-            return(offset,gain)
-
-
-    def write_calib(self, data):
-        with open('calib.json', 'w') as calib_file:
-            json.dump(data, calib_file)
 
 
     # Resistence measurement routine
@@ -78,28 +66,27 @@ class OHMIMETRO(object):
         self.range_select(scale)
 
         # Define the proper Ina146 hardware gain
-        ina_gain = self.gain_per_scale(scale)
-
-        # Read the calibration values
-        offset_gain = self.read_calib(scale)
+        hw_gain = self.hw_gain_per_scale(scale)
         
         # Estabilization time 
-        time.sleep(0.2)
+        time.sleep(1)
         
         # Get ADC data
         raw_channels = ads.read_sequence(CH_SEQUENCE)
+        voltages     = [i * ads.v_per_digit for i in raw_channels]
+        print(voltages)
 
         # Calculate the resistance and the calibrated resistance
         # Uses the INA146 gain to find the real voltages before they be amplified
-        resistance = float(raw_channels[1]/ina_gain[0]) / float(raw_channels[0]/ina_gain[1])
+        resistance = float(raw_channels[1]/hw_gain[1]) / float(raw_channels[0]/hw_gain[0])
 
-        resistance_calib = offset_gain[0] + offset_gain[1]*resistance
-        
+        #resistance_calib = offset_gain[0] + offset_gain[1]*resistance
+
         # Turn off the ohmmimeter's relay
         self.range_select(ESC_OFF)
-        
+
         # Return the tuple with data
-        return resistance_calib
+        return resistance
 
     
 

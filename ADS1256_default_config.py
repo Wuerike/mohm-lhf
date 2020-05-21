@@ -72,7 +72,7 @@ gain_flags = GAIN_1
 # THIS REQUIRES an additional timeout via WaitDRDY() after each such operation.
 # Note: BUFFER_ENABLE means the ADC input voltage range is limited
 # to (AVDD-2V),see datasheet
-status = BUFFER_ENABLE
+status = BUFFER_DISABLE
 # REG_MUX:
 # Default: positive input = AIN0, negative input = AINCOM
 mux = POS_AIN0 | NEG_AINCOM
