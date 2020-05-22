@@ -1,9 +1,10 @@
 // exposed functions
 eel.expose(recebe_resistencia);
 eel.expose(update_calib_data);
+eel.expose(index_init);
 
 // Print at python console
-eel.pythonPrint("connected!"); 
+eel.pythonPrint("Page Loaded"); 
 
 // Setup functions
 
@@ -75,6 +76,24 @@ function save_calib_data(){
 }
 
 // Index functions
+function index_init(index_data) {
+	document.getElementById("escala-select").value = index_data['escala-select'];
+	document.getElementById("Rmax").value = index_data['Rmax'];
+	document.getElementById("Rmin").value = index_data['Rmin'];
+}
+
+
+function save_index_init() {
+	let index_data = {
+		"escala-select": document.getElementById('escala-select').value, 
+		"Rmax": parseFloat(document.getElementById("Rmax").value), 
+		"Rmin": parseFloat(document.getElementById("Rmin").value)
+	}
+
+	eel.save_index_init(index_data)
+}
+
+
 function busca_escala(){
 	return document.getElementById('escala-select').value
 }
@@ -128,58 +147,48 @@ const DEZ_MIL = 10000
 // <9999.9 		=	1234.1  	resistencia + 1 casas
 // >9999.9 		=	12345 		resistencia + 0 casas
 
-
+/*
 function toFixed(value, precision) {
     var power = Math.pow(10, precision || 0);
     return String(Math.round(value * power) / power);
 }
-
+*/
 
 function add_multiplier(value) {
 	if (value < CEM_MICRO){
 		value = value * 1000000
-		value = toFixed(value,3)
-		return (value + 'uΩ')
+		return (value.toFixed(3) + 'uΩ')
 	}
 	else if (value < UM_MILI){
 		value = value * 1000000
-		value = toFixed(value,2)
-		return (value + 'uΩ')
+		return (value.toFixed(2) + 'uΩ')
 	}
 	else if (value < DEZ_MILI){
 		value = value * 1000
-		value = toFixed(value,4)
-		return (value + 'mΩ')
+		return (value.toFixed(4) + 'mΩ')
 	} 
 	else if (value < CEM_MILI){
 		value = value * 1000
-		value = toFixed(value,3)
-		return (value + 'mΩ')
+		return (value.toFixed(3) + 'mΩ')
 	}
 	else if (value < UM){
 		value = value * 1000
-		value = toFixed(value,2)
-		return (value + 'mΩ')
+		return (value.toFixed(2) + 'mΩ')
 	}
 	else if (value < DEZ){
-		value = toFixed(value,4)
-		return (value + 'Ω')
+		return (value.toFixed(4) + 'Ω')
 	}
 	else if (value < CEM){
-		value = toFixed(value,3)
-		return (value + 'Ω')
+		return (value.toFixed(3) + 'Ω')
 	}
 	else if (value < MIL){
-		value = toFixed(value,2)
-		return (value + 'Ω')
+		return (value.toFixed(2) + 'Ω')
 	}
 	else if (value < DEZ_MIL){
-		value = toFixed(value,1)
-		return (value + 'Ω')
+		return (value.toFixed(1) + 'Ω')
 	}
 	else {
-		value = toFixed(value,0)
-		return (value + 'Ω')
+		return (value.toFixed(0) + 'Ω')
 	}
 }
 
