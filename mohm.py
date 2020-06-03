@@ -8,8 +8,8 @@ from pipyadc import ADS1256
 
 ads = ADS1256()
 
-DIF1, DIF2 = POS_AIN0|NEG_AIN1, POS_AIN2|NEG_AIN3
-CH_SEQUENCE = (DIF1, DIF2)
+RESISTENCE_CHANNELS = (POS_AIN0|NEG_AIN1, POS_AIN2|NEG_AIN3)
+TEMPERATURE_CHANNEL = (POS_AIN4|NEG_AIN5)
 
 class OHMIMETRO(object):
     
@@ -72,7 +72,7 @@ class OHMIMETRO(object):
         time.sleep(1)
         
         # Get ADC data
-        raw_channels = ads.read_sequence(CH_SEQUENCE)
+        raw_channels = ads.read_sequence(RESISTENCE_CHANNELS)
         voltages     = [i * ads.v_per_digit for i in raw_channels]
         print(voltages)
 
@@ -88,7 +88,12 @@ class OHMIMETRO(object):
         # Return the tuple with data
         return resistance
 
-    
+
+    def get_temperature(self):
+        temperature_raw = ads.read_oneshot(TEMPERATURE_CHANNEL)
+        temperature_voltage = temperature_raw * ads.v_per_digit
+        temperature = 100*temperature_voltage
+        return temperature
 
 
 
