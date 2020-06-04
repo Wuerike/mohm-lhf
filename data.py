@@ -49,6 +49,7 @@ class DATA_MANAGEMENT(QtCore.QObject):
 
             self.window.config_temp_ref_field.setText(config_data['temp-ref'])
             self.window.config_material_field.setCurrentIndex(config_data['material'])
+            self.window.config_data_rate_field.setCurrentIndex(config_data['data-rate'])
             self.window.config_aquisitions_field.setText(config_data['aquisitions'])
             self.window.config_stabilization_field.setText(config_data['stabilization'])
 
@@ -114,6 +115,7 @@ class DATA_MANAGEMENT(QtCore.QObject):
         config_data = {
             "temp-ref": self.window.config_temp_ref_field.text(), 
             "material": self.window.config_material_field.currentIndex(), 
+            "data-rate": self.window.config_data_rate_field.currentIndex(), 
             "aquisitions": self.window.config_aquisitions_field.text(), 
             "stabilization": self.window.config_stabilization_field.text()
         }
@@ -131,8 +133,10 @@ class DATA_MANAGEMENT(QtCore.QObject):
         with open('data/comunication.json', 'w') as com_file:
             json.dump(com_data, com_file)
 
+
     def load_setup(self):
         self.window.setup_temp_ref_field.setText( self.window.config_temp_ref_field.text() )
         self.window.setup_material_field.setCurrentIndex( self.window.config_material_field.currentIndex() )
+        self.window.setup_data_rate_field.setCurrentIndex( self.window.config_data_rate_field.currentIndex() )
         self.window.setup_aquisitions_field.setText( self.window.config_aquisitions_field.text() )
         self.window.setup_stabilization_field.setText( self.window.config_stabilization_field.text() )

@@ -33,7 +33,6 @@ class OHMIMETRO(object):
                 wp.digitalWrite(pin, wp.LOW)        
 
     def range_select(self, escala):
-        escala = int(escala)
         wp.digitalWrite(self.ESC1_PIN, (0x01 & escala))
         wp.digitalWrite(self.ESC2_PIN, (0x02 & escala))
         wp.digitalWrite(self.ESC3_PIN, (0x04 & escala))
@@ -46,6 +45,7 @@ class OHMIMETRO(object):
 
     # compensates the each shunt and the INA's fixed gain
     def hw_gain_per_scale(self, escala):
+        escala = str(escala)
         ganhos_escala = {
         '0': (0,0),
         '1': (2,20),
@@ -59,9 +59,26 @@ class OHMIMETRO(object):
         return ganhos_escala.get(escala, (0,0))
 
 
+    # compensates the each shunt and the INA's fixed gain
+    def set_data_rate(self, data_rate):
+        data_rate = str(data_rate)
+        rate_options = {
+        '0': DRATE_2_5,
+        '1': DRATE_5,
+        '2': DRATE_10,
+        '3': DRATE_15,
+        '4': DRATE_25,
+        }
+
+        ads.drate = rate_options.get(data_rate, DRATE_2_5)
+
+
     # Resistence measurement routine
-    def do_measurement(self, scale):
-                
+    def do_measurement(self, scale, data_rate, stabilization, aquisitions):
+        
+        # Config data aquisition rate
+        self.set_data_rate(data_rate)
+
         # Select the ohmmimeter measurement range 
         self.range_select(scale)
 
@@ -69,16 +86,22 @@ class OHMIMETRO(object):
         hw_gain = self.hw_gain_per_scale(scale)
         
         # Estabilization time 
-        time.sleep(1)
+        time.sleep(stabilization)
         
         # Get ADC data
-        raw_channels = ads.read_sequence(RESISTENCE_CHANNELS)
-        voltages     = [i * ads.v_per_digit for i in raw_channels]
-        print(voltages)
+        total_voltage = 0
+        total_current = 0
+        for a in range(aquisitions):
+            raw_channels = ads.read_sequence(RESISTENCE_CHANNELS)
+            total_voltage += raw_channels[1]
+            total_current += raw_channels[0]
 
+        mean_voltage = total_voltage / aquisitions
+        mean_current = total_current / aquisitions
+        
         # Calculate the resistance and the calibrated resistance
         # Uses the INA146 gain to find the real voltages before they be amplified
-        resistance = float(raw_channels[1]/hw_gain[1]) / float(raw_channels[0]/hw_gain[0])
+        resistance = float(mean_voltage/hw_gain[1]) / float(mean_current/hw_gain[0])
 
         #resistance_calib = offset_gain[0] + offset_gain[1]*resistance
 

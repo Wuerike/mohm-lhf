@@ -4,6 +4,7 @@ import json
 from random import *
 
 mohm = OHMIMETRO()
+mohm.ADS_Calib()
 
 class MEASUREMENT(QtCore.QObject):
     def __init__(self, window):
@@ -19,8 +20,6 @@ class MEASUREMENT(QtCore.QObject):
         self.CEM = 100
         self.MIL = 1000
         self.DEZ_MIL = 10000
-
-        mohm.ADS_Calib()
 
         self.window.main_test_button.clicked.connect(self.do_measurement)
         self.window.main_setup_button.clicked.connect(self.get_temperature)
@@ -51,20 +50,16 @@ class MEASUREMENT(QtCore.QObject):
         rmax = self.apply_multiplier(self.window.main_rmax_field.text())
 
         if (rmin > resistance):
-            print("Reprovado por ser menor: ", rmin)
             self.window.main_rmin_field.setStyleSheet("background-color: rgb(255, 0, 0);")
             self.window.main_rmax_field.setStyleSheet("background-color: rgb(255, 255, 255);")
 
         elif (resistance > rmax):
-            print("Reprovado por ser maior: ", rmax)
             self.window.main_rmin_field.setStyleSheet("background-color: rgb(255, 255, 255);")
             self.window.main_rmax_field.setStyleSheet("background-color: rgb(255, 0, 0);")
 
         else:
             self.window.main_rmin_field.setStyleSheet("background-color: rgb(0, 255, 0);")
             self.window.main_rmax_field.setStyleSheet("background-color: rgb(0, 255, 0);")
-            print("Aprovado")
-        
 
 
     def resistance_format(self, value):
@@ -113,9 +108,13 @@ class MEASUREMENT(QtCore.QObject):
 
 
     def do_measurement(self):
+        # Get test parameters
         scale = self.window.main_scale_select.currentIndex()
-        resistance = mohm.do_measurement(str(scale))
-        #resistance = random()
+        data_rate = self.window.config_data_rate_field.currentIndex()
+        stabilization = float(self.window.config_stabilization_field.text())
+        aquisitions = int(self.window.config_aquisitions_field.text())
+
+        resistance = mohm.do_measurement(scale, data_rate, stabilization, aquisitions)
 
         offset_gain = self.read_calib_per_scale(scale)
         resistance_calib = float(offset_gain[0]) + float(offset_gain[1])*resistance
@@ -125,6 +124,8 @@ class MEASUREMENT(QtCore.QObject):
         material_factor = self.get_material_factor()
 
         resistance_temp_adjusted = resistance_calib * ( 1 + material_factor * (ref_temp - actual_temp) )
+
+        print(resistance_temp_adjusted)
 
         resisistance_text = self.resistance_format(resistance_temp_adjusted)
         self.window.main_resistance_field.setText(resisistance_text)
