@@ -8,10 +8,10 @@ class DATA_MANAGEMENT(QtCore.QObject):
         self.window = window
 
         self.window.main_test_button.clicked.connect(self.save_main)
-        self.window.calib_save_button.clicked.connect(self.save_calib)
+        self.window.calib_back_button.clicked.connect(self.save_calib)
         self.window.com_back_button.clicked.connect(self.save_comunication)
-        self.window.config_save_button.clicked.connect(self.save_config)
-        self.window.config_save_button.clicked.connect(self.save_config)
+        self.window.config_back_button.clicked.connect(self.save_config)
+        self.window.config_back_button.clicked.connect(self.save_config)
         self.window.main_setup_button.clicked.connect(self.load_setup)
 
         self.init_data()

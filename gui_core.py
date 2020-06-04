@@ -440,63 +440,61 @@ class Ui_MainWindow(object):
         self.menu.setObjectName(u"menu")
         self.menu.setGeometry(QRect(0, 0, 1920, 1080))
         self.menu.setStyleSheet(u"background-color: rgb(50, 70, 72);")
-        self.gridLayoutWidget = QWidget(self.menu)
-        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
-        self.gridLayoutWidget.setGeometry(QRect(400, 200, 1121, 681))
-        self.gridLayout_2 = QGridLayout(self.gridLayoutWidget)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_2.addItem(self.verticalSpacer, 1, 0, 1, 1)
-
-        self.menu_calib_button = QPushButton(self.gridLayoutWidget)
-        self.menu_calib_button.setObjectName(u"menu_calib_button")
-        self.menu_calib_button.setEnabled(True)
-        self.menu_calib_button.setMinimumSize(QSize(0, 200))
-        self.menu_calib_button.setMaximumSize(QSize(16777215, 200))
-        self.menu_calib_button.setFont(font5)
-        self.menu_calib_button.setStyleSheet(u"background-color: rgb(137, 144, 100);\n"
-"color: rgb(255, 255, 255);")
-
-        self.gridLayout_2.addWidget(self.menu_calib_button, 2, 0, 1, 1)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_2.addItem(self.horizontalSpacer, 0, 1, 1, 1)
-
-        self.menu_config_button = QPushButton(self.gridLayoutWidget)
+        self.verticalLayoutWidget_2 = QWidget(self.menu)
+        self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
+        self.verticalLayoutWidget_2.setGeometry(QRect(340, 0, 502, 1081))
+        self.verticalLayout_3 = QVBoxLayout(self.verticalLayoutWidget_2)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.menu_config_button = QPushButton(self.verticalLayoutWidget_2)
         self.menu_config_button.setObjectName(u"menu_config_button")
         self.menu_config_button.setEnabled(True)
-        self.menu_config_button.setMinimumSize(QSize(400, 200))
-        self.menu_config_button.setMaximumSize(QSize(400, 200))
+        self.menu_config_button.setMinimumSize(QSize(500, 300))
+        self.menu_config_button.setMaximumSize(QSize(16777215, 300))
         self.menu_config_button.setFont(font5)
         self.menu_config_button.setStyleSheet(u"background-color: rgb(137, 144, 100);\n"
 "color: rgb(255, 255, 255);")
 
-        self.gridLayout_2.addWidget(self.menu_config_button, 0, 0, 1, 1)
+        self.verticalLayout_3.addWidget(self.menu_config_button)
 
-        self.menu_back_button = QPushButton(self.gridLayoutWidget)
-        self.menu_back_button.setObjectName(u"menu_back_button")
-        self.menu_back_button.setEnabled(True)
-        self.menu_back_button.setMinimumSize(QSize(0, 200))
-        self.menu_back_button.setMaximumSize(QSize(16777215, 200))
-        self.menu_back_button.setFont(font5)
-        self.menu_back_button.setStyleSheet(u"background-color: rgb(137, 144, 100);\n"
+        self.menu_calib_button = QPushButton(self.verticalLayoutWidget_2)
+        self.menu_calib_button.setObjectName(u"menu_calib_button")
+        self.menu_calib_button.setEnabled(True)
+        self.menu_calib_button.setMinimumSize(QSize(500, 300))
+        self.menu_calib_button.setMaximumSize(QSize(16777215, 300))
+        self.menu_calib_button.setFont(font5)
+        self.menu_calib_button.setStyleSheet(u"background-color: rgb(137, 144, 100);\n"
 "color: rgb(255, 255, 255);")
 
-        self.gridLayout_2.addWidget(self.menu_back_button, 2, 2, 1, 1)
+        self.verticalLayout_3.addWidget(self.menu_calib_button)
 
-        self.menu_com_button = QPushButton(self.gridLayoutWidget)
+        self.verticalLayoutWidget_6 = QWidget(self.menu)
+        self.verticalLayoutWidget_6.setObjectName(u"verticalLayoutWidget_6")
+        self.verticalLayoutWidget_6.setGeometry(QRect(1080, 0, 502, 1081))
+        self.verticalLayout_4 = QVBoxLayout(self.verticalLayoutWidget_6)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.menu_com_button = QPushButton(self.verticalLayoutWidget_6)
         self.menu_com_button.setObjectName(u"menu_com_button")
         self.menu_com_button.setEnabled(True)
-        self.menu_com_button.setMinimumSize(QSize(400, 200))
-        self.menu_com_button.setMaximumSize(QSize(400, 200))
+        self.menu_com_button.setMinimumSize(QSize(500, 300))
+        self.menu_com_button.setMaximumSize(QSize(500, 300))
         self.menu_com_button.setFont(font5)
         self.menu_com_button.setStyleSheet(u"background-color: rgb(137, 144, 100);\n"
 "color: rgb(255, 255, 255);")
 
-        self.gridLayout_2.addWidget(self.menu_com_button, 0, 2, 1, 1)
+        self.verticalLayout_4.addWidget(self.menu_com_button)
+
+        self.menu_back_button = QPushButton(self.verticalLayoutWidget_6)
+        self.menu_back_button.setObjectName(u"menu_back_button")
+        self.menu_back_button.setEnabled(True)
+        self.menu_back_button.setMinimumSize(QSize(0, 200))
+        self.menu_back_button.setMaximumSize(QSize(500, 300))
+        self.menu_back_button.setFont(font5)
+        self.menu_back_button.setStyleSheet(u"background-color: rgb(137, 144, 100);\n"
+"color: rgb(255, 255, 255);")
+
+        self.verticalLayout_4.addWidget(self.menu_back_button)
 
         self.config = QFrame(self.frame)
         self.config.setObjectName(u"config")
@@ -612,17 +610,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.label_19, 0, 0, 1, 1)
 
-        self.config_save_button = QPushButton(self.gridLayoutWidget_3)
-        self.config_save_button.setObjectName(u"config_save_button")
-        self.config_save_button.setEnabled(True)
-        self.config_save_button.setMinimumSize(QSize(300, 100))
-        self.config_save_button.setMaximumSize(QSize(300, 100))
-        self.config_save_button.setFont(font5)
-        self.config_save_button.setStyleSheet(u"background-color: rgb(137, 144, 100);\n"
-"color: rgb(255, 255, 255);")
-
-        self.gridLayout_4.addWidget(self.config_save_button, 5, 0, 1, 1)
-
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
@@ -696,12 +683,12 @@ class Ui_MainWindow(object):
         self.calib_back_button.setObjectName(u"calib_back_button")
         self.calib_back_button.setEnabled(True)
         self.calib_back_button.setMinimumSize(QSize(300, 100))
-        self.calib_back_button.setMaximumSize(QSize(300, 100))
+        self.calib_back_button.setMaximumSize(QSize(500, 100))
         self.calib_back_button.setFont(font5)
         self.calib_back_button.setStyleSheet(u"background-color: rgb(137, 144, 100);\n"
 "color: rgb(255, 255, 255);")
 
-        self.gridLayout_3.addWidget(self.calib_back_button, 8, 2, 1, 1, Qt.AlignRight)
+        self.gridLayout_3.addWidget(self.calib_back_button, 8, 2, 1, 1)
 
         self.label_17 = QLabel(self.gridLayoutWidget_2)
         self.label_17.setObjectName(u"label_17")
@@ -786,17 +773,6 @@ class Ui_MainWindow(object):
         self.label_10.setIndent(-1)
 
         self.gridLayout_3.addWidget(self.label_10, 0, 1, 1, 1)
-
-        self.calib_save_button = QPushButton(self.gridLayoutWidget_2)
-        self.calib_save_button.setObjectName(u"calib_save_button")
-        self.calib_save_button.setEnabled(True)
-        self.calib_save_button.setMinimumSize(QSize(300, 100))
-        self.calib_save_button.setMaximumSize(QSize(300, 100))
-        self.calib_save_button.setFont(font5)
-        self.calib_save_button.setStyleSheet(u"background-color: rgb(137, 144, 100);\n"
-"color: rgb(255, 255, 255);")
-
-        self.gridLayout_3.addWidget(self.calib_save_button, 8, 0, 1, 1)
 
         self.label_14 = QLabel(self.gridLayoutWidget_2)
         self.label_14.setObjectName(u"label_14")
@@ -1332,12 +1308,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addLayout(self.gridLayout_9)
 
-        self.menu.raise_()
-        self.keyboard.raise_()
         self.calib.raise_()
         self.comunication.raise_()
         self.config.raise_()
+        self.keyboard.raise_()
         self.setup.raise_()
+        self.menu.raise_()
         self.main.raise_()
 
         self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
@@ -1402,10 +1378,10 @@ class Ui_MainWindow(object):
         self.setup_data_rate_field.setItemText(3, QCoreApplication.translate("MainWindow", u"15 SPS", None))
         self.setup_data_rate_field.setItemText(4, QCoreApplication.translate("MainWindow", u"25 SPS", None))
 
-        self.menu_calib_button.setText(QCoreApplication.translate("MainWindow", u"CALIBRA\u00c7\u00c3O", None))
         self.menu_config_button.setText(QCoreApplication.translate("MainWindow", u"CONFIGURA\u00c7\u00c3O", None))
-        self.menu_back_button.setText(QCoreApplication.translate("MainWindow", u"VOLTAR", None))
+        self.menu_calib_button.setText(QCoreApplication.translate("MainWindow", u"CALIBRA\u00c7\u00c3O", None))
         self.menu_com_button.setText(QCoreApplication.translate("MainWindow", u"COMUNICA\u00c7\u00c3O", None))
+        self.menu_back_button.setText(QCoreApplication.translate("MainWindow", u"VOLTAR", None))
         self.label_22.setText(QCoreApplication.translate("MainWindow", u"TEMPO DE ESTABILIZA\u00c7\u00c3O", None))
         self.config_back_button.setText(QCoreApplication.translate("MainWindow", u"VOLTAR", None))
         self.config_stabilization_field.setText("")
@@ -1416,7 +1392,6 @@ class Ui_MainWindow(object):
         self.config_temp_ref_field.setText("")
         self.label_21.setText(QCoreApplication.translate("MainWindow", u"N\u00daMERO DE AQUISI\u00c7\u00d5ES", None))
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"TEMPERATURA DE REFER\u00caNCIA", None))
-        self.config_save_button.setText(QCoreApplication.translate("MainWindow", u"SALVAR", None))
         self.config_aquisitions_field.setText("")
         self.label_20.setText(QCoreApplication.translate("MainWindow", u"METERIAL EM TESTE", None))
         self.label_28.setText(QCoreApplication.translate("MainWindow", u"VELOCIDADE DE AQUISI\u00c7\u00c3O", None))
@@ -1433,7 +1408,6 @@ class Ui_MainWindow(object):
         self.label_18.setText(QCoreApplication.translate("MainWindow", u"7", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"4", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"OFFSET", None))
-        self.calib_save_button.setText(QCoreApplication.translate("MainWindow", u"SALVAR", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"3", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"5", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"2", None))

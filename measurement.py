@@ -50,6 +50,7 @@ class MEASUREMENT(QtCore.QObject):
         rmax = self.apply_multiplier(self.window.main_rmax_field.text())
 
         if (rmin > resistance):
+
             self.window.main_rmin_field.setStyleSheet("background-color: rgb(255, 0, 0);")
             self.window.main_rmax_field.setStyleSheet("background-color: rgb(255, 255, 255);")
 
@@ -130,7 +131,7 @@ class MEASUREMENT(QtCore.QObject):
         resisistance_text = self.resistance_format(resistance_temp_adjusted)
         self.window.main_resistance_field.setText(resisistance_text)
 
-        self.limit_check(resistance_calib)
+        self.limit_check(resistance_temp_adjusted)
 
     def get_temperature(self):
         # faz medição da temperatura
