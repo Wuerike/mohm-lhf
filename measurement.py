@@ -1,10 +1,10 @@
 from PySide2 import QtCore
-from mohm import OHMIMETRO
+#from #mohm import OHMIMETRO
 import json
 from random import *
 
-mohm = OHMIMETRO()
-mohm.ADS_Calib()
+#mohm = OHMIMETRO()
+#mohm.ADS_Calib()
 
 class MEASUREMENT(QtCore.QObject):
     def __init__(self, window):
@@ -115,7 +115,7 @@ class MEASUREMENT(QtCore.QObject):
         stabilization = float(self.window.config_stabilization_field.text())
         aquisitions = int(self.window.config_aquisitions_field.text())
 
-        resistance = mohm.do_measurement(scale, data_rate, stabilization, aquisitions)
+        resistance = random() #mohm.do_measurement(scale, data_rate, stabilization, aquisitions)
 
         offset_gain = self.read_calib_per_scale(scale)
         resistance_calib = float(offset_gain[0]) + float(offset_gain[1])*resistance
@@ -135,7 +135,7 @@ class MEASUREMENT(QtCore.QObject):
 
     def get_temperature(self):
         # faz medição da temperatura
-        temperature = mohm.get_temperature()
+        temperature = 22.7 #mohm.get_temperature()
         self.window.setup_actual_temp_field.setText("%.1f" % temperature)
         return float("%.1f" % temperature)
 
