@@ -103,7 +103,7 @@ class OHMIMETRO(object):
         
         # Calculate the resistance and the calibrated resistance
         # Uses the INA146 gain to find the real voltages before they be amplified
-        resistance = float(mean_voltage/hw_gain[1]) / float(mean_current/hw_gain[0])
+        resistance = float(mean_voltage/100) / float(mean_current/1)
 
         #resistance_calib = offset_gain[0] + offset_gain[1]*resistance
 

@@ -35,15 +35,11 @@ class KEYBOARD(QtCore.QObject):
         self.window.calib_offset3_field.clicked.connect(self.keyboard_called)
         self.window.calib_offset4_field.clicked.connect(self.keyboard_called)
         self.window.calib_offset5_field.clicked.connect(self.keyboard_called)
-        self.window.calib_offset6_field.clicked.connect(self.keyboard_called)
-        self.window.calib_offset7_field.clicked.connect(self.keyboard_called)
         self.window.calib_gain1_field.clicked.connect(self.keyboard_called)
         self.window.calib_gain2_field.clicked.connect(self.keyboard_called)
         self.window.calib_gain3_field.clicked.connect(self.keyboard_called)
         self.window.calib_gain4_field.clicked.connect(self.keyboard_called)
         self.window.calib_gain5_field.clicked.connect(self.keyboard_called)
-        self.window.calib_gain6_field.clicked.connect(self.keyboard_called)
-        self.window.calib_gain7_field.clicked.connect(self.keyboard_called)
 
         # in comunication who calls keyboard
         self.window.com_ip_field.clicked.connect(self.keyboard_called)

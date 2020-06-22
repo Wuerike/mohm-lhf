@@ -1,10 +1,10 @@
 from PySide2 import QtCore
-#from #mohm import OHMIMETRO
+from mohm import OHMIMETRO
 import json
 from random import *
 
-#mohm = OHMIMETRO()
-#mohm.ADS_Calib()
+mohm = OHMIMETRO()
+mohm.ADS_Calib()
 
 class MEASUREMENT(QtCore.QObject):
     def __init__(self, window):
@@ -51,16 +51,16 @@ class MEASUREMENT(QtCore.QObject):
 
         if (rmin > resistance):
 
-            self.window.main_rmin_field.setStyleSheet("background-color: rgb(255, 0, 0);")
-            self.window.main_rmax_field.setStyleSheet("background-color: rgb(255, 255, 255);")
+            self.window.main_rmin_field.setStyleSheet(u"background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); border: none;")
+            self.window.main_rmax_field.setStyleSheet(u"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: none;")
 
         elif (resistance > rmax):
-            self.window.main_rmin_field.setStyleSheet("background-color: rgb(255, 255, 255);")
-            self.window.main_rmax_field.setStyleSheet("background-color: rgb(255, 0, 0);")
+            self.window.main_rmin_field.setStyleSheet(u"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: none;")
+            self.window.main_rmax_field.setStyleSheet(u"background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); border: none;")
 
         else:
-            self.window.main_rmin_field.setStyleSheet("background-color: rgb(0, 255, 0);")
-            self.window.main_rmax_field.setStyleSheet("background-color: rgb(0, 255, 0);")
+            self.window.main_rmin_field.setStyleSheet(u"background-color: rgb(0, 255, 0); color: rgb(0, 0, 0); border: none;")
+            self.window.main_rmax_field.setStyleSheet(u"background-color: rgb(0, 255, 0); color: rgb(0, 0, 0); border: none;")
 
 
     def resistance_format(self, value):
@@ -115,7 +115,7 @@ class MEASUREMENT(QtCore.QObject):
         stabilization = float(self.window.config_stabilization_field.text())
         aquisitions = int(self.window.config_aquisitions_field.text())
 
-        resistance = random() #mohm.do_measurement(scale, data_rate, stabilization, aquisitions)
+        resistance = mohm.do_measurement(scale, data_rate, stabilization, aquisitions)
 
         offset_gain = self.read_calib_per_scale(scale)
         resistance_calib = float(offset_gain[0]) + float(offset_gain[1])*resistance
@@ -133,11 +133,13 @@ class MEASUREMENT(QtCore.QObject):
 
         self.limit_check(resistance_temp_adjusted)
 
+
     def get_temperature(self):
         # faz medição da temperatura
-        temperature = 22.7 #mohm.get_temperature()
+        temperature = mohm.get_temperature()
         self.window.setup_actual_temp_field.setText("%.1f" % temperature)
         return float("%.1f" % temperature)
+
 
     def get_material_factor(self):
         material = self.window.config_material_field.currentIndex()
@@ -151,5 +153,4 @@ class MEASUREMENT(QtCore.QObject):
         # None selected
         else:
             return 0
-
 

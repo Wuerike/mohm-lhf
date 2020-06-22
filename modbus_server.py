@@ -28,12 +28,12 @@ from time import sleep
 # --------------------------------------------------------------------------- #
 # configure the service logging
 # --------------------------------------------------------------------------- #
-'''
+
 import logging
 logging.basicConfig()
 log = logging.getLogger()
 log.setLevel(logging.DEBUG)
-'''
+
 # --------------------------------------------------------------------------- #
 # create your custom data block with callbacks
 # --------------------------------------------------------------------------- #
@@ -44,9 +44,10 @@ class CallbackDataBlock(ModbusSparseDataBlock):
     processing.
     """
 
-    def __init__(self, devices, queue):
+    def __init__(self, devices, queue, queue2):
         self.devices = devices
         self.queue = queue
+        self.queue2 = queue2
 
         values = {k: 0 for k in devices.keys()}
         values[0xbeef] = len(values)  # the number of devices
@@ -70,6 +71,8 @@ class CallbackDataBlock(ModbusSparseDataBlock):
         '''
         value = super(CallbackDataBlock, self).getValues(address, count)
         self.queue.put((self.devices.get(address, None), value))
+        #sleep(1)
+        value = self.queue2.get()
         return value
 
 
@@ -78,65 +81,65 @@ class CallbackDataBlock(ModbusSparseDataBlock):
 # --------------------------------------------------------------------------- #
 def di_map():
     devices = {
-        0x0001: "di1",
-        0x0002: "di2",   
-        0x0003: "di3",  
-        0x0004: "di4",
-        0x0005: "di5",
-        0x0006: "di6",
-        0x0007: "di7", 
-        0x0008: "di8",
+        0x0001: "di0",
+        0x0002: "di1",   
+        0x0003: "di2",  
+        0x0004: "di3",
+        0x0005: "di4",
+        0x0006: "di5",
+        0x0007: "di6", 
+        0x0008: "di7",
     }
     return devices
 
 def co_map():
     devices = {
-        0x0001: "co1",
-        0x0002: "co2",   
-        0x0003: "co3",  
-        0x0004: "co4",
-        0x0005: "co5",
-        0x0006: "co6",
-        0x0007: "co7", 
-        0x0008: "co8",
+        0x0001: "co0",
+        0x0002: "co1",   
+        0x0003: "co2",  
+        0x0004: "co3",
+        0x0005: "co4",
+        0x0006: "co5",
+        0x0007: "co6", 
+        0x0008: "co7",
     }
     return devices
 
 def hr_map():
     devices = {
-        0x0001: "hr1",
-        0x0002: "hr2",   
-        0x0003: "hr3",  
-        0x0004: "hr4",
-        0x0005: "hr5",
-        0x0006: "hr6",
-        0x0007: "hr7", 
-        0x0008: "hr8",
+        0x0001: "hr0",
+        0x0002: "hr1",   
+        0x0003: "hr2",  
+        0x0004: "hr3",
+        0x0005: "hr4",
+        0x0006: "hr5",
+        0x0007: "hr6", 
+        0x0008: "hr7",
     }
     return devices
 
 def ir_map():
     devices = {
-        0x0001: "ir1",
-        0x0002: "ir2",   
-        0x0003: "ir3",  
-        0x0004: "ir4",
-        0x0005: "ir5",
-        0x0006: "ir6",
-        0x0007: "ir7", 
-        0x0008: "ir8",
+        0x0001: "ir0",
+        0x0002: "ir1",   
+        0x0003: "ir2",  
+        0x0004: "ir3",
+        0x0005: "ir4",
+        0x0006: "ir5",
+        0x0007: "ir6", 
+        0x0008: "ir7",
     }
     return devices
 
-def run_callback_server(ip, porta, queue):
+def run_callback_server(ip, porta, queue, queue2):
     # ----------------------------------------------------------------------- #
     # initialize your data store
     # ----------------------------------------------------------------------- #
 
-    diDataBlock = CallbackDataBlock(di_map(), queue)
-    coDataBlock = CallbackDataBlock(co_map(), queue)
-    hrDataBlock = CallbackDataBlock(hr_map(), queue)
-    irDataBlock = CallbackDataBlock(ir_map(), queue)
+    diDataBlock = CallbackDataBlock(di_map(), queue, queue2)
+    coDataBlock = CallbackDataBlock(co_map(), queue, queue2)
+    hrDataBlock = CallbackDataBlock(hr_map(), queue, queue2)
+    irDataBlock = CallbackDataBlock(ir_map(), queue, queue2)
     
     store = ModbusSlaveContext(di=diDataBlock, co=coDataBlock, hr=hrDataBlock, ir=irDataBlock)
     context = ModbusServerContext(slaves=store, single=True)

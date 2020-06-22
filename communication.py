@@ -10,28 +10,52 @@ from time import sleep
 
 
 class Worker(QtCore.QObject):
-
     error = QtCore.Signal(str)
     measure = QtCore.Signal()
-    
+    holdReg = QtCore.Signal(str, int)
+    inputReg = QtCore.Signal(str)
+
+    def __init__(self):
+        super(Worker, self).__init__()
+        self.inputRegData = None
+
+
     @QtCore.Slot(str, int)
     def modbus_start(self, ip, port):
-        queue = SimpleQueue()
-        Process(target=server.run_callback_server, args=(ip, port, queue)).start()
+        queue_receive = SimpleQueue()
+        queue_send = SimpleQueue()
+        Process(target=server.run_callback_server, args=(ip, port, queue_receive, queue_send)).start()
 
         while True:
-            device, value = queue.get()
+            device, value = queue_receive.get()
             print("Registrador: %s -> Valor: %s" % (device, value))
+            print(device, value)
+            regType = device[0:2]
+            regNum = device[2]
+            
+            # Bool enviados para o cliente (python -> labview)
+            if (regType == "di"):
+                queue_send.put([1, 0, 0, 1, 1, 0, 0, 1])
 
-            if (device[0:2]=="di"):
-                pass
-            if (device[0:2]=="co"):
+            # Bool recebidos do cliente (labview -> python)
+            if (regType == "co"):
                 if (value[0] == 1):
                     self.measure.emit()
-            if (device[0:2]=="ir"):
-                pass
-            if (device[0:2]=="hr"):
-                pass 
+
+            # Int enviados para o cliente (python -> labview)
+            if (regType == "ir"):
+                self.inputReg.emit(regNum)
+                # tempo para garantir que a variavel vai ser atualizada
+                sleep(0.1) 
+                queue_send.put([self.inputRegData])
+                
+            # Int recebido do cliente (labview -> python)
+            if (regType == "hr"):
+                self.holdReg.emit(regNum, value[0])
+
+
+    def setInputReg(self, value):
+        self.inputRegData = value
 
 class MODBUS(QtCore.QObject):
     workerInit = QtCore.Signal(str, int)
@@ -41,6 +65,7 @@ class MODBUS(QtCore.QObject):
         super(MODBUS, self).__init__()
         self.window = window
         self.measurement = measurement
+        self.multiplier = None
 
         self.thread = QtCore.QThread(self)
         self.thread.start()
@@ -48,7 +73,9 @@ class MODBUS(QtCore.QObject):
         self.worker.moveToThread(self.thread)
         # signals from worker
         self.worker.error.connect(self.on_error)
-        self.worker.measure.connect(self.test123456)
+        self.worker.measure.connect(self.do_measurement)
+        self.worker.holdReg.connect(self.setHoldReg)
+        self.worker.inputReg.connect(self.getInputReg)
         # signals to worker
         self.workerInit.connect(self.worker.modbus_start)
 
@@ -63,8 +90,84 @@ class MODBUS(QtCore.QObject):
 
 
     @QtCore.Slot()
-    def test123456(self):
+    def do_measurement(self):
         self.measurement.do_measurement()
+
+
+    @QtCore.Slot(str, int)
+    def setHoldReg(self, regNum, value):
+        print(f'regNum = {regNum} e value = {value}')
+        if (regNum == '0'):
+            value = 0 if ((value<0) or (value>5)) else value
+            self.window.main_scale_select.setCurrentIndex(value)
+
+        elif (regNum == '1'):
+            value = 20 if ((value<15) or (value>25)) else value
+            self.window.config_temp_ref_field.setText(str(value))
+
+        elif (regNum == '2'):
+            value = 0 if ((value<0) or (value>2)) else value
+            self.window.config_material_field.setCurrentIndex(value)
+
+        elif (regNum == '3'):
+            value = 0 if ((value<0) or (value>4)) else value
+            self.window.config_data_rate_field.setCurrentIndex(value)
+
+        elif (regNum == '4'):
+            value = 1 if ((value<1) or (value>50)) else value
+            self.window.config_aquisitions_field.setText(str(value))
+
+        elif (regNum == '5'):
+            value = 500 if ((value<1) or (value>10000)) else value
+            self.window.config_stabilization_field.setText(str(value/1000))
+
+        elif (regNum == '6'):
+            pass
+        elif (regNum == '7'):
+            pass
+
+    @QtCore.Slot(str)
+    def getInputReg(self, regNum):
+        if (regNum == '0'):
+            value = self.measurement.apply_multiplier(self.window.main_resistance_field.text())
+            if (value < 0.01):
+                value = int(value * 1000000)
+                self.multiplier = 6
+            elif (value < 0.1):
+                value = int(value * 100000)
+                self.multiplier = 5
+            elif (value < 1):
+                value = int(value * 10000)
+                self.multiplier = 4
+            elif (value < 10):
+                value = int(value * 1000)
+                self.multiplier = 3
+            elif (value < 100):
+                value = int(value * 100)
+                self.multiplier = 2
+
+        elif (regNum == '1'):
+            value = self.multiplier
+
+        elif (regNum == '2'):
+            value = self.window.main_scale_select.currentIndex()
+
+        elif (regNum == '3'):
+            value = int(self.window.config_temp_ref_field.text())
+
+        elif (regNum == '4'):
+            value = self.window.config_material_field.currentIndex()
+
+        elif (regNum == '5'):
+            value = self.window.config_data_rate_field.currentIndex()
+
+        elif (regNum == '6'):
+            value = int(self.window.config_aquisitions_field.text())
+
+        elif (regNum == '7'):
+            value = int(float(self.window.config_stabilization_field.text())*1000)
+
+        self.worker.setInputReg(value)
 
 
     def closeEvent(self, event):

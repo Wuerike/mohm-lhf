@@ -1,0 +1,22 @@
+Mestre envia:
+	REG		TYPE	FUNCTION					RANGE		DEFAULT
+	co0		bool	do measurement
+
+	hr0		int		scale select				0 - 5		0
+	hr1		int		temperatura referencia		15 - 25		20
+	hr2		int		material em teste			0 - 2		0
+	hr3		int		velocidade aquisição		0 - 4		0
+	hr4		int		numero de aquisições		1 - 50		1
+	hr5		int		tempo de estabilização(ms)	1 -	10k		500
+
+Mestre Solicita:
+	di0		bool	data ready
+
+	ir0		int		Resistência medida
+	ir1		int		multiplicador
+	ir2		int		Escala selecionada
+	ir3		int		temperatura referencia
+	ir4		int		material em teste
+	ir5		int		velocidade aquisição
+	ir6		int		numero de aquisições
+	ir7		int		tempo de estabilização

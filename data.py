@@ -1,4 +1,5 @@
 from PySide2 import QtCore
+import socket
 import json
 
 class DATA_MANAGEMENT(QtCore.QObject):
@@ -16,6 +17,13 @@ class DATA_MANAGEMENT(QtCore.QObject):
 
         self.init_data()
 
+    def get_ip_address(self):
+        ip_address = '';
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8",80))
+        ip_address = s.getsockname()[0]
+        s.close()
+        return ip_address
 
     def init_data(self):
         with open('data/main.json') as main_file:
@@ -33,16 +41,12 @@ class DATA_MANAGEMENT(QtCore.QObject):
             self.window.calib_offset3_field.setText(calib_data[3]['offset'])
             self.window.calib_offset4_field.setText(calib_data[4]['offset'])
             self.window.calib_offset5_field.setText(calib_data[5]['offset'])
-            self.window.calib_offset6_field.setText(calib_data[6]['offset'])
-            self.window.calib_offset7_field.setText(calib_data[7]['offset'])
 
             self.window.calib_gain1_field.setText(calib_data[1]['gain'])
             self.window.calib_gain2_field.setText(calib_data[2]['gain'])
             self.window.calib_gain3_field.setText(calib_data[3]['gain'])
             self.window.calib_gain4_field.setText(calib_data[4]['gain'])
             self.window.calib_gain5_field.setText(calib_data[5]['gain'])
-            self.window.calib_gain6_field.setText(calib_data[6]['gain'])
-            self.window.calib_gain7_field.setText(calib_data[7]['gain'])
 
         with open('data/config.json') as config_file:
             config_data = json.load(config_file)
@@ -53,17 +57,19 @@ class DATA_MANAGEMENT(QtCore.QObject):
             self.window.config_aquisitions_field.setText(config_data['aquisitions'])
             self.window.config_stabilization_field.setText(config_data['stabilization'])
 
+        
+        
+
         with open('data/comunication.json') as com_file:
             com_data = json.load(com_file)
-
-            self.window.com_ip_field.setText(com_data['ip'])     
+            self.window.com_ip_field.setText(self.get_ip_address())
             self.window.com_port_field.setText(com_data['port'])      
 
 
     def save_main(self):
         main_data = {
             "scale": self.window.main_scale_select.currentIndex(),
-            "max-limit":  self.window.main_rmax_field.text(), 
+            "max-limit": self.window.main_rmax_field.text(), 
             "min-limit": self.window.main_rmin_field.text(),
         }
 
@@ -96,14 +102,6 @@ class DATA_MANAGEMENT(QtCore.QObject):
             {
                 "offset": self.window.calib_offset5_field.text(),  
                 "gain": self.window.calib_gain5_field.text()
-            }, 
-            {
-                "offset": self.window.calib_offset6_field.text(),  
-                "gain": self.window.calib_gain6_field.text()
-            }, 
-            {
-                "offset": self.window.calib_offset7_field.text(),  
-                "gain": self.window.calib_gain7_field.text()
             }
         ]
 
@@ -124,9 +122,8 @@ class DATA_MANAGEMENT(QtCore.QObject):
             json.dump(config_data, config_file)
 
 
-    def save_comunication(self):
+    def save_comunication(self):        
         com_data = {
-            "ip": self.window.com_ip_field.text(),
             "port":  self.window.com_port_field.text(), 
         }
 
