@@ -37,11 +37,14 @@ class DATA_MANAGEMENT(QtCore.QObject):
         self.window.main_setup_button.setEnabled(True)
 
     def get_ip_address(self):
-        ip_address = '';
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect(("8.8.8.8",80))
-        ip_address = s.getsockname()[0]
-        s.close()
+        ip_address = ''
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            s.connect(("8.8.8.8",80))
+            ip_address = s.getsockname()[0]
+            s.close()
+        except:
+            ip_address = "REDE NÃO DETECTADA"
         return ip_address
 
     def init_data(self):
