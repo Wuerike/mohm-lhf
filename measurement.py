@@ -51,16 +51,16 @@ class MEASUREMENT(QtCore.QObject):
 
         if (rmin > resistance):
 
-            self.window.main_rmin_field.setStyleSheet(u"background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); border: none;")
-            self.window.main_rmax_field.setStyleSheet(u"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: none;")
+            self.window.main_rmin_field.setStyleSheet(u"background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
+            self.window.main_rmax_field.setStyleSheet(u"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
 
         elif (resistance > rmax):
-            self.window.main_rmin_field.setStyleSheet(u"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: none;")
-            self.window.main_rmax_field.setStyleSheet(u"background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); border: none;")
+            self.window.main_rmin_field.setStyleSheet(u"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
+            self.window.main_rmax_field.setStyleSheet(u"background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
 
         else:
-            self.window.main_rmin_field.setStyleSheet(u"background-color: rgb(0, 255, 0); color: rgb(0, 0, 0); border: none;")
-            self.window.main_rmax_field.setStyleSheet(u"background-color: rgb(0, 255, 0); color: rgb(0, 0, 0); border: none;")
+            self.window.main_rmin_field.setStyleSheet(u"background-color: rgb(0, 255, 0); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
+            self.window.main_rmax_field.setStyleSheet(u"background-color: rgb(0, 255, 0); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
 
 
     def resistance_format(self, value):
@@ -101,7 +101,7 @@ class MEASUREMENT(QtCore.QObject):
 
 
     def read_calib_per_scale(self, scale):
-        with open('data/calib.json') as calib_file:
+        with open('/home/pi/mohm-lhf/data/calib.json') as calib_file:
             per_scale_calib_data = json.load(calib_file)
             offset = per_scale_calib_data[int(scale)]['offset']
             gain = per_scale_calib_data[int(scale)]['gain']

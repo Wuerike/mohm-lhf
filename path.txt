@@ -1,2 +1,0 @@
-C:\Users\LHF\workspace\mohm-lhf\;
-D:\dmd2\windows\bin\;D:\dmd2\dm\bin;

@@ -128,6 +128,7 @@ def ir_map():
         0x0006: "ir5",
         0x0007: "ir6", 
         0x0008: "ir7",
+        0x0009: "ir8",
     }
     return devices
 

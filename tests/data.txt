@@ -1,1 +1,0 @@
-{"main": [{"select": 3}, {"max-limit": 0.7}, {"min-limit": 0.6}]}

@@ -65,7 +65,8 @@ class MODBUS(QtCore.QObject):
         super(MODBUS, self).__init__()
         self.window = window
         self.measurement = measurement
-        self.multiplier = None
+        self.multiplier = 0
+        self.temperature = 0
 
         self.thread = QtCore.QThread(self)
         self.thread.start()
@@ -92,6 +93,7 @@ class MODBUS(QtCore.QObject):
     @QtCore.Slot()
     def do_measurement(self):
         self.measurement.do_measurement()
+        self.temperature = int(10*self.measurement.get_temperature())
 
 
     @QtCore.Slot(str, int)
@@ -166,6 +168,9 @@ class MODBUS(QtCore.QObject):
 
         elif (regNum == '7'):
             value = int(float(self.window.config_stabilization_field.text())*1000)
+
+        elif (regNum == '8'):
+            value = self.temperature
 
         self.worker.setInputReg(value)
 

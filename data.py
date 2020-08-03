@@ -8,14 +8,33 @@ class DATA_MANAGEMENT(QtCore.QObject):
         super(DATA_MANAGEMENT, self).__init__()
         self.window = window
 
+        # Events to save data
         self.window.main_test_button.clicked.connect(self.save_main)
         self.window.calib_back_button.clicked.connect(self.save_calib)
         self.window.com_back_button.clicked.connect(self.save_comunication)
         self.window.config_back_button.clicked.connect(self.save_config)
-        self.window.config_back_button.clicked.connect(self.save_config)
         self.window.main_setup_button.clicked.connect(self.load_setup)
 
+        # Events to prevent exiting before save
+        self.window.menu_config_button.clicked.connect(self.disable_left_bar)
+        self.window.menu_com_button.clicked.connect(self.disable_left_bar)
+        self.window.menu_calib_button.clicked.connect(self.disable_left_bar)
+        self.window.calib_back_button.clicked.connect(self.enable_left_bar)
+        self.window.com_back_button.clicked.connect(self.enable_left_bar)
+        self.window.config_back_button.clicked.connect(self.enable_left_bar)
+
         self.init_data()
+
+    def disable_left_bar(self):
+        self.window.main_home_button.setDisabled(True)
+        self.window.main_menu_button.setDisabled(True)
+        self.window.main_setup_button.setDisabled(True)
+
+
+    def enable_left_bar(self):
+        self.window.main_home_button.setEnabled(True)
+        self.window.main_menu_button.setEnabled(True)
+        self.window.main_setup_button.setEnabled(True)
 
     def get_ip_address(self):
         ip_address = '';
@@ -26,14 +45,14 @@ class DATA_MANAGEMENT(QtCore.QObject):
         return ip_address
 
     def init_data(self):
-        with open('data/main.json') as main_file:
+        with open('/home/pi/mohm-lhf/data/main.json') as main_file:
             main_data = json.load(main_file)
 
             self.window.main_scale_select.setCurrentIndex(main_data['scale'])
             self.window.main_rmin_field.setText(main_data['min-limit'])
             self.window.main_rmax_field.setText(main_data['max-limit'])
 
-        with open('data/calib.json') as calib_file:
+        with open('/home/pi/mohm-lhf/data/calib.json') as calib_file:
             calib_data = json.load(calib_file)
 
             self.window.calib_offset1_field.setText(calib_data[1]['offset'])
@@ -48,7 +67,7 @@ class DATA_MANAGEMENT(QtCore.QObject):
             self.window.calib_gain4_field.setText(calib_data[4]['gain'])
             self.window.calib_gain5_field.setText(calib_data[5]['gain'])
 
-        with open('data/config.json') as config_file:
+        with open('/home/pi/mohm-lhf/data/config.json') as config_file:
             config_data = json.load(config_file)
 
             self.window.config_temp_ref_field.setText(config_data['temp-ref'])
@@ -60,7 +79,7 @@ class DATA_MANAGEMENT(QtCore.QObject):
         
         
 
-        with open('data/comunication.json') as com_file:
+        with open('/home/pi/mohm-lhf/data/comunication.json') as com_file:
             com_data = json.load(com_file)
             self.window.com_ip_field.setText(self.get_ip_address())
             self.window.com_port_field.setText(com_data['port'])      
@@ -73,7 +92,7 @@ class DATA_MANAGEMENT(QtCore.QObject):
             "min-limit": self.window.main_rmin_field.text(),
         }
 
-        with open('data/main.json', 'w') as main_file:
+        with open('/home/pi/mohm-lhf/data/main.json', 'w') as main_file:
             json.dump(main_data, main_file)
 
         
@@ -105,7 +124,7 @@ class DATA_MANAGEMENT(QtCore.QObject):
             }
         ]
 
-        with open('data/calib.json', 'w') as calib_file:
+        with open('/home/pi/mohm-lhf/data/calib.json', 'w') as calib_file:
             json.dump(calib_data, calib_file)
 
 
@@ -118,7 +137,7 @@ class DATA_MANAGEMENT(QtCore.QObject):
             "stabilization": self.window.config_stabilization_field.text()
         }
 
-        with open('data/config.json', 'w') as config_file:
+        with open('/home/pi/mohm-lhf/data/config.json', 'w') as config_file:
             json.dump(config_data, config_file)
 
 
@@ -127,7 +146,7 @@ class DATA_MANAGEMENT(QtCore.QObject):
             "port":  self.window.com_port_field.text(), 
         }
 
-        with open('data/comunication.json', 'w') as com_file:
+        with open('/home/pi/mohm-lhf/data/comunication.json', 'w') as com_file:
             json.dump(com_data, com_file)
 
 
