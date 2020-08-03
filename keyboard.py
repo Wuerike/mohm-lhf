@@ -42,7 +42,6 @@ class KEYBOARD(QtCore.QObject):
         self.window.calib_gain5_field.clicked.connect(self.keyboard_called)
 
         # in comunication who calls keyboard
-        self.window.com_ip_field.clicked.connect(self.keyboard_called)
         self.window.com_port_field.clicked.connect(self.keyboard_called)
 
         # in config who calls keyboard
