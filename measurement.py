@@ -4,7 +4,7 @@ import json
 from random import *
 
 mohm = OHMIMETRO()
-mohm.ADS_Calib()
+mohm.ads_calib()
 
 class MEASUREMENT(QtCore.QObject):
     def __init__(self, window):
