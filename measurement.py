@@ -6,11 +6,12 @@ from random import *
 mohm = OHMIMETRO()
 mohm.ads_calib()
 
+
 class MEASUREMENT(QtCore.QObject):
     def __init__(self, window):
         super(MEASUREMENT, self).__init__()
         self.window = window
-    
+
         self.CEM_MICRO = 0.0001
         self.UM_MILI = 0.001
         self.DEZ_MILI = 0.01
@@ -24,124 +25,118 @@ class MEASUREMENT(QtCore.QObject):
         self.window.main_test_button.clicked.connect(self.do_measurement)
         self.window.main_setup_button.clicked.connect(self.get_temperature)
 
-
     def apply_multiplier(self, value):
         size = len(value)
 
-        if (value[size-1] == 'Ω'):
-            value = value[0:size-1]
+        if value[size - 1] == 'Ω':
+            value = value[0:size - 1]
             size = len(value)
 
-        if (value[size-1] == 'u'):
-            value = float(value[0:size-1])/1000000;
+        if value[size - 1] == 'u':
+            value = float(value[0:size - 1]) / 1000000;
             return (value)
 
-        if (value[size-1] == 'm'):
-            value = float(value[0:size-1])/1000;
+        if value[size - 1] == 'm':
+            value = float(value[0:size - 1]) / 1000;
             return (value)
 
         else:
             return float(value)
 
-
     def limit_check(self, resistance):
-
         rmin = self.apply_multiplier(self.window.main_rmin_field.text())
         rmax = self.apply_multiplier(self.window.main_rmax_field.text())
 
-        if (rmin > resistance):
+        if rmin > resistance:
+            self.window.main_rmin_field.setStyleSheet(
+                u"background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
+            self.window.main_rmax_field.setStyleSheet(
+                u"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
 
-            self.window.main_rmin_field.setStyleSheet(u"background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
-            self.window.main_rmax_field.setStyleSheet(u"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
-
-        elif (resistance > rmax):
-            self.window.main_rmin_field.setStyleSheet(u"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
-            self.window.main_rmax_field.setStyleSheet(u"background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
+        elif resistance > rmax:
+            self.window.main_rmin_field.setStyleSheet(
+                u"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
+            self.window.main_rmax_field.setStyleSheet(
+                u"background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
 
         else:
-            self.window.main_rmin_field.setStyleSheet(u"background-color: rgb(0, 255, 0); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
-            self.window.main_rmax_field.setStyleSheet(u"background-color: rgb(0, 255, 0); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
-
+            self.window.main_rmin_field.setStyleSheet(
+                u"background-color: rgb(0, 255, 0); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
+            self.window.main_rmax_field.setStyleSheet(
+                u"background-color: rgb(0, 255, 0); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
 
     def resistance_format(self, value):
-        if (value < self.CEM_MICRO):
+        if value < self.CEM_MICRO:
             value = value * 1000000
-            return ("%.3fuΩ" % value)
+            return "%.3fuΩ" % value
 
-        elif (value < self.UM_MILI):
+        elif value < self.UM_MILI:
             value = value * 1000000
-            return ("%.2fuΩ" % value)
-        
-        elif (value < self.DEZ_MILI):
+            return "%.2fuΩ" % value
+
+        elif value < self.DEZ_MILI:
             value = value * 1000
-            return ("%.4fmΩ" % value)
-        
-        elif (value < self.CEM_MILI):
+            return "%.4fmΩ" % value
+
+        elif value < self.CEM_MILI:
             value = value * 1000
-            return ("%.3fmΩ" % value)
-        
-        elif (value < self.UM):
+            return "%.3fmΩ" % value
+
+        elif value < self.UM:
             value = value * 1000
-            return ("%.2fmΩ" % value)
-        
-        elif (value < self.DEZ):
-            return ("%.4fΩ" % value)
-        
-        elif (value < self.CEM):
-            return ("%.3fΩ" % value)
-        
-        elif (value < self.MIL):
-            return ("%.2fΩ" % value)
-        
-        elif (value < self.DEZ_MIL):
-            return ("%.1fΩ" % value)
-        
+            return "%.2fmΩ" % value
+
+        elif value < self.DEZ:
+            return "%.4fΩ" % value
+
+        elif value < self.CEM:
+            return "%.3fΩ" % value
+
+        elif value < self.MIL:
+            return "%.2fΩ" % value
+
+        elif value < self.DEZ_MIL:
+            return "%.1fΩ" % value
+
         else:
-            return ("%.0fΩ" % value)
-
+            return "%.0fΩ" % value
 
     def read_calib_per_scale(self, scale):
         with open('/home/pi/mohm-lhf/data/calib.json') as calib_file:
             per_scale_calib_data = json.load(calib_file)
             offset = per_scale_calib_data[int(scale)]['offset']
             gain = per_scale_calib_data[int(scale)]['gain']
-            return(offset,gain)
-
+            return offset, gain
 
     def do_measurement(self):
         # Get test parameters
         scale = self.window.main_scale_select.currentIndex()
         data_rate = self.window.config_data_rate_field.currentIndex()
         stabilization = float(self.window.config_stabilization_field.text())
-        aquisitions = int(self.window.config_aquisitions_field.text())
+        acquisitions = int(self.window.config_aquisitions_field.text())
 
-        print(scale, data_rate, stabilization, aquisitions)
+        print("#####################")
+        print("Escala: ", scale, "Taxa: ", data_rate, "Estabilização: ", stabilization, "Aquisições: ", acquisitions)
 
-        resistance = mohm.do_measurement(scale, data_rate, stabilization, aquisitions)
-
+        resistance, scale = mohm.do_measurement(scale, data_rate, stabilization, acquisitions)
         offset_gain = self.read_calib_per_scale(scale)
-        resistance_calib = float(offset_gain[0]) + float(offset_gain[1])*resistance
-
+        resistance_calib = float(offset_gain[0]) + float(offset_gain[1]) * resistance
         actual_temp = self.get_temperature()
         ref_temp = float(self.window.config_temp_ref_field.text())
         material_factor = self.get_material_factor()
+        resistance_temp_adjusted = resistance_calib * (1 + material_factor * (ref_temp - actual_temp))
 
-        resistance_temp_adjusted = resistance_calib * ( 1 + material_factor * (ref_temp - actual_temp) )
+        print("Resistencia calibrada: ", resistance_temp_adjusted)
 
-        print(resistance_temp_adjusted)
-
-        resisistance_text = self.resistance_format(resistance_temp_adjusted)
-        self.window.main_resistance_field.setText(resisistance_text)
-
+        resistance_text = self.resistance_format(resistance_temp_adjusted)
+        self.window.main_resistance_field.setText(resistance_text)
         self.limit_check(resistance_temp_adjusted)
-
 
     def get_temperature(self):
         # faz medição da temperatura
         temperature = mohm.get_temperature()
         self.window.setup_actual_temp_field.setText("%.1f" % temperature)
         return float("%.1f" % temperature)
-
 
     def get_material_factor(self):
         material = self.window.config_material_field.currentIndex()
@@ -155,4 +150,3 @@ class MEASUREMENT(QtCore.QObject):
         # None selected
         else:
             return 0
-

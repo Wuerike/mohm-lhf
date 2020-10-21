@@ -87,58 +87,81 @@ class OHMIMETRO(object):
             '2': DRATE_10,
             '3': DRATE_15,
             '4': DRATE_25,
+            '5': DRATE_100,
         }
 
         ads.drate = rate_options.get(data_rate, DRATE_2_5)
 
-    # Resistance measurement routine
-    def do_measurement(self, scale, data_rate, stabilization, acquisitions):
-        
+    def get_analog_values(self, scale, data_rate, stabilization, acquisitions):
         # Config data acquisition rate
         self.set_data_rate(data_rate)
 
         # Select the ohmmeters measurement range
         self.range_select(scale)
 
-        # Define the proper Ina146 hardware gain
-        hw_gain = self.hw_gain_per_scale(scale)
-        
         # Stabilization time
         time.sleep(stabilization)
 
         # select which gain should be used
-        if scale != 0x01:
-            resistance_channels = RESISTANCE_CHANNELS_20_VOLTAGE_GAIN
-        else:
+        if scale == ESC_1:
             resistance_channels = RESISTANCE_CHANNELS_1000_VOLTAGE_GAIN
+        else:
+            resistance_channels = RESISTANCE_CHANNELS_20_VOLTAGE_GAIN
 
         # Get the ADC readings by doing the average of acquisitions
         total_voltage = 0
         total_current = 0
         for a in range(acquisitions):
             raw_channels = ads.read_sequence(resistance_channels)
-            voltages = [i * ads.v_per_digit for i in raw_channels]
             total_voltage += raw_channels[0]
             total_current += raw_channels[1]
-
-        mean_voltage = (total_voltage / acquisitions) * ads.v_per_digit
-        mean_current = (total_current / acquisitions) * ads.v_per_digit
-
-        # Calculate the resistance and the calibrated resistance
-        # Uses the INA146 gain to find the real voltages before they be amplified
-        resistor_voltage = mean_voltage/hw_gain[1]
-        resistor_current = mean_current/hw_gain[0]
-        resistance = float(resistor_voltage) / float(resistor_current)
-
-        print("Tensão raw: ", resistor_voltage)
-        print("Corrente raw: ", resistor_current)
-        print("Resistencia raw: ", resistance)
 
         # Turn off the ohmmeters relay
         self.range_select(ESC_OFF)
 
+        mean_voltage = (total_voltage / acquisitions) * ads.v_per_digit
+        mean_current = (total_current / acquisitions) * ads.v_per_digit
+
+        print("Tensão média ina carga: ", mean_voltage)
+        print("Tensão média ina shunt: ", mean_current)
+
+        return mean_voltage, mean_current
+
+    # Auto scale routine
+    def auto_scale_selection(self, data_rate, stabilization, acquisitions):
+        print(" ---- Realizando seleção de escala automatica ----")
+        scale = ESC_3
+        while scale <= ESC_8:
+            mean_voltage, mean_current = self.get_analog_values(scale, data_rate, stabilization, acquisitions)
+            if mean_voltage <= 4.9:
+                print(" --- Escala selecionada: ", scale)
+                return scale
+            else:
+                scale += 1
+        return ESC_8
+
+    # Resistance measurement routine
+    def do_measurement(self, scale, data_rate, stabilization, acquisitions):
+
+        if(scale == ESC_OFF):
+            scale = self.auto_scale_selection('2', stabilization, 1)
+
+        mean_voltage, mean_current = self.get_analog_values(scale, data_rate, stabilization, acquisitions)
+
+        # Calculate the resistance and the calibrated resistance
+        # Uses the INA146/145 gain to find the real voltages before they be amplified
+        # Define the proper Ina146 hardware gain
+        hw_gain = self.hw_gain_per_scale(scale)
+        load_voltage = mean_voltage/hw_gain[1]
+        load_current = mean_current/hw_gain[0]
+        resistance = float(load_voltage) / float(load_current)
+
+        print("Tensão no carga: ", load_voltage)
+        print("Corrente no shunt: ", load_current)
+        print("Resistencia raw: ", resistance)
+
         # Return the tuple with data
-        return resistance
+        return resistance, scale
 
     def get_temperature(self):
         temperature_raw = ads.read_oneshot(TEMPERATURE_CHANNEL)
