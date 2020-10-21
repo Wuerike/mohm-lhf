@@ -118,7 +118,6 @@ class OHMIMETRO(object):
         for a in range(acquisitions):
             raw_channels = ads.read_sequence(resistance_channels)
             voltages = [i * ads.v_per_digit for i in raw_channels]
-            print(voltages)
             total_voltage += raw_channels[0]
             total_current += raw_channels[1]
 

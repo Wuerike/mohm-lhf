@@ -63,12 +63,18 @@ class DATA_MANAGEMENT(QtCore.QObject):
             self.window.calib_offset3_field.setText(calib_data[3]['offset'])
             self.window.calib_offset4_field.setText(calib_data[4]['offset'])
             self.window.calib_offset5_field.setText(calib_data[5]['offset'])
+            self.window.calib_offset6_field.setText(calib_data[6]['offset'])
+            self.window.calib_offset7_field.setText(calib_data[7]['offset'])
+            self.window.calib_offset8_field.setText(calib_data[8]['offset'])
 
             self.window.calib_gain1_field.setText(calib_data[1]['gain'])
             self.window.calib_gain2_field.setText(calib_data[2]['gain'])
             self.window.calib_gain3_field.setText(calib_data[3]['gain'])
             self.window.calib_gain4_field.setText(calib_data[4]['gain'])
             self.window.calib_gain5_field.setText(calib_data[5]['gain'])
+            self.window.calib_gain6_field.setText(calib_data[6]['gain'])
+            self.window.calib_gain7_field.setText(calib_data[7]['gain'])
+            self.window.calib_gain8_field.setText(calib_data[8]['gain'])
 
         with open('/home/pi/mohm-lhf/data/config.json') as config_file:
             config_data = json.load(config_file)
@@ -78,15 +84,12 @@ class DATA_MANAGEMENT(QtCore.QObject):
             self.window.config_data_rate_field.setCurrentIndex(config_data['data-rate'])
             self.window.config_aquisitions_field.setText(config_data['aquisitions'])
             self.window.config_stabilization_field.setText(config_data['stabilization'])
-
-        
         
 
         with open('/home/pi/mohm-lhf/data/comunication.json') as com_file:
             com_data = json.load(com_file)
             self.window.com_ip_field.setText(self.get_ip_address())
             self.window.com_port_field.setText(com_data['port'])      
-
 
     def save_main(self):
         main_data = {
@@ -98,7 +101,6 @@ class DATA_MANAGEMENT(QtCore.QObject):
         with open('/home/pi/mohm-lhf/data/main.json', 'w') as main_file:
             json.dump(main_data, main_file)
 
-        
     def save_calib(self):
         calib_data = [
             {
@@ -124,6 +126,18 @@ class DATA_MANAGEMENT(QtCore.QObject):
             {
                 "offset": self.window.calib_offset5_field.text(),  
                 "gain": self.window.calib_gain5_field.text()
+            }, 
+            {
+                "offset": self.window.calib_offset6_field.text(),  
+                "gain": self.window.calib_gain6_field.text()
+            }, 
+            {
+                "offset": self.window.calib_offset7_field.text(),  
+                "gain": self.window.calib_gain7_field.text()
+            }, 
+            {
+                "offset": self.window.calib_offset8_field.text(),  
+                "gain": self.window.calib_gain8_field.text()
             }
         ]
 

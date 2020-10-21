@@ -115,6 +115,8 @@ class MEASUREMENT(QtCore.QObject):
         stabilization = float(self.window.config_stabilization_field.text())
         aquisitions = int(self.window.config_aquisitions_field.text())
 
+        print(scale, data_rate, stabilization, aquisitions)
+
         resistance = mohm.do_measurement(scale, data_rate, stabilization, aquisitions)
 
         offset_gain = self.read_calib_per_scale(scale)
