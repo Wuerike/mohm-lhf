@@ -1,17 +1,38 @@
 from PySide2 import QtCore
 from mohm import OHMIMETRO
 import json
-from random import *
+
+from time import sleep
 
 mohm = OHMIMETRO()
 mohm.ads_calib()
 
 
+class Worker(QtCore.QObject):
+    measure = QtCore.Signal()
+
+    def __init__(self):
+        super(Worker, self).__init__()
+
+    @QtCore.Slot()
+    def start_button_check(self):
+
+        while True:
+            if mohm.is_start_button_pressed():
+                while mohm.is_start_button_pressed():
+                    sleep(0.05)
+                self.measure.emit()
+            sleep(0.1)
+
+
 class MEASUREMENT(QtCore.QObject):
+    workerInit = QtCore.Signal()
+
     def __init__(self, window):
         super(MEASUREMENT, self).__init__()
         self.window = window
 
+        # Constants definitions
         self.CEM_MICRO = 0.0001
         self.UM_MILI = 0.001
         self.DEZ_MILI = 0.01
@@ -22,8 +43,22 @@ class MEASUREMENT(QtCore.QObject):
         self.MIL = 1000
         self.DEZ_MIL = 10000
 
+        # New thread criation to the worker class
+        self.thread = QtCore.QThread(self)
+        self.thread.start()
+        self.worker = Worker()
+        self.worker.moveToThread(self.thread)
+        # from worker signal connection
+        self.worker.measure.connect(self.do_measurement)
+        # to worker signal connection
+        self.workerInit.connect(self.worker.start_button_check)
+
+        # GUI buttons signals connection
         self.window.main_test_button.clicked.connect(self.do_measurement)
         self.window.main_setup_button.clicked.connect(self.get_temperature)
+
+        # Emit worker init signal
+        self.workerInit.emit()
 
     def apply_multiplier(self, value):
         size = len(value)

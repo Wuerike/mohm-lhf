@@ -25,16 +25,21 @@ class OHMIMETRO(object):
         self.ESC2_PIN = conf.ESC2_PIN
         self.ESC3_PIN = conf.ESC3_PIN
         self.GAIN_PIN = conf.GAIN_PIN
+        self.INPUT1 = conf.INPUT1
+        self.INPUT2 = conf.INPUT2
+        self.INPUT3 = conf.INPUT3
+        self.INPUT4 = conf.INPUT4
 
-        # GPIO Outputs. Only the CS_PIN is currently actively used. ~RESET and 
-        # ~PDWN must be set to static logic HIGH level if not hardwired:
-        for pin in (conf.ESC1_PIN,
-                    conf.ESC2_PIN,
-                    conf.ESC3_PIN,
-                    conf.GAIN_PIN):
+        # GPIO Outputs configuration, used to scaled selection
+        for pin in (conf.ESC1_PIN, conf.ESC2_PIN, conf.ESC3_PIN, conf.GAIN_PIN):
             if pin is not None:
                 wp.pinMode(pin, wp.OUTPUT)
                 wp.digitalWrite(pin, wp.LOW)
+
+        # GPIO Outputs configuration, used to scaled selection
+        for pin in (conf.INPUT1, conf.INPUT2, conf.INPUT3, conf.INPUT4):
+            if pin is not None:
+                wp.pinMode(pin, wp.INPUT)
 
     def range_select(self, scale):
         scale = str(scale)
@@ -168,3 +173,9 @@ class OHMIMETRO(object):
         temperature_voltage = temperature_raw * ads.v_per_digit
         temperature = 100*temperature_voltage
         return temperature
+
+    def is_start_button_pressed(self):
+        if wp.digitalRead(self.INPUT1) == wp.HIGH:
+            return True
+        else:
+            return False
