@@ -165,7 +165,34 @@ class MEASUREMENT(QtCore.QObject):
 
         resistance_text = self.resistance_format(resistance_temp_adjusted)
         self.window.main_resistance_field.setText(resistance_text)
+        self.add_to_measurement_table(resistance_text)
         self.limit_check(resistance_temp_adjusted)
+
+    def add_to_measurement_table(self, last_resistance):
+        third_last_resistance = self.window.main_2nd_last_res_field.text()
+        second_last_resistance = self.window.main_last_res_field.text()
+        self.window.main_3rd_last_res_field.setText(third_last_resistance)
+        self.window.main_2nd_last_res_field.setText(second_last_resistance)
+        self.window.main_last_res_field.setText(last_resistance)            
+
+        resistance_list = []
+        total_resistance = 0
+        for resistance in (last_resistance, second_last_resistance, third_last_resistance):
+            if(resistance != ''):
+                resistance = self.apply_multiplier(resistance)
+                total_resistance += resistance
+                resistance_list.append(resistance)
+
+        mean_resistance = total_resistance/len(resistance_list)
+
+        percentage_error = []
+        for resistance in resistance_list:
+            error = abs(1 - mean_resistance/resistance)*100
+            percentage_error.append(error)
+
+        max_error = ("%.3f" % max(percentage_error)) 
+        print(max_error)
+        self.window.main_last_res_error_field.setText(max_error+"%")
 
     def get_temperature(self):
         # faz medição da temperatura

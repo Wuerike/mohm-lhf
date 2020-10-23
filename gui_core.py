@@ -1169,7 +1169,7 @@ class Ui_MainWindow(object):
         self.main.setFrameShadow(QFrame.Raised)
         self.frame_2 = QFrame(self.main)
         self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setGeometry(QRect(130, 90, 581, 421))
+        self.frame_2.setGeometry(QRect(130, 60, 581, 481))
         self.frame_2.setStyleSheet(u"QFrame {\n"
 "	background: none;\n"
 "};")
@@ -1177,7 +1177,7 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.verticalLayoutWidget_2 = QWidget(self.frame_2)
         self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
-        self.verticalLayoutWidget_2.setGeometry(QRect(0, 0, 582, 421))
+        self.verticalLayoutWidget_2.setGeometry(QRect(0, -3, 582, 484))
         self.verticalLayout_2 = QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -1243,110 +1243,49 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.frame_6)
 
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_2.addItem(self.verticalSpacer_3)
-
-        self.gridLayout_2 = QGridLayout()
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.main_resistance_field = QPushButton(self.verticalLayoutWidget_2)
-        self.main_resistance_field.setObjectName(u"main_resistance_field")
-        self.main_resistance_field.setEnabled(True)
-        self.main_resistance_field.setMinimumSize(QSize(300, 75))
-        self.main_resistance_field.setMaximumSize(QSize(320, 75))
-        font7 = QFont()
-        font7.setPointSize(40)
-        font7.setBold(True)
-        font7.setWeight(75)
-        self.main_resistance_field.setFont(font7)
-        self.main_resistance_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_2.addWidget(self.main_resistance_field, 4, 2, 1, 1)
-
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_2.addItem(self.verticalSpacer, 1, 0, 1, 1)
+        self.verticalLayout_2.addItem(self.verticalSpacer)
 
-        self.main_rmin_field = QPushButton(self.verticalLayoutWidget_2)
-        self.main_rmin_field.setObjectName(u"main_rmin_field")
-        self.main_rmin_field.setEnabled(True)
-        self.main_rmin_field.setMinimumSize(QSize(320, 75))
-        self.main_rmin_field.setMaximumSize(QSize(200, 75))
-        self.main_rmin_field.setFont(font7)
-        self.main_rmin_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_2.addWidget(self.main_rmin_field, 2, 2, 1, 1)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_2.addItem(self.verticalSpacer_2, 3, 0, 1, 1)
-
-        self.main_rmax_field = QPushButton(self.verticalLayoutWidget_2)
-        self.main_rmax_field.setObjectName(u"main_rmax_field")
-        self.main_rmax_field.setEnabled(True)
-        self.main_rmax_field.setMinimumSize(QSize(320, 75))
-        self.main_rmax_field.setMaximumSize(QSize(200, 75))
-        self.main_rmax_field.setFont(font7)
-        self.main_rmax_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_2.addWidget(self.main_rmax_field, 0, 2, 1, 1)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_2.addItem(self.horizontalSpacer, 0, 1, 1, 1)
-
-        self.main_test_button = QPushButton(self.verticalLayoutWidget_2)
-        self.main_test_button.setObjectName(u"main_test_button")
-        self.main_test_button.setEnabled(True)
-        self.main_test_button.setMinimumSize(QSize(220, 75))
-        self.main_test_button.setMaximumSize(QSize(200, 75))
-        font8 = QFont()
-        font8.setPointSize(30)
-        font8.setBold(True)
-        font8.setWeight(75)
-        self.main_test_button.setFont(font8)
-        self.main_test_button.setStyleSheet(u"background-color: rgb(143, 38, 38);\n"
-"color: rgb(255, 255, 255);\n"
-"border: 1px solid rgb(143, 38, 38);\n"
-"border-radius: 15px;")
-
-        self.gridLayout_2.addWidget(self.main_test_button, 4, 0, 1, 1, Qt.AlignLeft)
-
-        self.label = QLabel(self.verticalLayoutWidget_2)
-        self.label.setObjectName(u"label")
-        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
-        self.label.setSizePolicy(sizePolicy)
-        self.label.setMinimumSize(QSize(220, 75))
-        self.label.setMaximumSize(QSize(220, 75))
-        self.label.setFont(font8)
-        self.label.setStyleSheet(u"QFrame {\n"
-"	background: none;\n"
-"	background-color: rgb(64, 64, 64);\n"
-"	color: rgb(255, 255, 255);\n"
-"	border-radius: 15px;\n"
-"	border: 1px solid  rgb(64, 64, 64);\n"
-"};")
-        self.label.setAlignment(Qt.AlignCenter)
-        self.label.setIndent(-1)
-
-        self.gridLayout_2.addWidget(self.label, 0, 0, 1, 1, Qt.AlignLeft)
-
-        self.label_2 = QLabel(self.verticalLayoutWidget_2)
+        self.toolBox = QToolBox(self.verticalLayoutWidget_2)
+        self.toolBox.setObjectName(u"toolBox")
+        self.toolBox.setMinimumSize(QSize(0, 300))
+        self.toolBox.setFont(font)
+        self.toolBox.setStyleSheet(u"QToolBox::tab {\n"
+"  	background-color: rgb(64, 64, 64);\n"
+"    border-radius: 15px;\n"
+" 	padding-left: 15px;\n"
+"	color: white;\n"
+"}\n"
+"\n"
+"QToolBox::tab:selected { /* italicize selected tabs */\n"
+"    font: bold;\n"
+"}\n"
+"\n"
+"QWidget {\n"
+"    background-color: transparent;\n"
+"}")
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.page.setGeometry(QRect(0, 0, 580, 206))
+        self.page.setStyleSheet(u"")
+        self.gridLayoutWidget_3 = QWidget(self.page)
+        self.gridLayoutWidget_3.setObjectName(u"gridLayoutWidget_3")
+        self.gridLayoutWidget_3.setGeometry(QRect(0, 0, 581, 211))
+        self.gridLayout_7 = QGridLayout(self.gridLayoutWidget_3)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.gridLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.label_2 = QLabel(self.gridLayoutWidget_3)
         self.label_2.setObjectName(u"label_2")
         sizePolicy.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
         self.label_2.setSizePolicy(sizePolicy)
         self.label_2.setMinimumSize(QSize(220, 75))
         self.label_2.setMaximumSize(QSize(220, 75))
-        self.label_2.setFont(font8)
+        font7 = QFont()
+        font7.setPointSize(30)
+        font7.setBold(True)
+        font7.setWeight(75)
+        self.label_2.setFont(font7)
         self.label_2.setStyleSheet(u"QFrame {\n"
 "	background: none;\n"
 "	background-color: rgb(64, 64, 64);\n"
@@ -1357,7 +1296,246 @@ class Ui_MainWindow(object):
         self.label_2.setAlignment(Qt.AlignCenter)
         self.label_2.setIndent(-1)
 
-        self.gridLayout_2.addWidget(self.label_2, 2, 0, 1, 1, Qt.AlignLeft)
+        self.gridLayout_7.addWidget(self.label_2, 1, 0, 1, 1)
+
+        self.label = QLabel(self.gridLayoutWidget_3)
+        self.label.setObjectName(u"label")
+        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy)
+        self.label.setMinimumSize(QSize(220, 75))
+        self.label.setMaximumSize(QSize(220, 75))
+        self.label.setFont(font7)
+        self.label.setStyleSheet(u"QFrame {\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label.setAlignment(Qt.AlignCenter)
+        self.label.setIndent(-1)
+
+        self.gridLayout_7.addWidget(self.label, 0, 0, 1, 1)
+
+        self.main_rmax_field = QPushButton(self.gridLayoutWidget_3)
+        self.main_rmax_field.setObjectName(u"main_rmax_field")
+        self.main_rmax_field.setEnabled(True)
+        self.main_rmax_field.setMinimumSize(QSize(320, 75))
+        self.main_rmax_field.setMaximumSize(QSize(200, 75))
+        font8 = QFont()
+        font8.setPointSize(40)
+        font8.setBold(True)
+        font8.setWeight(75)
+        self.main_rmax_field.setFont(font8)
+        self.main_rmax_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_7.addWidget(self.main_rmax_field, 0, 1, 1, 1)
+
+        self.main_rmin_field = QPushButton(self.gridLayoutWidget_3)
+        self.main_rmin_field.setObjectName(u"main_rmin_field")
+        self.main_rmin_field.setEnabled(True)
+        self.main_rmin_field.setMinimumSize(QSize(320, 75))
+        self.main_rmin_field.setMaximumSize(QSize(200, 75))
+        self.main_rmin_field.setFont(font8)
+        self.main_rmin_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_7.addWidget(self.main_rmin_field, 1, 1, 1, 1)
+
+        self.toolBox.addItem(self.page, u"Comparativo individual")
+        self.page_2 = QWidget()
+        self.page_2.setObjectName(u"page_2")
+        self.page_2.setGeometry(QRect(0, 0, 580, 206))
+        self.gridLayoutWidget_6 = QWidget(self.page_2)
+        self.gridLayoutWidget_6.setObjectName(u"gridLayoutWidget_6")
+        self.gridLayoutWidget_6.setGeometry(QRect(0, 0, 581, 212))
+        self.gridLayout_8 = QGridLayout(self.gridLayoutWidget_6)
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.gridLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.main_last_res_error_field = QPushButton(self.gridLayoutWidget_6)
+        self.main_last_res_error_field.setObjectName(u"main_last_res_error_field")
+        self.main_last_res_error_field.setEnabled(True)
+        self.main_last_res_error_field.setMinimumSize(QSize(320, 40))
+        self.main_last_res_error_field.setMaximumSize(QSize(200, 40))
+        self.main_last_res_error_field.setFont(font2)
+        self.main_last_res_error_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_8.addWidget(self.main_last_res_error_field, 4, 2, 1, 1)
+
+        self.label_23 = QLabel(self.gridLayoutWidget_6)
+        self.label_23.setObjectName(u"label_23")
+        sizePolicy.setHeightForWidth(self.label_23.sizePolicy().hasHeightForWidth())
+        self.label_23.setSizePolicy(sizePolicy)
+        self.label_23.setMinimumSize(QSize(100, 40))
+        self.label_23.setMaximumSize(QSize(100, 40))
+        self.label_23.setFont(font2)
+        self.label_23.setStyleSheet(u"QFrame {\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_23.setAlignment(Qt.AlignCenter)
+        self.label_23.setIndent(-1)
+
+        self.gridLayout_8.addWidget(self.label_23, 4, 1, 1, 1)
+
+        self.main_2nd_last_res_field = QPushButton(self.gridLayoutWidget_6)
+        self.main_2nd_last_res_field.setObjectName(u"main_2nd_last_res_field")
+        self.main_2nd_last_res_field.setEnabled(True)
+        self.main_2nd_last_res_field.setMinimumSize(QSize(320, 40))
+        self.main_2nd_last_res_field.setMaximumSize(QSize(200, 40))
+        self.main_2nd_last_res_field.setFont(font2)
+        self.main_2nd_last_res_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_8.addWidget(self.main_2nd_last_res_field, 2, 2, 1, 1)
+
+        self.main_3rd_last_res_field = QPushButton(self.gridLayoutWidget_6)
+        self.main_3rd_last_res_field.setObjectName(u"main_3rd_last_res_field")
+        self.main_3rd_last_res_field.setEnabled(True)
+        self.main_3rd_last_res_field.setMinimumSize(QSize(320, 40))
+        self.main_3rd_last_res_field.setMaximumSize(QSize(200, 40))
+        self.main_3rd_last_res_field.setFont(font2)
+        self.main_3rd_last_res_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_8.addWidget(self.main_3rd_last_res_field, 3, 2, 1, 1)
+
+        self.main_last_res_field = QPushButton(self.gridLayoutWidget_6)
+        self.main_last_res_field.setObjectName(u"main_last_res_field")
+        self.main_last_res_field.setEnabled(True)
+        self.main_last_res_field.setMinimumSize(QSize(320, 40))
+        self.main_last_res_field.setMaximumSize(QSize(200, 40))
+        self.main_last_res_field.setFont(font2)
+        self.main_last_res_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_8.addWidget(self.main_last_res_field, 1, 2, 1, 1)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_8.addItem(self.horizontalSpacer_2, 1, 3, 1, 1)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_8.addItem(self.verticalSpacer_3, 5, 2, 1, 1)
+
+        self.label_21 = QLabel(self.gridLayoutWidget_6)
+        self.label_21.setObjectName(u"label_21")
+        sizePolicy.setHeightForWidth(self.label_21.sizePolicy().hasHeightForWidth())
+        self.label_21.setSizePolicy(sizePolicy)
+        self.label_21.setMinimumSize(QSize(100, 40))
+        self.label_21.setMaximumSize(QSize(100, 40))
+        self.label_21.setFont(font2)
+        self.label_21.setStyleSheet(u"QFrame {\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_21.setAlignment(Qt.AlignCenter)
+        self.label_21.setIndent(-1)
+
+        self.gridLayout_8.addWidget(self.label_21, 1, 1, 1, 1)
+
+        self.label_24 = QLabel(self.gridLayoutWidget_6)
+        self.label_24.setObjectName(u"label_24")
+        sizePolicy.setHeightForWidth(self.label_24.sizePolicy().hasHeightForWidth())
+        self.label_24.setSizePolicy(sizePolicy)
+        self.label_24.setMinimumSize(QSize(100, 40))
+        self.label_24.setMaximumSize(QSize(100, 40))
+        self.label_24.setFont(font2)
+        self.label_24.setStyleSheet(u"QFrame {\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_24.setAlignment(Qt.AlignCenter)
+        self.label_24.setIndent(-1)
+
+        self.gridLayout_8.addWidget(self.label_24, 2, 1, 1, 1)
+
+        self.label_22 = QLabel(self.gridLayoutWidget_6)
+        self.label_22.setObjectName(u"label_22")
+        sizePolicy.setHeightForWidth(self.label_22.sizePolicy().hasHeightForWidth())
+        self.label_22.setSizePolicy(sizePolicy)
+        self.label_22.setMinimumSize(QSize(100, 40))
+        self.label_22.setMaximumSize(QSize(100, 40))
+        self.label_22.setFont(font2)
+        self.label_22.setStyleSheet(u"QFrame {\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_22.setAlignment(Qt.AlignCenter)
+        self.label_22.setIndent(-1)
+
+        self.gridLayout_8.addWidget(self.label_22, 3, 1, 1, 1)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_8.addItem(self.horizontalSpacer, 1, 0, 1, 1)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_8.addItem(self.verticalSpacer_4, 0, 2, 1, 1)
+
+        self.toolBox.addItem(self.page_2, u"Comparativo relativo")
+
+        self.verticalLayout_2.addWidget(self.toolBox)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer_2)
+
+        self.gridLayout_2 = QGridLayout()
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.main_resistance_field = QPushButton(self.verticalLayoutWidget_2)
+        self.main_resistance_field.setObjectName(u"main_resistance_field")
+        self.main_resistance_field.setEnabled(True)
+        self.main_resistance_field.setMinimumSize(QSize(300, 75))
+        self.main_resistance_field.setMaximumSize(QSize(320, 75))
+        self.main_resistance_field.setFont(font8)
+        self.main_resistance_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_2.addWidget(self.main_resistance_field, 0, 1, 1, 1)
+
+        self.main_test_button = QPushButton(self.verticalLayoutWidget_2)
+        self.main_test_button.setObjectName(u"main_test_button")
+        self.main_test_button.setEnabled(True)
+        self.main_test_button.setMinimumSize(QSize(220, 75))
+        self.main_test_button.setMaximumSize(QSize(200, 75))
+        self.main_test_button.setFont(font7)
+        self.main_test_button.setStyleSheet(u"background-color: rgb(143, 38, 38);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 1px solid rgb(143, 38, 38);\n"
+"border-radius: 15px;")
+
+        self.gridLayout_2.addWidget(self.main_test_button, 0, 0, 1, 1, Qt.AlignLeft)
 
 
         self.verticalLayout_2.addLayout(self.gridLayout_2)
@@ -1797,6 +1975,7 @@ class Ui_MainWindow(object):
         self.config_material_field.setCurrentIndex(0)
         self.config_data_rate_field.setCurrentIndex(0)
         self.main_scale_select.setCurrentIndex(0)
+        self.toolBox.setCurrentIndex(1)
         self.setup_data_rate_field.setCurrentIndex(0)
         self.setup_material_field.setCurrentIndex(0)
         self.main_home_button.setDefault(False)
@@ -1888,12 +2067,22 @@ class Ui_MainWindow(object):
         self.main_scale_select.setItemText(7, QCoreApplication.translate("MainWindow", u"100,0\u03a9 - 1000\u03a9", None))
         self.main_scale_select.setItemText(8, QCoreApplication.translate("MainWindow", u"1000\u03a9 - 10000\u03a9", None))
 
-        self.main_resistance_field.setText("")
-        self.main_rmin_field.setText("")
-        self.main_rmax_field.setText("")
-        self.main_test_button.setText(QCoreApplication.translate("MainWindow", u"TESTAR", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"M\u00e1ximo:", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"M\u00ednimo:", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"M\u00e1ximo:", None))
+        self.main_rmax_field.setText("")
+        self.main_rmin_field.setText("")
+        self.toolBox.setItemText(self.toolBox.indexOf(self.page), QCoreApplication.translate("MainWindow", u"Comparativo individual", None))
+        self.main_last_res_error_field.setText("")
+        self.label_23.setText(QCoreApplication.translate("MainWindow", u"Erro", None))
+        self.main_2nd_last_res_field.setText("")
+        self.main_3rd_last_res_field.setText("")
+        self.main_last_res_field.setText("")
+        self.label_21.setText(QCoreApplication.translate("MainWindow", u"1", None))
+        self.label_24.setText(QCoreApplication.translate("MainWindow", u"2", None))
+        self.label_22.setText(QCoreApplication.translate("MainWindow", u"3", None))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.page_2), QCoreApplication.translate("MainWindow", u"Comparativo relativo", None))
+        self.main_resistance_field.setText("")
+        self.main_test_button.setText(QCoreApplication.translate("MainWindow", u"TESTAR", None))
         self.menu_config_button.setText(QCoreApplication.translate("MainWindow", u"Configura\u00e7\u00e3o", None))
         self.menu_com_button.setText(QCoreApplication.translate("MainWindow", u"Comunica\u00e7\u00e3o", None))
         self.menu_calib_button.setText(QCoreApplication.translate("MainWindow", u"Calibra\u00e7\u00e3o", None))
