@@ -13,7 +13,7 @@ class DATA_MANAGEMENT(QtCore.QObject):
         self.window.calib_back_button.clicked.connect(self.save_calib)
         self.window.com_back_button.clicked.connect(self.save_comunication)
         self.window.config_back_button.clicked.connect(self.save_config)
-        self.window.main_setup_button.clicked.connect(self.load_setup)
+        #self.window.main_setup_button.clicked.connect(self.load_setup)
 
         # Events to prevent exiting before save
         self.window.menu_config_button.clicked.connect(self.disable_left_bar)
@@ -28,13 +28,13 @@ class DATA_MANAGEMENT(QtCore.QObject):
     def disable_left_bar(self):
         self.window.main_home_button.setDisabled(True)
         self.window.main_menu_button.setDisabled(True)
-        self.window.main_setup_button.setDisabled(True)
+        #self.window.main_setup_button.setDisabled(True)
 
 
     def enable_left_bar(self):
         self.window.main_home_button.setEnabled(True)
         self.window.main_menu_button.setEnabled(True)
-        self.window.main_setup_button.setEnabled(True)
+        #self.window.main_setup_button.setEnabled(True)
 
     def get_ip_address(self):
         ip_address = ''

@@ -22,7 +22,7 @@ class Worker(QtCore.QObject):
                 while mohm.is_start_button_pressed():
                     sleep(0.05)
                 self.measure.emit()
-            sleep(0.1)
+            sleep(0.05)
 
 
 class MEASUREMENT(QtCore.QObject):
@@ -43,6 +43,8 @@ class MEASUREMENT(QtCore.QObject):
         self.MIL = 1000
         self.DEZ_MIL = 10000
 
+        self.next_res_field = None
+
         # New thread criation to the worker class
         self.thread = QtCore.QThread(self)
         self.thread.start()
@@ -55,7 +57,10 @@ class MEASUREMENT(QtCore.QObject):
 
         # GUI buttons signals connection
         self.window.main_test_button.clicked.connect(self.do_measurement)
-        self.window.main_setup_button.clicked.connect(self.get_temperature)
+        #self.window.main_setup_button.clicked.connect(self.get_temperature)
+        self.window.main_last_res_field.clicked.connect(self.set_next_field)
+        self.window.main_2nd_last_res_field.clicked.connect(self.set_next_field)
+        self.window.main_3rd_last_res_field.clicked.connect(self.set_next_field)
 
         # Emit worker init signal
         self.workerInit.emit()
@@ -100,41 +105,60 @@ class MEASUREMENT(QtCore.QObject):
             self.window.main_rmax_field.setStyleSheet(
                 u"background-color: rgb(0, 255, 0); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
 
-    def resistance_format(self, value):
-        if value < self.CEM_MICRO:
-            value = value * 1000000
-            return "%.3fuΩ" % value
+    def resistance_format(self, value, scale):
+        if scale == 1:
+            if value < self.UM_MILI:
+                value = value * self.MIL
+                return "%.4fmΩ" % value
+            else:
+                return "Out Limit"
 
-        elif value < self.UM_MILI:
-            value = value * 1000000
-            return "%.2fuΩ" % value
+        elif scale == 2:
+            if value < self.DEZ_MILI:
+                value = value * self.MIL
+                return "%.3fmΩ" % value
+            else:
+                return "Out Limit"
 
-        elif value < self.DEZ_MILI:
-            value = value * 1000
-            return "%.4fmΩ" % value
+        elif scale == 3:
+            if value < self.CEM_MILI:
+                value = value * self.MIL
+                return "%.2fmΩ" % value
+            else:
+                return "Out Limit"
 
-        elif value < self.CEM_MILI:
-            value = value * 1000
-            return "%.3fmΩ" % value
+        elif scale == 4:
+            if value < self.UM:
+                return "%.4fΩ" % value
+            else:
+                return "Out Limit"
 
-        elif value < self.UM:
-            value = value * 1000
-            return "%.2fmΩ" % value
+        elif scale == 5:
+            if value < self.DEZ:
+                return "%.3fΩ" % value
+            else:
+                return "Out Limit"
 
-        elif value < self.DEZ:
-            return "%.4fΩ" % value
+        elif scale == 6:
+            if value < self.CEM:
+                return "%.2fΩ" % value
+            else:
+                return "ScaleOut"
 
-        elif value < self.CEM:
-            return "%.3fΩ" % value
+        elif scale == 7:
+            if value < self.MIL:
+                return "%.1fΩ" % value
+            else:
+                return "ScaleOut"
 
-        elif value < self.MIL:
-            return "%.2fΩ" % value
-
-        elif value < self.DEZ_MIL:
-            return "%.1fΩ" % value
+        elif scale == 8:
+            if value < self.DEZ_MIL:
+                return "%fΩ" % value
+            else:
+                return "ScaleOut"
 
         else:
-            return "%.0fΩ" % value
+            return "ERROR"
 
     def read_calib_per_scale(self, scale):
         with open('/home/pi/mohm-lhf/data/calib.json') as calib_file:
@@ -163,36 +187,57 @@ class MEASUREMENT(QtCore.QObject):
 
         print("Resistencia calibrada: ", resistance_temp_adjusted)
 
-        resistance_text = self.resistance_format(resistance_temp_adjusted)
+        resistance_text = self.resistance_format(resistance_temp_adjusted, scale)
         self.window.main_resistance_field.setText(resistance_text)
         self.add_to_measurement_table(resistance_text)
         self.limit_check(resistance_temp_adjusted)
 
-    def add_to_measurement_table(self, last_resistance):
-        third_last_resistance = self.window.main_2nd_last_res_field.text()
-        second_last_resistance = self.window.main_last_res_field.text()
-        self.window.main_3rd_last_res_field.setText(third_last_resistance)
-        self.window.main_2nd_last_res_field.setText(second_last_resistance)
-        self.window.main_last_res_field.setText(last_resistance)            
+    def set_next_field(self):
+        self.window.main_last_res_error_field.setText("")
+        self.window.main_last_res_field.setStyleSheet(
+            u"background-color: rgb(255,255,255); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
+        self.window.main_2nd_last_res_field.setStyleSheet(
+            u"background-color: rgb(255,255,255); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
+        self.window.main_3rd_last_res_field.setStyleSheet(
+            u"background-color: rgb(255,255,255); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
 
-        resistance_list = []
-        total_resistance = 0
-        for resistance in (last_resistance, second_last_resistance, third_last_resistance):
-            if(resistance != ''):
-                resistance = self.apply_multiplier(resistance)
-                total_resistance += resistance
-                resistance_list.append(resistance)
+        if self.next_res_field != self.sender():
+            self.next_res_field = self.sender()
+            self.next_res_field.setText("")
+            self.next_res_field.setStyleSheet(
+                u"background-color: rgb(128,128,128); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
+        else:
+            self.next_res_field = None
 
-        mean_resistance = total_resistance/len(resistance_list)
+    def add_to_measurement_table(self, next_resistance):
+        if self.next_res_field is not None:
+            self.next_res_field.setText(next_resistance)
+            self.next_res_field.setStyleSheet(
+                u"background-color: rgb(255,255,255); color: rgb(0, 0, 0); border: none; border-radius: 15px;")
+            self.next_res_field = None
 
-        percentage_error = []
-        for resistance in resistance_list:
-            error = abs(1 - mean_resistance/resistance)*100
-            percentage_error.append(error)
+            last_resistance = self.window.main_last_res_field.text()
+            second_last_resistance = self.window.main_2nd_last_res_field.text()
+            third_last_resistance = self.window.main_3rd_last_res_field.text()
 
-        max_error = ("%.3f" % max(percentage_error)) 
-        print(max_error)
-        self.window.main_last_res_error_field.setText(max_error+"%")
+            resistance_list = []
+            total_resistance = 0
+            for resistance in (last_resistance, second_last_resistance, third_last_resistance):
+                if resistance != '':
+                    resistance = self.apply_multiplier(resistance)
+                    total_resistance += resistance
+                    resistance_list.append(resistance)
+
+            mean_resistance = total_resistance/len(resistance_list)
+
+            percentage_error = []
+            for resistance in resistance_list:
+                error = abs(1 - mean_resistance/resistance)*100
+                percentage_error.append(error)
+
+            max_error = ("%.3f" % max(percentage_error))
+            print(max_error)
+            self.window.main_last_res_error_field.setText(max_error+"%")
 
     def get_temperature(self):
         # faz medição da temperatura
