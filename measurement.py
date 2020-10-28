@@ -5,7 +5,6 @@ import json
 from time import sleep
 
 mohm = OHMIMETRO()
-mohm.ads_calib()
 
 
 class Worker(QtCore.QObject):
@@ -143,19 +142,19 @@ class MEASUREMENT(QtCore.QObject):
             if value < self.CEM:
                 return "%.2fΩ" % value
             else:
-                return "ScaleOut"
+                return "Out Limit"
 
         elif scale == 7:
             if value < self.MIL:
                 return "%.1fΩ" % value
             else:
-                return "ScaleOut"
+                return "Out Limit"
 
         elif scale == 8:
             if value < self.DEZ_MIL:
                 return "%fΩ" % value
             else:
-                return "ScaleOut"
+                return "Out Limit"
 
         else:
             return "ERROR"
@@ -168,6 +167,8 @@ class MEASUREMENT(QtCore.QObject):
             return offset, gain
 
     def do_measurement(self):
+        mohm.ads_calib()
+
         # Get test parameters
         scale = self.window.main_scale_select.currentIndex()
         data_rate = self.window.config_data_rate_field.currentIndex()
