@@ -135,7 +135,7 @@ class OHMIMETRO(object):
     # Auto scale routine
     def auto_scale_selection(self, data_rate, stabilization, acquisitions):
         print(" ---- Realizando seleção de escala automatica ----")
-        scale = ESC_3
+        scale = ESC_1
         while scale <= ESC_8:
             mean_voltage, mean_current = self.get_analog_values(scale, data_rate, stabilization, acquisitions)
             if mean_voltage <= 4.9:
