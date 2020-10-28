@@ -44,7 +44,7 @@ class DATA_MANAGEMENT(QtCore.QObject):
             ip_address = s.getsockname()[0]
             s.close()
         except:
-            ip_address = "REDE NÃO DETECTADA"
+            ip_address = "NO NETWORK"
         return ip_address
 
     def init_data(self):
