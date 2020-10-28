@@ -24,6 +24,7 @@ class KEYBOARD(QtCore.QObject):
         self.window.keyboard_ohm.clicked.connect(self.keyboard_add)
         self.window.keyboard_del.clicked.connect(self.keyboard_del)
         self.window.keyboard_enter.clicked.connect(self.keyboard_enter)
+        self.window.keyboard_minus.clicked.connect(self.keyboard_minus)
 
         # in main who calls keyboard
         self.window.main_rmax_field.clicked.connect(self.keyboard_called)
@@ -93,3 +94,11 @@ class KEYBOARD(QtCore.QObject):
     def keyboard_enter(self):
         self.last_sender.setText(self.window.keyboard_field.toPlainText())
         self.window.keyboard.lower()
+
+    def keyboard_minus(self):
+        old_text = self.window.keyboard_field.toPlainText()       
+        size = len(old_text)
+
+        if (size<1):
+            self.window.keyboard_field.setPlainText('-')
+        

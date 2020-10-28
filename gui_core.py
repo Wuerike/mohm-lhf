@@ -843,10 +843,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_5 = QVBoxLayout(self.verticalLayoutWidget_3)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_11 = QGridLayout()
+        self.gridLayout_11.setObjectName(u"gridLayout_11")
         self.keyboard_field = QPlainTextEdit(self.verticalLayoutWidget_3)
         self.keyboard_field.setObjectName(u"keyboard_field")
-        self.keyboard_field.setMinimumSize(QSize(541, 0))
-        self.keyboard_field.setMaximumSize(QSize(541, 75))
+        self.keyboard_field.setMinimumSize(QSize(400, 0))
+        self.keyboard_field.setMaximumSize(QSize(400, 75))
         font4 = QFont()
         font4.setPointSize(40)
         self.keyboard_field.setFont(font4)
@@ -856,122 +858,27 @@ class Ui_MainWindow(object):
         self.keyboard_field.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.keyboard_field.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 
-        self.verticalLayout_5.addWidget(self.keyboard_field, 0, Qt.AlignHCenter)
+        self.gridLayout_11.addWidget(self.keyboard_field, 0, 0, 1, 1)
+
+        self.keyboard_del = QPushButton(self.verticalLayoutWidget_3)
+        self.keyboard_del.setObjectName(u"keyboard_del")
+        self.keyboard_del.setEnabled(True)
+        self.keyboard_del.setMinimumSize(QSize(120, 75))
+        self.keyboard_del.setMaximumSize(QSize(120, 75))
+        self.keyboard_del.setFont(font2)
+        self.keyboard_del.setStyleSheet(u"background-color: #292929;\n"
+"color: #B5BD00;\n"
+"border: 1px solid #292929;\n"
+"border-radius: 15px;")
+        self.keyboard_del.setIconSize(QSize(25, 25))
+
+        self.gridLayout_11.addWidget(self.keyboard_del, 0, 1, 1, 1)
+
+
+        self.verticalLayout_5.addLayout(self.gridLayout_11)
 
         self.gridLayout_4 = QGridLayout()
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.keyboard_micro = QPushButton(self.verticalLayoutWidget_3)
-        self.keyboard_micro.setObjectName(u"keyboard_micro")
-        self.keyboard_micro.setEnabled(True)
-        self.keyboard_micro.setMinimumSize(QSize(120, 75))
-        self.keyboard_micro.setMaximumSize(QSize(120, 75))
-        self.keyboard_micro.setFont(font2)
-        self.keyboard_micro.setStyleSheet(u"background-color: #292929;\n"
-"color: #B5BD00;\n"
-"border: 1px solid #292929;\n"
-"border-radius: 15px;")
-        self.keyboard_micro.setIconSize(QSize(25, 25))
-
-        self.gridLayout_4.addWidget(self.keyboard_micro, 0, 3, 1, 1)
-
-        self.keyboard_8 = QPushButton(self.verticalLayoutWidget_3)
-        self.keyboard_8.setObjectName(u"keyboard_8")
-        self.keyboard_8.setEnabled(True)
-        self.keyboard_8.setMinimumSize(QSize(120, 75))
-        self.keyboard_8.setMaximumSize(QSize(120, 75))
-        self.keyboard_8.setFont(font2)
-        self.keyboard_8.setStyleSheet(u"background-color: #292929;\n"
-"color: #B5BD00;\n"
-"border: 1px solid #292929;\n"
-"border-radius: 15px;")
-        self.keyboard_8.setIconSize(QSize(25, 25))
-
-        self.gridLayout_4.addWidget(self.keyboard_8, 0, 1, 1, 1)
-
-        self.keyboard_5 = QPushButton(self.verticalLayoutWidget_3)
-        self.keyboard_5.setObjectName(u"keyboard_5")
-        self.keyboard_5.setEnabled(True)
-        self.keyboard_5.setMinimumSize(QSize(120, 75))
-        self.keyboard_5.setMaximumSize(QSize(120, 75))
-        self.keyboard_5.setFont(font2)
-        self.keyboard_5.setStyleSheet(u"background-color: #292929;\n"
-"color: #B5BD00;\n"
-"border: 1px solid #292929;\n"
-"border-radius: 15px;")
-        self.keyboard_5.setIconSize(QSize(25, 25))
-
-        self.gridLayout_4.addWidget(self.keyboard_5, 1, 1, 1, 1)
-
-        self.keyboard_2 = QPushButton(self.verticalLayoutWidget_3)
-        self.keyboard_2.setObjectName(u"keyboard_2")
-        self.keyboard_2.setEnabled(True)
-        self.keyboard_2.setMinimumSize(QSize(120, 75))
-        self.keyboard_2.setMaximumSize(QSize(120, 75))
-        self.keyboard_2.setFont(font2)
-        self.keyboard_2.setStyleSheet(u"background-color: #292929;\n"
-"color: #B5BD00;\n"
-"border: 1px solid #292929;\n"
-"border-radius: 15px;")
-        self.keyboard_2.setIconSize(QSize(25, 25))
-
-        self.gridLayout_4.addWidget(self.keyboard_2, 2, 1, 1, 1)
-
-        self.keyboard_0 = QPushButton(self.verticalLayoutWidget_3)
-        self.keyboard_0.setObjectName(u"keyboard_0")
-        self.keyboard_0.setEnabled(True)
-        self.keyboard_0.setMinimumSize(QSize(120, 75))
-        self.keyboard_0.setMaximumSize(QSize(120, 75))
-        self.keyboard_0.setFont(font2)
-        self.keyboard_0.setStyleSheet(u"background-color: #292929;\n"
-"color: #B5BD00;\n"
-"border: 1px solid #292929;\n"
-"border-radius: 15px;")
-        self.keyboard_0.setIconSize(QSize(25, 25))
-
-        self.gridLayout_4.addWidget(self.keyboard_0, 3, 0, 1, 1)
-
-        self.keyboard_ohm = QPushButton(self.verticalLayoutWidget_3)
-        self.keyboard_ohm.setObjectName(u"keyboard_ohm")
-        self.keyboard_ohm.setEnabled(True)
-        self.keyboard_ohm.setMinimumSize(QSize(120, 75))
-        self.keyboard_ohm.setMaximumSize(QSize(120, 75))
-        self.keyboard_ohm.setFont(font2)
-        self.keyboard_ohm.setStyleSheet(u"background-color: #292929;\n"
-"color: #B5BD00;\n"
-"border: 1px solid #292929;\n"
-"border-radius: 15px;")
-        self.keyboard_ohm.setIconSize(QSize(25, 25))
-
-        self.gridLayout_4.addWidget(self.keyboard_ohm, 2, 3, 1, 1)
-
-        self.keyboard_6 = QPushButton(self.verticalLayoutWidget_3)
-        self.keyboard_6.setObjectName(u"keyboard_6")
-        self.keyboard_6.setEnabled(True)
-        self.keyboard_6.setMinimumSize(QSize(120, 75))
-        self.keyboard_6.setMaximumSize(QSize(120, 75))
-        self.keyboard_6.setFont(font2)
-        self.keyboard_6.setStyleSheet(u"background-color: #292929;\n"
-"color: #B5BD00;\n"
-"border: 1px solid #292929;\n"
-"border-radius: 15px;")
-        self.keyboard_6.setIconSize(QSize(25, 25))
-
-        self.gridLayout_4.addWidget(self.keyboard_6, 1, 2, 1, 1)
-
-        self.keyboard_dot = QPushButton(self.verticalLayoutWidget_3)
-        self.keyboard_dot.setObjectName(u"keyboard_dot")
-        self.keyboard_dot.setEnabled(True)
-        self.keyboard_dot.setMinimumSize(QSize(120, 75))
-        self.keyboard_dot.setMaximumSize(QSize(120, 75))
-        self.keyboard_dot.setFont(font2)
-        self.keyboard_dot.setStyleSheet(u"background-color: #292929;\n"
-"color: #B5BD00;\n"
-"border: 1px solid #292929;\n"
-"border-radius: 15px;")
-        self.keyboard_dot.setIconSize(QSize(25, 25))
-
-        self.gridLayout_4.addWidget(self.keyboard_dot, 3, 1, 1, 1)
-
         self.keyboard_9 = QPushButton(self.verticalLayoutWidget_3)
         self.keyboard_9.setObjectName(u"keyboard_9")
         self.keyboard_9.setEnabled(True)
@@ -985,62 +892,6 @@ class Ui_MainWindow(object):
         self.keyboard_9.setIconSize(QSize(25, 25))
 
         self.gridLayout_4.addWidget(self.keyboard_9, 0, 2, 1, 1)
-
-        self.keyboard_mili = QPushButton(self.verticalLayoutWidget_3)
-        self.keyboard_mili.setObjectName(u"keyboard_mili")
-        self.keyboard_mili.setEnabled(True)
-        self.keyboard_mili.setMinimumSize(QSize(120, 75))
-        self.keyboard_mili.setMaximumSize(QSize(120, 75))
-        self.keyboard_mili.setFont(font2)
-        self.keyboard_mili.setStyleSheet(u"background-color: #292929;\n"
-"color: #B5BD00;\n"
-"border: 1px solid #292929;\n"
-"border-radius: 15px;")
-        self.keyboard_mili.setIconSize(QSize(25, 25))
-
-        self.gridLayout_4.addWidget(self.keyboard_mili, 1, 3, 1, 1)
-
-        self.keyboard_del = QPushButton(self.verticalLayoutWidget_3)
-        self.keyboard_del.setObjectName(u"keyboard_del")
-        self.keyboard_del.setEnabled(True)
-        self.keyboard_del.setMinimumSize(QSize(100, 75))
-        self.keyboard_del.setMaximumSize(QSize(120, 75))
-        self.keyboard_del.setFont(font2)
-        self.keyboard_del.setStyleSheet(u"background-color: #292929;\n"
-"color: #B5BD00;\n"
-"border: 1px solid #292929;\n"
-"border-radius: 15px;")
-        self.keyboard_del.setIconSize(QSize(25, 25))
-
-        self.gridLayout_4.addWidget(self.keyboard_del, 3, 2, 1, 1)
-
-        self.keyboard_3 = QPushButton(self.verticalLayoutWidget_3)
-        self.keyboard_3.setObjectName(u"keyboard_3")
-        self.keyboard_3.setEnabled(True)
-        self.keyboard_3.setMinimumSize(QSize(120, 75))
-        self.keyboard_3.setMaximumSize(QSize(120, 75))
-        self.keyboard_3.setFont(font2)
-        self.keyboard_3.setStyleSheet(u"background-color: #292929;\n"
-"color: #B5BD00;\n"
-"border: 1px solid #292929;\n"
-"border-radius: 15px;")
-        self.keyboard_3.setIconSize(QSize(25, 25))
-
-        self.gridLayout_4.addWidget(self.keyboard_3, 2, 2, 1, 1)
-
-        self.keyboard_enter = QPushButton(self.verticalLayoutWidget_3)
-        self.keyboard_enter.setObjectName(u"keyboard_enter")
-        self.keyboard_enter.setEnabled(True)
-        self.keyboard_enter.setMinimumSize(QSize(120, 75))
-        self.keyboard_enter.setMaximumSize(QSize(120, 75))
-        self.keyboard_enter.setFont(font2)
-        self.keyboard_enter.setStyleSheet(u"background-color: #292929;\n"
-"color: #B5BD00;\n"
-"border: 1px solid #292929;\n"
-"border-radius: 15px;")
-        self.keyboard_enter.setIconSize(QSize(25, 25))
-
-        self.gridLayout_4.addWidget(self.keyboard_enter, 3, 3, 1, 1)
 
         self.keyboard_4 = QPushButton(self.verticalLayoutWidget_3)
         self.keyboard_4.setObjectName(u"keyboard_4")
@@ -1056,19 +907,89 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.keyboard_4, 1, 0, 1, 1)
 
-        self.keyboard_1 = QPushButton(self.verticalLayoutWidget_3)
-        self.keyboard_1.setObjectName(u"keyboard_1")
-        self.keyboard_1.setEnabled(True)
-        self.keyboard_1.setMinimumSize(QSize(120, 75))
-        self.keyboard_1.setMaximumSize(QSize(120, 75))
-        self.keyboard_1.setFont(font2)
-        self.keyboard_1.setStyleSheet(u"background-color: #292929;\n"
+        self.keyboard_enter = QPushButton(self.verticalLayoutWidget_3)
+        self.keyboard_enter.setObjectName(u"keyboard_enter")
+        self.keyboard_enter.setEnabled(True)
+        self.keyboard_enter.setMinimumSize(QSize(120, 75))
+        self.keyboard_enter.setMaximumSize(QSize(120, 75))
+        self.keyboard_enter.setFont(font2)
+        self.keyboard_enter.setStyleSheet(u"background-color: #292929;\n"
 "color: #B5BD00;\n"
 "border: 1px solid #292929;\n"
 "border-radius: 15px;")
-        self.keyboard_1.setIconSize(QSize(25, 25))
+        self.keyboard_enter.setIconSize(QSize(25, 25))
 
-        self.gridLayout_4.addWidget(self.keyboard_1, 2, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.keyboard_enter, 3, 3, 1, 1)
+
+        self.keyboard_2 = QPushButton(self.verticalLayoutWidget_3)
+        self.keyboard_2.setObjectName(u"keyboard_2")
+        self.keyboard_2.setEnabled(True)
+        self.keyboard_2.setMinimumSize(QSize(120, 75))
+        self.keyboard_2.setMaximumSize(QSize(120, 75))
+        self.keyboard_2.setFont(font2)
+        self.keyboard_2.setStyleSheet(u"background-color: #292929;\n"
+"color: #B5BD00;\n"
+"border: 1px solid #292929;\n"
+"border-radius: 15px;")
+        self.keyboard_2.setIconSize(QSize(25, 25))
+
+        self.gridLayout_4.addWidget(self.keyboard_2, 2, 1, 1, 1)
+
+        self.keyboard_5 = QPushButton(self.verticalLayoutWidget_3)
+        self.keyboard_5.setObjectName(u"keyboard_5")
+        self.keyboard_5.setEnabled(True)
+        self.keyboard_5.setMinimumSize(QSize(120, 75))
+        self.keyboard_5.setMaximumSize(QSize(120, 75))
+        self.keyboard_5.setFont(font2)
+        self.keyboard_5.setStyleSheet(u"background-color: #292929;\n"
+"color: #B5BD00;\n"
+"border: 1px solid #292929;\n"
+"border-radius: 15px;")
+        self.keyboard_5.setIconSize(QSize(25, 25))
+
+        self.gridLayout_4.addWidget(self.keyboard_5, 1, 1, 1, 1)
+
+        self.keyboard_8 = QPushButton(self.verticalLayoutWidget_3)
+        self.keyboard_8.setObjectName(u"keyboard_8")
+        self.keyboard_8.setEnabled(True)
+        self.keyboard_8.setMinimumSize(QSize(120, 75))
+        self.keyboard_8.setMaximumSize(QSize(120, 75))
+        self.keyboard_8.setFont(font2)
+        self.keyboard_8.setStyleSheet(u"background-color: #292929;\n"
+"color: #B5BD00;\n"
+"border: 1px solid #292929;\n"
+"border-radius: 15px;")
+        self.keyboard_8.setIconSize(QSize(25, 25))
+
+        self.gridLayout_4.addWidget(self.keyboard_8, 0, 1, 1, 1)
+
+        self.keyboard_ohm = QPushButton(self.verticalLayoutWidget_3)
+        self.keyboard_ohm.setObjectName(u"keyboard_ohm")
+        self.keyboard_ohm.setEnabled(True)
+        self.keyboard_ohm.setMinimumSize(QSize(120, 75))
+        self.keyboard_ohm.setMaximumSize(QSize(120, 75))
+        self.keyboard_ohm.setFont(font2)
+        self.keyboard_ohm.setStyleSheet(u"background-color: #292929;\n"
+"color: #B5BD00;\n"
+"border: 1px solid #292929;\n"
+"border-radius: 15px;")
+        self.keyboard_ohm.setIconSize(QSize(25, 25))
+
+        self.gridLayout_4.addWidget(self.keyboard_ohm, 2, 3, 1, 1)
+
+        self.keyboard_micro = QPushButton(self.verticalLayoutWidget_3)
+        self.keyboard_micro.setObjectName(u"keyboard_micro")
+        self.keyboard_micro.setEnabled(True)
+        self.keyboard_micro.setMinimumSize(QSize(120, 75))
+        self.keyboard_micro.setMaximumSize(QSize(120, 75))
+        self.keyboard_micro.setFont(font2)
+        self.keyboard_micro.setStyleSheet(u"background-color: #292929;\n"
+"color: #B5BD00;\n"
+"border: 1px solid #292929;\n"
+"border-radius: 15px;")
+        self.keyboard_micro.setIconSize(QSize(25, 25))
+
+        self.gridLayout_4.addWidget(self.keyboard_micro, 0, 3, 1, 1)
 
         self.keyboard_7 = QPushButton(self.verticalLayoutWidget_3)
         self.keyboard_7.setObjectName(u"keyboard_7")
@@ -1083,6 +1004,104 @@ class Ui_MainWindow(object):
         self.keyboard_7.setIconSize(QSize(25, 25))
 
         self.gridLayout_4.addWidget(self.keyboard_7, 0, 0, 1, 1)
+
+        self.keyboard_6 = QPushButton(self.verticalLayoutWidget_3)
+        self.keyboard_6.setObjectName(u"keyboard_6")
+        self.keyboard_6.setEnabled(True)
+        self.keyboard_6.setMinimumSize(QSize(120, 75))
+        self.keyboard_6.setMaximumSize(QSize(120, 75))
+        self.keyboard_6.setFont(font2)
+        self.keyboard_6.setStyleSheet(u"background-color: #292929;\n"
+"color: #B5BD00;\n"
+"border: 1px solid #292929;\n"
+"border-radius: 15px;")
+        self.keyboard_6.setIconSize(QSize(25, 25))
+
+        self.gridLayout_4.addWidget(self.keyboard_6, 1, 2, 1, 1)
+
+        self.keyboard_3 = QPushButton(self.verticalLayoutWidget_3)
+        self.keyboard_3.setObjectName(u"keyboard_3")
+        self.keyboard_3.setEnabled(True)
+        self.keyboard_3.setMinimumSize(QSize(120, 75))
+        self.keyboard_3.setMaximumSize(QSize(120, 75))
+        self.keyboard_3.setFont(font2)
+        self.keyboard_3.setStyleSheet(u"background-color: #292929;\n"
+"color: #B5BD00;\n"
+"border: 1px solid #292929;\n"
+"border-radius: 15px;")
+        self.keyboard_3.setIconSize(QSize(25, 25))
+
+        self.gridLayout_4.addWidget(self.keyboard_3, 2, 2, 1, 1)
+
+        self.keyboard_1 = QPushButton(self.verticalLayoutWidget_3)
+        self.keyboard_1.setObjectName(u"keyboard_1")
+        self.keyboard_1.setEnabled(True)
+        self.keyboard_1.setMinimumSize(QSize(120, 75))
+        self.keyboard_1.setMaximumSize(QSize(120, 75))
+        self.keyboard_1.setFont(font2)
+        self.keyboard_1.setStyleSheet(u"background-color: #292929;\n"
+"color: #B5BD00;\n"
+"border: 1px solid #292929;\n"
+"border-radius: 15px;")
+        self.keyboard_1.setIconSize(QSize(25, 25))
+
+        self.gridLayout_4.addWidget(self.keyboard_1, 2, 0, 1, 1)
+
+        self.keyboard_mili = QPushButton(self.verticalLayoutWidget_3)
+        self.keyboard_mili.setObjectName(u"keyboard_mili")
+        self.keyboard_mili.setEnabled(True)
+        self.keyboard_mili.setMinimumSize(QSize(120, 75))
+        self.keyboard_mili.setMaximumSize(QSize(120, 75))
+        self.keyboard_mili.setFont(font2)
+        self.keyboard_mili.setStyleSheet(u"background-color: #292929;\n"
+"color: #B5BD00;\n"
+"border: 1px solid #292929;\n"
+"border-radius: 15px;")
+        self.keyboard_mili.setIconSize(QSize(25, 25))
+
+        self.gridLayout_4.addWidget(self.keyboard_mili, 1, 3, 1, 1)
+
+        self.keyboard_minus = QPushButton(self.verticalLayoutWidget_3)
+        self.keyboard_minus.setObjectName(u"keyboard_minus")
+        self.keyboard_minus.setEnabled(True)
+        self.keyboard_minus.setMinimumSize(QSize(120, 75))
+        self.keyboard_minus.setMaximumSize(QSize(120, 75))
+        self.keyboard_minus.setFont(font2)
+        self.keyboard_minus.setStyleSheet(u"background-color: #292929;\n"
+"color: #B5BD00;\n"
+"border: 1px solid #292929;\n"
+"border-radius: 15px;")
+        self.keyboard_minus.setIconSize(QSize(25, 25))
+
+        self.gridLayout_4.addWidget(self.keyboard_minus, 3, 2, 1, 1)
+
+        self.keyboard_dot = QPushButton(self.verticalLayoutWidget_3)
+        self.keyboard_dot.setObjectName(u"keyboard_dot")
+        self.keyboard_dot.setEnabled(True)
+        self.keyboard_dot.setMinimumSize(QSize(120, 75))
+        self.keyboard_dot.setMaximumSize(QSize(120, 75))
+        self.keyboard_dot.setFont(font2)
+        self.keyboard_dot.setStyleSheet(u"background-color: #292929;\n"
+"color: #B5BD00;\n"
+"border: 1px solid #292929;\n"
+"border-radius: 15px;")
+        self.keyboard_dot.setIconSize(QSize(25, 25))
+
+        self.gridLayout_4.addWidget(self.keyboard_dot, 3, 0, 1, 1)
+
+        self.keyboard_0 = QPushButton(self.verticalLayoutWidget_3)
+        self.keyboard_0.setObjectName(u"keyboard_0")
+        self.keyboard_0.setEnabled(True)
+        self.keyboard_0.setMinimumSize(QSize(120, 75))
+        self.keyboard_0.setMaximumSize(QSize(120, 75))
+        self.keyboard_0.setFont(font2)
+        self.keyboard_0.setStyleSheet(u"background-color: #292929;\n"
+"color: #B5BD00;\n"
+"border: 1px solid #292929;\n"
+"border-radius: 15px;")
+        self.keyboard_0.setIconSize(QSize(25, 25))
+
+        self.gridLayout_4.addWidget(self.keyboard_0, 3, 1, 1, 1)
 
 
         self.verticalLayout_5.addLayout(self.gridLayout_4)
@@ -1947,10 +1966,10 @@ class Ui_MainWindow(object):
 
         self.calib.raise_()
         self.comunication.raise_()
-        self.keyboard.raise_()
         self.setup.raise_()
         self.config.raise_()
         self.menu.raise_()
+        self.keyboard.raise_()
         self.main.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -2026,22 +2045,23 @@ class Ui_MainWindow(object):
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Numero de aquisi\u00e7\u00f5es", None))
         self.config_temp_ref_field.setText(QCoreApplication.translate("MainWindow", u"25 \u00baC", None))
         self.keyboard_field.setPlainText("")
-        self.keyboard_micro.setText(QCoreApplication.translate("MainWindow", u"u\u03a9", None))
-        self.keyboard_8.setText(QCoreApplication.translate("MainWindow", u"8", None))
-        self.keyboard_5.setText(QCoreApplication.translate("MainWindow", u"5", None))
-        self.keyboard_2.setText(QCoreApplication.translate("MainWindow", u"2", None))
-        self.keyboard_0.setText(QCoreApplication.translate("MainWindow", u"0", None))
-        self.keyboard_ohm.setText(QCoreApplication.translate("MainWindow", u"\u03a9", None))
-        self.keyboard_6.setText(QCoreApplication.translate("MainWindow", u"6", None))
-        self.keyboard_dot.setText(QCoreApplication.translate("MainWindow", u".", None))
-        self.keyboard_9.setText(QCoreApplication.translate("MainWindow", u"9", None))
-        self.keyboard_mili.setText(QCoreApplication.translate("MainWindow", u"m\u03a9", None))
         self.keyboard_del.setText(QCoreApplication.translate("MainWindow", u"DEL", None))
-        self.keyboard_3.setText(QCoreApplication.translate("MainWindow", u"3", None))
-        self.keyboard_enter.setText(QCoreApplication.translate("MainWindow", u"ENTER", None))
+        self.keyboard_9.setText(QCoreApplication.translate("MainWindow", u"9", None))
         self.keyboard_4.setText(QCoreApplication.translate("MainWindow", u"4", None))
-        self.keyboard_1.setText(QCoreApplication.translate("MainWindow", u"1", None))
+        self.keyboard_enter.setText(QCoreApplication.translate("MainWindow", u"ENTER", None))
+        self.keyboard_2.setText(QCoreApplication.translate("MainWindow", u"2", None))
+        self.keyboard_5.setText(QCoreApplication.translate("MainWindow", u"5", None))
+        self.keyboard_8.setText(QCoreApplication.translate("MainWindow", u"8", None))
+        self.keyboard_ohm.setText(QCoreApplication.translate("MainWindow", u"\u03a9", None))
+        self.keyboard_micro.setText(QCoreApplication.translate("MainWindow", u"u\u03a9", None))
         self.keyboard_7.setText(QCoreApplication.translate("MainWindow", u"7", None))
+        self.keyboard_6.setText(QCoreApplication.translate("MainWindow", u"6", None))
+        self.keyboard_3.setText(QCoreApplication.translate("MainWindow", u"3", None))
+        self.keyboard_1.setText(QCoreApplication.translate("MainWindow", u"1", None))
+        self.keyboard_mili.setText(QCoreApplication.translate("MainWindow", u"m\u03a9", None))
+        self.keyboard_minus.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.keyboard_dot.setText(QCoreApplication.translate("MainWindow", u".", None))
+        self.keyboard_0.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"M\u00ednimo:", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"M\u00e1ximo:", None))
         self.main_rmax_field.setText("")
