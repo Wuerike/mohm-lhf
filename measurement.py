@@ -56,6 +56,7 @@ class MEASUREMENT(QtCore.QObject):
 
         # GUI buttons signals connection
         self.window.main_test_button.clicked.connect(self.do_measurement)
+        self.window.main_comparative_button.clicked.connect(self.change_test_mode)
         #self.window.main_setup_button.clicked.connect(self.get_temperature)
         self.window.main_last_res_field.clicked.connect(self.set_next_field)
         self.window.main_2nd_last_res_field.clicked.connect(self.set_next_field)
@@ -63,6 +64,20 @@ class MEASUREMENT(QtCore.QObject):
 
         # Emit worker init signal
         self.workerInit.emit()
+
+        # Hide the invidual test mode on starting
+        self.window.individual_test_frame.hide()
+
+    def change_test_mode(self):
+        actual_mode = self.window.main_comparative_button.text()
+        if actual_mode == "RELATIVO":
+            self.window.main_comparative_button.setText("INDIVIDUAL")
+            self.window.relative_test_frame.hide()
+            self.window.individual_test_frame.show()
+        else:
+            self.window.main_comparative_button.setText("RELATIVO")
+            self.window.individual_test_frame.hide()
+            self.window.relative_test_frame.show()
 
     def apply_multiplier(self, value):
         size = len(value)
