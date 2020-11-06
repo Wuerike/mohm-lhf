@@ -35,7 +35,7 @@ class TemperatureWorker(QtCore.QObject):
 
         while True:
             self.get_temperature.emit()
-            sleep(0.5)
+            sleep(1)
 
 
 class MEASUREMENT(QtCore.QObject):
@@ -48,8 +48,6 @@ class MEASUREMENT(QtCore.QObject):
         super(MEASUREMENT, self).__init__()
         self.window = window
 
-        self.mutex = QtCore.QMutex()
-
         # Constants definitions
         self.CEM_MICRO = 0.0001
         self.UM_MILI = 0.001
@@ -61,6 +59,7 @@ class MEASUREMENT(QtCore.QObject):
         self.MIL = 1000
         self.DEZ_MIL = 10000
 
+        self.mutex = QtCore.QMutex()
         self.next_res_field = None
 
         # New thread creation to the button worker class
@@ -203,14 +202,15 @@ class MEASUREMENT(QtCore.QObject):
         else:
             return "ERROR"
 
-    def read_calib_per_scale(self, scale):
+    def read_one_calib(self, position):
         with open('/home/pi/mohm-lhf/data/calib.json') as calib_file:
             per_scale_calib_data = json.load(calib_file)
-            offset = per_scale_calib_data[int(scale)]['offset']
-            gain = per_scale_calib_data[int(scale)]['gain']
+            offset = per_scale_calib_data[int(position)]['offset']
+            gain = per_scale_calib_data[int(position)]['gain']
             return offset, gain
 
     def do_measurement(self):
+        locker = QtCore.QMutexLocker(self.mutex)
 
         # Get test parameters
         scale = self.window.main_scale_select.currentIndex()
@@ -221,17 +221,15 @@ class MEASUREMENT(QtCore.QObject):
         print("#####################")
         print("Escala: ", scale, "Taxa: ", data_rate, "Estabilização: ", stabilization, "Aquisições: ", acquisitions)
 
-        self.mutex.lock()
         resistance, scale = mohm.do_measurement(scale, data_rate, stabilization, acquisitions)
-        self.mutex.unlock()
-
-        offset_gain = self.read_calib_per_scale(scale)
+        offset_gain = self.read_one_calib(scale)
         resistance_calib = float(offset_gain[0]) + float(offset_gain[1]) * resistance
         actual_temp = float(self.window.setup_actual_temp_field.text())
         ref_temp = float(self.window.config_temp_ref_field.text())
         material_factor = self.get_material_factor()
         resistance_temp_adjusted = resistance_calib * (1 + material_factor * (ref_temp - actual_temp))
 
+        print("Temperatura: ", actual_temp)
         print("Resistencia calibrada: ", resistance_temp_adjusted)
 
         resistance_text = self.resistance_format(resistance_temp_adjusted, scale)
@@ -287,20 +285,27 @@ class MEASUREMENT(QtCore.QObject):
             self.window.main_last_res_error_field.setText(max_error+"%")
 
     def get_temperature(self):
-        # get the temperature and place at its field
-        self.mutex.lock()
+        locker = QtCore.QMutexLocker(self.mutex)
+
+        temp_calib_position = 9
+        offset_gain = self.read_one_calib(temp_calib_position)
+
+        # Done 3 times to avoid temp error after measuring resistance
         temperature = mohm.get_temperature()
-        self.mutex.unlock()
+        temperature = mohm.get_temperature()
+        temperature = mohm.get_temperature()
+
+        temperature = float(offset_gain[0]) + float(offset_gain[1]) * temperature
         self.window.setup_actual_temp_field.setText("%.2f" % temperature)
 
     def get_material_factor(self):
         material = self.window.config_material_field.currentIndex()
 
         # Copper selected
-        if (material == 1):
+        if material == 1:
             return 0.0040
         # Aluminium selected
-        elif (material == 2):
+        elif material == 2:
             return 0.0036
         # None selected
         else:

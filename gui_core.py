@@ -21,7 +21,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1024, 600)
+        MainWindow.resize(1024, 593)
         MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -49,15 +49,15 @@ class Ui_MainWindow(object):
         self.calib.setFrameShadow(QFrame.Raised)
         self.frame_14 = QFrame(self.calib)
         self.frame_14.setObjectName(u"frame_14")
-        self.frame_14.setGeometry(QRect(106, 0, 811, 601))
+        self.frame_14.setGeometry(QRect(106, 20, 811, 551))
         self.frame_14.setStyleSheet(u"QFrame {\n"
-"   background-color: none;\n"
+"   background: none;\n"
 "};")
         self.frame_14.setFrameShape(QFrame.StyledPanel)
         self.frame_14.setFrameShadow(QFrame.Raised)
         self.gridLayoutWidget_5 = QWidget(self.frame_14)
         self.gridLayoutWidget_5.setObjectName(u"gridLayoutWidget_5")
-        self.gridLayoutWidget_5.setGeometry(QRect(0, 0, 811, 601))
+        self.gridLayoutWidget_5.setGeometry(QRect(0, 0, 811, 551))
         self.gridLayoutWidget_5.setMinimumSize(QSize(0, 50))
         font = QFont()
         font.setPointSize(20)
@@ -65,38 +65,219 @@ class Ui_MainWindow(object):
         self.gridLayout_6 = QGridLayout(self.gridLayoutWidget_5)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.label_36 = QLabel(self.gridLayoutWidget_5)
-        self.label_36.setObjectName(u"label_36")
+        self.label_33 = QLabel(self.gridLayoutWidget_5)
+        self.label_33.setObjectName(u"label_33")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_36.sizePolicy().hasHeightForWidth())
-        self.label_36.setSizePolicy(sizePolicy)
-        self.label_36.setMinimumSize(QSize(0, 50))
-        self.label_36.setMaximumSize(QSize(150, 50))
+        sizePolicy.setHeightForWidth(self.label_33.sizePolicy().hasHeightForWidth())
+        self.label_33.setSizePolicy(sizePolicy)
+        self.label_33.setMinimumSize(QSize(0, 60))
+        self.label_33.setMaximumSize(QSize(150, 60))
         font1 = QFont()
         font1.setPointSize(20)
         font1.setBold(True)
         font1.setWeight(75)
-        self.label_36.setFont(font1)
-        self.label_36.setStyleSheet(u"QFrame {\n"
+        self.label_33.setFont(font1)
+        self.label_33.setStyleSheet(u"QFrame {\n"
 "   background: none;\n"
 "   background-color: rgb(64, 64, 64);\n"
 "   color: rgb(255, 255, 255);\n"
 "   border-radius: 15px;\n"
 "   border: 1px solid  rgb(64, 64, 64);\n"
 "};")
-        self.label_36.setAlignment(Qt.AlignCenter)
-        self.label_36.setIndent(-1)
+        self.label_33.setAlignment(Qt.AlignCenter)
+        self.label_33.setIndent(-1)
 
-        self.gridLayout_6.addWidget(self.label_36, 9, 0, 1, 1)
+        self.gridLayout_6.addWidget(self.label_33, 6, 0, 1, 1)
+
+        self.calib_offset3_field = QPushButton(self.gridLayoutWidget_5)
+        self.calib_offset3_field.setObjectName(u"calib_offset3_field")
+        self.calib_offset3_field.setEnabled(True)
+        self.calib_offset3_field.setMinimumSize(QSize(300, 60))
+        self.calib_offset3_field.setMaximumSize(QSize(300, 60))
+        self.calib_offset3_field.setFont(font1)
+        self.calib_offset3_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_6.addWidget(self.calib_offset3_field, 4, 1, 1, 1)
+
+        self.label_31 = QLabel(self.gridLayoutWidget_5)
+        self.label_31.setObjectName(u"label_31")
+        sizePolicy.setHeightForWidth(self.label_31.sizePolicy().hasHeightForWidth())
+        self.label_31.setSizePolicy(sizePolicy)
+        self.label_31.setMinimumSize(QSize(0, 60))
+        self.label_31.setMaximumSize(QSize(150, 60))
+        self.label_31.setFont(font1)
+        self.label_31.setStyleSheet(u"QFrame {\n"
+"   background: none;\n"
+"   background-color: rgb(64, 64, 64);\n"
+"   color: rgb(255, 255, 255);\n"
+"   border-radius: 15px;\n"
+"   border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_31.setAlignment(Qt.AlignCenter)
+        self.label_31.setIndent(-1)
+
+        self.gridLayout_6.addWidget(self.label_31, 4, 0, 1, 1)
+
+        self.calib_gain1_field = QPushButton(self.gridLayoutWidget_5)
+        self.calib_gain1_field.setObjectName(u"calib_gain1_field")
+        self.calib_gain1_field.setEnabled(True)
+        self.calib_gain1_field.setMinimumSize(QSize(300, 60))
+        self.calib_gain1_field.setMaximumSize(QSize(300, 60))
+        self.calib_gain1_field.setFont(font1)
+        self.calib_gain1_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_6.addWidget(self.calib_gain1_field, 2, 2, 1, 1)
+
+        self.label_16 = QLabel(self.gridLayoutWidget_5)
+        self.label_16.setObjectName(u"label_16")
+        sizePolicy.setHeightForWidth(self.label_16.sizePolicy().hasHeightForWidth())
+        self.label_16.setSizePolicy(sizePolicy)
+        self.label_16.setMinimumSize(QSize(0, 60))
+        self.label_16.setMaximumSize(QSize(150, 60))
+        self.label_16.setFont(font1)
+        self.label_16.setStyleSheet(u"QFrame {\n"
+"   background: none;\n"
+"   background-color: rgb(64, 64, 64);\n"
+"   color: rgb(255, 255, 255);\n"
+"   border-radius: 15px;\n"
+"   border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_16.setAlignment(Qt.AlignCenter)
+        self.label_16.setIndent(-1)
+
+        self.gridLayout_6.addWidget(self.label_16, 2, 0, 1, 1)
+
+        self.label_18 = QLabel(self.gridLayoutWidget_5)
+        self.label_18.setObjectName(u"label_18")
+        sizePolicy.setHeightForWidth(self.label_18.sizePolicy().hasHeightForWidth())
+        self.label_18.setSizePolicy(sizePolicy)
+        self.label_18.setMinimumSize(QSize(0, 60))
+        self.label_18.setMaximumSize(QSize(150, 60))
+        self.label_18.setFont(font1)
+        self.label_18.setStyleSheet(u"QFrame {\n"
+"   background: none;\n"
+"   background-color: rgb(64, 64, 64);\n"
+"   color: rgb(255, 255, 255);\n"
+"   border-radius: 15px;\n"
+"   border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_18.setAlignment(Qt.AlignCenter)
+        self.label_18.setIndent(-1)
+
+        self.gridLayout_6.addWidget(self.label_18, 0, 0, 1, 1)
+
+        self.calib_next_button = QPushButton(self.gridLayoutWidget_5)
+        self.calib_next_button.setObjectName(u"calib_next_button")
+        self.calib_next_button.setEnabled(True)
+        self.calib_next_button.setMinimumSize(QSize(200, 75))
+        self.calib_next_button.setMaximumSize(QSize(200, 75))
+        self.calib_next_button.setFont(font1)
+        self.calib_next_button.setStyleSheet(u"background-color: #B5BD00;\n"
+"color: rgb(0,0,0);\n"
+"border: 1px solid #B5BD00;\n"
+"border-radius: 15px;")
+        self.calib_next_button.setIconSize(QSize(25, 25))
+
+        self.gridLayout_6.addWidget(self.calib_next_button, 9, 2, 1, 1, Qt.AlignRight)
+
+        self.label_17 = QLabel(self.gridLayoutWidget_5)
+        self.label_17.setObjectName(u"label_17")
+        sizePolicy.setHeightForWidth(self.label_17.sizePolicy().hasHeightForWidth())
+        self.label_17.setSizePolicy(sizePolicy)
+        self.label_17.setMinimumSize(QSize(0, 60))
+        self.label_17.setMaximumSize(QSize(150, 60))
+        self.label_17.setFont(font1)
+        self.label_17.setStyleSheet(u"QFrame {\n"
+"   background: none;\n"
+"   background-color: rgb(64, 64, 64);\n"
+"   color: rgb(255, 255, 255);\n"
+"   border-radius: 15px;\n"
+"   border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_17.setAlignment(Qt.AlignCenter)
+        self.label_17.setIndent(-1)
+
+        self.gridLayout_6.addWidget(self.label_17, 3, 0, 1, 1)
+
+        self.calib_gain3_field = QPushButton(self.gridLayoutWidget_5)
+        self.calib_gain3_field.setObjectName(u"calib_gain3_field")
+        self.calib_gain3_field.setEnabled(True)
+        self.calib_gain3_field.setMinimumSize(QSize(300, 60))
+        self.calib_gain3_field.setMaximumSize(QSize(300, 60))
+        self.calib_gain3_field.setFont(font1)
+        self.calib_gain3_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_6.addWidget(self.calib_gain3_field, 4, 2, 1, 1)
+
+        self.calib_offset2_field = QPushButton(self.gridLayoutWidget_5)
+        self.calib_offset2_field.setObjectName(u"calib_offset2_field")
+        self.calib_offset2_field.setEnabled(True)
+        self.calib_offset2_field.setMinimumSize(QSize(300, 60))
+        self.calib_offset2_field.setMaximumSize(QSize(300, 60))
+        self.calib_offset2_field.setFont(font1)
+        self.calib_offset2_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_6.addWidget(self.calib_offset2_field, 3, 1, 1, 1)
+
+        self.calib_gain4_field = QPushButton(self.gridLayoutWidget_5)
+        self.calib_gain4_field.setObjectName(u"calib_gain4_field")
+        self.calib_gain4_field.setEnabled(True)
+        self.calib_gain4_field.setMinimumSize(QSize(300, 60))
+        self.calib_gain4_field.setMaximumSize(QSize(300, 60))
+        self.calib_gain4_field.setFont(font1)
+        self.calib_gain4_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_6.addWidget(self.calib_gain4_field, 5, 2, 1, 1)
+
+        self.calib_gain2_field = QPushButton(self.gridLayoutWidget_5)
+        self.calib_gain2_field.setObjectName(u"calib_gain2_field")
+        self.calib_gain2_field.setEnabled(True)
+        self.calib_gain2_field.setMinimumSize(QSize(300, 60))
+        self.calib_gain2_field.setMaximumSize(QSize(300, 60))
+        self.calib_gain2_field.setFont(font1)
+        self.calib_gain2_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_6.addWidget(self.calib_gain2_field, 3, 2, 1, 1)
+
+        self.calib_offset4_field = QPushButton(self.gridLayoutWidget_5)
+        self.calib_offset4_field.setObjectName(u"calib_offset4_field")
+        self.calib_offset4_field.setEnabled(True)
+        self.calib_offset4_field.setMinimumSize(QSize(300, 60))
+        self.calib_offset4_field.setMaximumSize(QSize(300, 60))
+        self.calib_offset4_field.setFont(font1)
+        self.calib_offset4_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_6.addWidget(self.calib_offset4_field, 5, 1, 1, 1)
 
         self.label_19 = QLabel(self.gridLayoutWidget_5)
         self.label_19.setObjectName(u"label_19")
         sizePolicy.setHeightForWidth(self.label_19.sizePolicy().hasHeightForWidth())
         self.label_19.setSizePolicy(sizePolicy)
-        self.label_19.setMinimumSize(QSize(0, 50))
-        self.label_19.setMaximumSize(QSize(300, 50))
+        self.label_19.setMinimumSize(QSize(0, 60))
+        self.label_19.setMaximumSize(QSize(300, 60))
         font2 = QFont()
         font2.setPointSize(25)
         font2.setBold(True)
@@ -114,127 +295,12 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.label_19, 0, 1, 1, 1)
 
-        self.label_31 = QLabel(self.gridLayoutWidget_5)
-        self.label_31.setObjectName(u"label_31")
-        sizePolicy.setHeightForWidth(self.label_31.sizePolicy().hasHeightForWidth())
-        self.label_31.setSizePolicy(sizePolicy)
-        self.label_31.setMinimumSize(QSize(0, 50))
-        self.label_31.setMaximumSize(QSize(150, 50))
-        self.label_31.setFont(font1)
-        self.label_31.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
-"};")
-        self.label_31.setAlignment(Qt.AlignCenter)
-        self.label_31.setIndent(-1)
-
-        self.gridLayout_6.addWidget(self.label_31, 4, 0, 1, 1)
-
-        self.label_33 = QLabel(self.gridLayoutWidget_5)
-        self.label_33.setObjectName(u"label_33")
-        sizePolicy.setHeightForWidth(self.label_33.sizePolicy().hasHeightForWidth())
-        self.label_33.setSizePolicy(sizePolicy)
-        self.label_33.setMinimumSize(QSize(0, 50))
-        self.label_33.setMaximumSize(QSize(150, 50))
-        self.label_33.setFont(font1)
-        self.label_33.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
-"};")
-        self.label_33.setAlignment(Qt.AlignCenter)
-        self.label_33.setIndent(-1)
-
-        self.gridLayout_6.addWidget(self.label_33, 6, 0, 1, 1)
-
-        self.label_18 = QLabel(self.gridLayoutWidget_5)
-        self.label_18.setObjectName(u"label_18")
-        sizePolicy.setHeightForWidth(self.label_18.sizePolicy().hasHeightForWidth())
-        self.label_18.setSizePolicy(sizePolicy)
-        self.label_18.setMinimumSize(QSize(0, 50))
-        self.label_18.setMaximumSize(QSize(150, 50))
-        self.label_18.setFont(font1)
-        self.label_18.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
-"};")
-        self.label_18.setAlignment(Qt.AlignCenter)
-        self.label_18.setIndent(-1)
-
-        self.gridLayout_6.addWidget(self.label_18, 0, 0, 1, 1)
-
-        self.calib_offset2_field = QPushButton(self.gridLayoutWidget_5)
-        self.calib_offset2_field.setObjectName(u"calib_offset2_field")
-        self.calib_offset2_field.setEnabled(True)
-        self.calib_offset2_field.setMinimumSize(QSize(300, 50))
-        self.calib_offset2_field.setMaximumSize(QSize(300, 50))
-        self.calib_offset2_field.setFont(font1)
-        self.calib_offset2_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_6.addWidget(self.calib_offset2_field, 3, 1, 1, 1)
-
-        self.calib_gain4_field = QPushButton(self.gridLayoutWidget_5)
-        self.calib_gain4_field.setObjectName(u"calib_gain4_field")
-        self.calib_gain4_field.setEnabled(True)
-        self.calib_gain4_field.setMinimumSize(QSize(300, 50))
-        self.calib_gain4_field.setMaximumSize(QSize(300, 50))
-        self.calib_gain4_field.setFont(font1)
-        self.calib_gain4_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_6.addWidget(self.calib_gain4_field, 5, 2, 1, 1)
-
-        self.label_17 = QLabel(self.gridLayoutWidget_5)
-        self.label_17.setObjectName(u"label_17")
-        sizePolicy.setHeightForWidth(self.label_17.sizePolicy().hasHeightForWidth())
-        self.label_17.setSizePolicy(sizePolicy)
-        self.label_17.setMinimumSize(QSize(0, 50))
-        self.label_17.setMaximumSize(QSize(150, 50))
-        self.label_17.setFont(font1)
-        self.label_17.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
-"};")
-        self.label_17.setAlignment(Qt.AlignCenter)
-        self.label_17.setIndent(-1)
-
-        self.gridLayout_6.addWidget(self.label_17, 3, 0, 1, 1)
-
-        self.calib_gain7_field = QPushButton(self.gridLayoutWidget_5)
-        self.calib_gain7_field.setObjectName(u"calib_gain7_field")
-        self.calib_gain7_field.setEnabled(True)
-        self.calib_gain7_field.setMinimumSize(QSize(300, 50))
-        self.calib_gain7_field.setMaximumSize(QSize(300, 50))
-        self.calib_gain7_field.setFont(font1)
-        self.calib_gain7_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_6.addWidget(self.calib_gain7_field, 8, 2, 1, 1)
-
         self.label_20 = QLabel(self.gridLayoutWidget_5)
         self.label_20.setObjectName(u"label_20")
         sizePolicy.setHeightForWidth(self.label_20.sizePolicy().hasHeightForWidth())
         self.label_20.setSizePolicy(sizePolicy)
-        self.label_20.setMinimumSize(QSize(0, 50))
-        self.label_20.setMaximumSize(QSize(300, 50))
+        self.label_20.setMinimumSize(QSize(0, 60))
+        self.label_20.setMaximumSize(QSize(300, 60))
         self.label_20.setFont(font1)
         self.label_20.setStyleSheet(u"QFrame {\n"
 "   background: none;\n"
@@ -248,12 +314,25 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.label_20, 0, 2, 1, 1)
 
+        self.calib_gain5_field = QPushButton(self.gridLayoutWidget_5)
+        self.calib_gain5_field.setObjectName(u"calib_gain5_field")
+        self.calib_gain5_field.setEnabled(True)
+        self.calib_gain5_field.setMinimumSize(QSize(300, 60))
+        self.calib_gain5_field.setMaximumSize(QSize(300, 60))
+        self.calib_gain5_field.setFont(font1)
+        self.calib_gain5_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_6.addWidget(self.calib_gain5_field, 6, 2, 1, 1)
+
         self.label_32 = QLabel(self.gridLayoutWidget_5)
         self.label_32.setObjectName(u"label_32")
         sizePolicy.setHeightForWidth(self.label_32.sizePolicy().hasHeightForWidth())
         self.label_32.setSizePolicy(sizePolicy)
-        self.label_32.setMinimumSize(QSize(0, 50))
-        self.label_32.setMaximumSize(QSize(150, 50))
+        self.label_32.setMinimumSize(QSize(0, 60))
+        self.label_32.setMaximumSize(QSize(150, 60))
         self.label_32.setFont(font1)
         self.label_32.setStyleSheet(u"QFrame {\n"
 "   background: none;\n"
@@ -267,38 +346,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.label_32, 5, 0, 1, 1)
 
-        self.calib_back_button = QPushButton(self.gridLayoutWidget_5)
-        self.calib_back_button.setObjectName(u"calib_back_button")
-        self.calib_back_button.setEnabled(True)
-        self.calib_back_button.setMinimumSize(QSize(200, 50))
-        self.calib_back_button.setMaximumSize(QSize(200, 50))
-        self.calib_back_button.setFont(font1)
-        self.calib_back_button.setStyleSheet(u"background-color: #B5BD00;\n"
-"color: rgb(0,0,0);\n"
-"border: 1px solid #B5BD00;\n"
-"border-radius: 15px;")
-        self.calib_back_button.setIconSize(QSize(25, 25))
-
-        self.gridLayout_6.addWidget(self.calib_back_button, 10, 2, 1, 1, Qt.AlignRight)
-
-        self.calib_gain2_field = QPushButton(self.gridLayoutWidget_5)
-        self.calib_gain2_field.setObjectName(u"calib_gain2_field")
-        self.calib_gain2_field.setEnabled(True)
-        self.calib_gain2_field.setMinimumSize(QSize(300, 50))
-        self.calib_gain2_field.setMaximumSize(QSize(300, 50))
-        self.calib_gain2_field.setFont(font1)
-        self.calib_gain2_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_6.addWidget(self.calib_gain2_field, 3, 2, 1, 1)
-
         self.calib_offset1_field = QPushButton(self.gridLayoutWidget_5)
         self.calib_offset1_field.setObjectName(u"calib_offset1_field")
         self.calib_offset1_field.setEnabled(True)
-        self.calib_offset1_field.setMinimumSize(QSize(300, 50))
-        self.calib_offset1_field.setMaximumSize(QSize(300, 50))
+        self.calib_offset1_field.setMinimumSize(QSize(300, 60))
+        self.calib_offset1_field.setMaximumSize(QSize(300, 60))
         self.calib_offset1_field.setFont(font1)
         self.calib_offset1_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);\n"
@@ -307,172 +359,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.calib_offset1_field, 2, 1, 1, 1)
 
-        self.calib_gain5_field = QPushButton(self.gridLayoutWidget_5)
-        self.calib_gain5_field.setObjectName(u"calib_gain5_field")
-        self.calib_gain5_field.setEnabled(True)
-        self.calib_gain5_field.setMinimumSize(QSize(300, 50))
-        self.calib_gain5_field.setMaximumSize(QSize(300, 50))
-        self.calib_gain5_field.setFont(font1)
-        self.calib_gain5_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_6.addWidget(self.calib_gain5_field, 6, 2, 1, 1)
-
-        self.label_34 = QLabel(self.gridLayoutWidget_5)
-        self.label_34.setObjectName(u"label_34")
-        sizePolicy.setHeightForWidth(self.label_34.sizePolicy().hasHeightForWidth())
-        self.label_34.setSizePolicy(sizePolicy)
-        self.label_34.setMinimumSize(QSize(0, 50))
-        self.label_34.setMaximumSize(QSize(150, 50))
-        self.label_34.setFont(font1)
-        self.label_34.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
-"};")
-        self.label_34.setAlignment(Qt.AlignCenter)
-        self.label_34.setIndent(-1)
-
-        self.gridLayout_6.addWidget(self.label_34, 7, 0, 1, 1)
-
-        self.calib_gain8_field = QPushButton(self.gridLayoutWidget_5)
-        self.calib_gain8_field.setObjectName(u"calib_gain8_field")
-        self.calib_gain8_field.setEnabled(True)
-        self.calib_gain8_field.setMinimumSize(QSize(300, 50))
-        self.calib_gain8_field.setMaximumSize(QSize(300, 50))
-        self.calib_gain8_field.setFont(font1)
-        self.calib_gain8_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_6.addWidget(self.calib_gain8_field, 9, 2, 1, 1)
-
-        self.calib_offset8_field = QPushButton(self.gridLayoutWidget_5)
-        self.calib_offset8_field.setObjectName(u"calib_offset8_field")
-        self.calib_offset8_field.setEnabled(True)
-        self.calib_offset8_field.setMinimumSize(QSize(300, 50))
-        self.calib_offset8_field.setMaximumSize(QSize(300, 50))
-        self.calib_offset8_field.setFont(font1)
-        self.calib_offset8_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_6.addWidget(self.calib_offset8_field, 9, 1, 1, 1)
-
-        self.calib_offset7_field = QPushButton(self.gridLayoutWidget_5)
-        self.calib_offset7_field.setObjectName(u"calib_offset7_field")
-        self.calib_offset7_field.setEnabled(True)
-        self.calib_offset7_field.setMinimumSize(QSize(300, 50))
-        self.calib_offset7_field.setMaximumSize(QSize(300, 50))
-        self.calib_offset7_field.setFont(font1)
-        self.calib_offset7_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_6.addWidget(self.calib_offset7_field, 8, 1, 1, 1)
-
-        self.calib_gain6_field = QPushButton(self.gridLayoutWidget_5)
-        self.calib_gain6_field.setObjectName(u"calib_gain6_field")
-        self.calib_gain6_field.setEnabled(True)
-        self.calib_gain6_field.setMinimumSize(QSize(300, 50))
-        self.calib_gain6_field.setMaximumSize(QSize(300, 50))
-        self.calib_gain6_field.setFont(font1)
-        self.calib_gain6_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_6.addWidget(self.calib_gain6_field, 7, 2, 1, 1)
-
-        self.calib_gain1_field = QPushButton(self.gridLayoutWidget_5)
-        self.calib_gain1_field.setObjectName(u"calib_gain1_field")
-        self.calib_gain1_field.setEnabled(True)
-        self.calib_gain1_field.setMinimumSize(QSize(300, 50))
-        self.calib_gain1_field.setMaximumSize(QSize(300, 50))
-        self.calib_gain1_field.setFont(font1)
-        self.calib_gain1_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_6.addWidget(self.calib_gain1_field, 2, 2, 1, 1)
-
-        self.calib_gain3_field = QPushButton(self.gridLayoutWidget_5)
-        self.calib_gain3_field.setObjectName(u"calib_gain3_field")
-        self.calib_gain3_field.setEnabled(True)
-        self.calib_gain3_field.setMinimumSize(QSize(300, 50))
-        self.calib_gain3_field.setMaximumSize(QSize(300, 50))
-        self.calib_gain3_field.setFont(font1)
-        self.calib_gain3_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_6.addWidget(self.calib_gain3_field, 4, 2, 1, 1)
-
-        self.calib_offset4_field = QPushButton(self.gridLayoutWidget_5)
-        self.calib_offset4_field.setObjectName(u"calib_offset4_field")
-        self.calib_offset4_field.setEnabled(True)
-        self.calib_offset4_field.setMinimumSize(QSize(300, 50))
-        self.calib_offset4_field.setMaximumSize(QSize(300, 50))
-        self.calib_offset4_field.setFont(font1)
-        self.calib_offset4_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_6.addWidget(self.calib_offset4_field, 5, 1, 1, 1)
-
-        self.label_35 = QLabel(self.gridLayoutWidget_5)
-        self.label_35.setObjectName(u"label_35")
-        sizePolicy.setHeightForWidth(self.label_35.sizePolicy().hasHeightForWidth())
-        self.label_35.setSizePolicy(sizePolicy)
-        self.label_35.setMinimumSize(QSize(0, 50))
-        self.label_35.setMaximumSize(QSize(150, 50))
-        self.label_35.setFont(font1)
-        self.label_35.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
-"};")
-        self.label_35.setAlignment(Qt.AlignCenter)
-        self.label_35.setIndent(-1)
-
-        self.gridLayout_6.addWidget(self.label_35, 8, 0, 1, 1)
-
-        self.label_16 = QLabel(self.gridLayoutWidget_5)
-        self.label_16.setObjectName(u"label_16")
-        sizePolicy.setHeightForWidth(self.label_16.sizePolicy().hasHeightForWidth())
-        self.label_16.setSizePolicy(sizePolicy)
-        self.label_16.setMinimumSize(QSize(0, 50))
-        self.label_16.setMaximumSize(QSize(150, 50))
-        self.label_16.setFont(font1)
-        self.label_16.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
-"};")
-        self.label_16.setAlignment(Qt.AlignCenter)
-        self.label_16.setIndent(-1)
-
-        self.gridLayout_6.addWidget(self.label_16, 2, 0, 1, 1)
-
         self.calib_offset5_field = QPushButton(self.gridLayoutWidget_5)
         self.calib_offset5_field.setObjectName(u"calib_offset5_field")
         self.calib_offset5_field.setEnabled(True)
-        self.calib_offset5_field.setMinimumSize(QSize(300, 50))
-        self.calib_offset5_field.setMaximumSize(QSize(300, 50))
+        self.calib_offset5_field.setMinimumSize(QSize(300, 60))
+        self.calib_offset5_field.setMaximumSize(QSize(300, 60))
         self.calib_offset5_field.setFont(font1)
         self.calib_offset5_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);\n"
@@ -481,31 +372,9 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.calib_offset5_field, 6, 1, 1, 1)
 
-        self.calib_offset6_field = QPushButton(self.gridLayoutWidget_5)
-        self.calib_offset6_field.setObjectName(u"calib_offset6_field")
-        self.calib_offset6_field.setEnabled(True)
-        self.calib_offset6_field.setMinimumSize(QSize(300, 50))
-        self.calib_offset6_field.setMaximumSize(QSize(300, 50))
-        self.calib_offset6_field.setFont(font1)
-        self.calib_offset6_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_6.addWidget(self.calib_offset6_field, 7, 1, 1, 1)
-
-        self.calib_offset3_field = QPushButton(self.gridLayoutWidget_5)
-        self.calib_offset3_field.setObjectName(u"calib_offset3_field")
-        self.calib_offset3_field.setEnabled(True)
-        self.calib_offset3_field.setMinimumSize(QSize(300, 50))
-        self.calib_offset3_field.setMaximumSize(QSize(300, 50))
-        self.calib_offset3_field.setFont(font1)
-        self.calib_offset3_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout_6.addWidget(self.calib_offset3_field, 4, 1, 1, 1)
+        self.gridLayout_6.addItem(self.verticalSpacer_3, 7, 1, 1, 1)
 
         self.comunication = QFrame(self.frame)
         self.comunication.setObjectName(u"comunication")
@@ -1742,11 +1611,291 @@ class Ui_MainWindow(object):
 
         self.gridLayout_9.addWidget(self.main_home_button, 1, 2, 1, 1)
 
-        self.comunication.raise_()
+        self.calib_2 = QFrame(self.frame)
+        self.calib_2.setObjectName(u"calib_2")
+        self.calib_2.setGeometry(QRect(0, 0, 1024, 600))
+        self.calib_2.setStyleSheet(u"QFrame {\n"
+"   background-image: url(:/main/bg_larger.png);\n"
+"};")
+        self.calib_2.setFrameShape(QFrame.StyledPanel)
+        self.calib_2.setFrameShadow(QFrame.Raised)
+        self.frame_17 = QFrame(self.calib_2)
+        self.frame_17.setObjectName(u"frame_17")
+        self.frame_17.setGeometry(QRect(106, 20, 811, 551))
+        self.frame_17.setStyleSheet(u"QFrame {\n"
+"   background: none;\n"
+"};")
+        self.frame_17.setFrameShape(QFrame.StyledPanel)
+        self.frame_17.setFrameShadow(QFrame.Raised)
+        self.gridLayoutWidget_9 = QWidget(self.frame_17)
+        self.gridLayoutWidget_9.setObjectName(u"gridLayoutWidget_9")
+        self.gridLayoutWidget_9.setGeometry(QRect(0, 0, 811, 551))
+        self.gridLayoutWidget_9.setMinimumSize(QSize(0, 50))
+        self.gridLayoutWidget_9.setFont(font)
+        self.gridLayout_10 = QGridLayout(self.gridLayoutWidget_9)
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.gridLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.calib_gain_temp_field = QPushButton(self.gridLayoutWidget_9)
+        self.calib_gain_temp_field.setObjectName(u"calib_gain_temp_field")
+        self.calib_gain_temp_field.setEnabled(True)
+        self.calib_gain_temp_field.setMinimumSize(QSize(300, 60))
+        self.calib_gain_temp_field.setMaximumSize(QSize(300, 60))
+        self.calib_gain_temp_field.setFont(font1)
+        self.calib_gain_temp_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_10.addWidget(self.calib_gain_temp_field, 5, 2, 1, 1)
+
+        self.label_60 = QLabel(self.gridLayoutWidget_9)
+        self.label_60.setObjectName(u"label_60")
+        sizePolicy.setHeightForWidth(self.label_60.sizePolicy().hasHeightForWidth())
+        self.label_60.setSizePolicy(sizePolicy)
+        self.label_60.setMinimumSize(QSize(0, 60))
+        self.label_60.setMaximumSize(QSize(150, 60))
+        self.label_60.setFont(font1)
+        self.label_60.setStyleSheet(u"QFrame {\n"
+"   background: none;\n"
+"   background-color: rgb(64, 64, 64);\n"
+"   color: rgb(255, 255, 255);\n"
+"   border-radius: 15px;\n"
+"   border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_60.setAlignment(Qt.AlignCenter)
+        self.label_60.setIndent(-1)
+
+        self.gridLayout_10.addWidget(self.label_60, 2, 0, 1, 1)
+
+        self.label_66 = QLabel(self.gridLayoutWidget_9)
+        self.label_66.setObjectName(u"label_66")
+        sizePolicy.setHeightForWidth(self.label_66.sizePolicy().hasHeightForWidth())
+        self.label_66.setSizePolicy(sizePolicy)
+        self.label_66.setMinimumSize(QSize(0, 60))
+        self.label_66.setMaximumSize(QSize(150, 60))
+        self.label_66.setFont(font1)
+        self.label_66.setStyleSheet(u"QFrame {\n"
+"   background: none;\n"
+"   background-color: rgb(64, 64, 64);\n"
+"   color: rgb(255, 255, 255);\n"
+"   border-radius: 15px;\n"
+"   border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_66.setAlignment(Qt.AlignCenter)
+        self.label_66.setIndent(-1)
+
+        self.gridLayout_10.addWidget(self.label_66, 4, 0, 1, 1)
+
+        self.calib_offset6_field = QPushButton(self.gridLayoutWidget_9)
+        self.calib_offset6_field.setObjectName(u"calib_offset6_field")
+        self.calib_offset6_field.setEnabled(True)
+        self.calib_offset6_field.setMinimumSize(QSize(300, 60))
+        self.calib_offset6_field.setMaximumSize(QSize(300, 60))
+        self.calib_offset6_field.setFont(font1)
+        self.calib_offset6_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_10.addWidget(self.calib_offset6_field, 2, 1, 1, 1)
+
+        self.calib_back_button = QPushButton(self.gridLayoutWidget_9)
+        self.calib_back_button.setObjectName(u"calib_back_button")
+        self.calib_back_button.setEnabled(True)
+        self.calib_back_button.setMinimumSize(QSize(200, 75))
+        self.calib_back_button.setMaximumSize(QSize(200, 75))
+        self.calib_back_button.setFont(font1)
+        self.calib_back_button.setStyleSheet(u"background-color: #B5BD00;\n"
+"color: rgb(0,0,0);\n"
+"border: 1px solid #B5BD00;\n"
+"border-radius: 15px;")
+        self.calib_back_button.setIconSize(QSize(25, 25))
+
+        self.gridLayout_10.addWidget(self.calib_back_button, 7, 2, 1, 1, Qt.AlignRight)
+
+        self.label_65 = QLabel(self.gridLayoutWidget_9)
+        self.label_65.setObjectName(u"label_65")
+        sizePolicy.setHeightForWidth(self.label_65.sizePolicy().hasHeightForWidth())
+        self.label_65.setSizePolicy(sizePolicy)
+        self.label_65.setMinimumSize(QSize(0, 60))
+        self.label_65.setMaximumSize(QSize(150, 60))
+        self.label_65.setFont(font1)
+        self.label_65.setStyleSheet(u"QFrame {\n"
+"   background: none;\n"
+"   background-color: rgb(64, 64, 64);\n"
+"   color: rgb(255, 255, 255);\n"
+"   border-radius: 15px;\n"
+"   border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_65.setAlignment(Qt.AlignCenter)
+        self.label_65.setIndent(-1)
+
+        self.gridLayout_10.addWidget(self.label_65, 3, 0, 1, 1)
+
+        self.label_57 = QLabel(self.gridLayoutWidget_9)
+        self.label_57.setObjectName(u"label_57")
+        sizePolicy.setHeightForWidth(self.label_57.sizePolicy().hasHeightForWidth())
+        self.label_57.setSizePolicy(sizePolicy)
+        self.label_57.setMinimumSize(QSize(0, 60))
+        self.label_57.setMaximumSize(QSize(150, 60))
+        self.label_57.setFont(font1)
+        self.label_57.setStyleSheet(u"QFrame {\n"
+"   background: none;\n"
+"   background-color: rgb(64, 64, 64);\n"
+"   color: rgb(255, 255, 255);\n"
+"   border-radius: 15px;\n"
+"   border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_57.setAlignment(Qt.AlignCenter)
+        self.label_57.setIndent(-1)
+
+        self.gridLayout_10.addWidget(self.label_57, 5, 0, 1, 1)
+
+        self.calib_offset7_field = QPushButton(self.gridLayoutWidget_9)
+        self.calib_offset7_field.setObjectName(u"calib_offset7_field")
+        self.calib_offset7_field.setEnabled(True)
+        self.calib_offset7_field.setMinimumSize(QSize(300, 60))
+        self.calib_offset7_field.setMaximumSize(QSize(300, 60))
+        self.calib_offset7_field.setFont(font1)
+        self.calib_offset7_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_10.addWidget(self.calib_offset7_field, 3, 1, 1, 1)
+
+        self.calib_offset8_field = QPushButton(self.gridLayoutWidget_9)
+        self.calib_offset8_field.setObjectName(u"calib_offset8_field")
+        self.calib_offset8_field.setEnabled(True)
+        self.calib_offset8_field.setMinimumSize(QSize(300, 60))
+        self.calib_offset8_field.setMaximumSize(QSize(300, 60))
+        self.calib_offset8_field.setFont(font1)
+        self.calib_offset8_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_10.addWidget(self.calib_offset8_field, 4, 1, 1, 1)
+
+        self.calib_gain7_field = QPushButton(self.gridLayoutWidget_9)
+        self.calib_gain7_field.setObjectName(u"calib_gain7_field")
+        self.calib_gain7_field.setEnabled(True)
+        self.calib_gain7_field.setMinimumSize(QSize(300, 60))
+        self.calib_gain7_field.setMaximumSize(QSize(300, 60))
+        self.calib_gain7_field.setFont(font1)
+        self.calib_gain7_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_10.addWidget(self.calib_gain7_field, 3, 2, 1, 1)
+
+        self.calib_offset_temp_field = QPushButton(self.gridLayoutWidget_9)
+        self.calib_offset_temp_field.setObjectName(u"calib_offset_temp_field")
+        self.calib_offset_temp_field.setEnabled(True)
+        self.calib_offset_temp_field.setMinimumSize(QSize(300, 60))
+        self.calib_offset_temp_field.setMaximumSize(QSize(300, 60))
+        self.calib_offset_temp_field.setFont(font1)
+        self.calib_offset_temp_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_10.addWidget(self.calib_offset_temp_field, 5, 1, 1, 1)
+
+        self.label_58 = QLabel(self.gridLayoutWidget_9)
+        self.label_58.setObjectName(u"label_58")
+        sizePolicy.setHeightForWidth(self.label_58.sizePolicy().hasHeightForWidth())
+        self.label_58.setSizePolicy(sizePolicy)
+        self.label_58.setMinimumSize(QSize(0, 60))
+        self.label_58.setMaximumSize(QSize(300, 60))
+        self.label_58.setFont(font2)
+        self.label_58.setStyleSheet(u"QFrame {\n"
+"   background: none;\n"
+"   background-color: rgb(64, 64, 64);\n"
+"   color: rgb(255, 255, 255);\n"
+"   border-radius: 15px;\n"
+"   border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_58.setAlignment(Qt.AlignCenter)
+        self.label_58.setIndent(-1)
+
+        self.gridLayout_10.addWidget(self.label_58, 0, 1, 1, 1)
+
+        self.label_63 = QLabel(self.gridLayoutWidget_9)
+        self.label_63.setObjectName(u"label_63")
+        sizePolicy.setHeightForWidth(self.label_63.sizePolicy().hasHeightForWidth())
+        self.label_63.setSizePolicy(sizePolicy)
+        self.label_63.setMinimumSize(QSize(0, 60))
+        self.label_63.setMaximumSize(QSize(300, 60))
+        self.label_63.setFont(font1)
+        self.label_63.setStyleSheet(u"QFrame {\n"
+"   background: none;\n"
+"   background-color: rgb(64, 64, 64);\n"
+"   color: rgb(255, 255, 255);\n"
+"   border-radius: 15px;\n"
+"   border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_63.setAlignment(Qt.AlignCenter)
+        self.label_63.setIndent(-1)
+
+        self.gridLayout_10.addWidget(self.label_63, 0, 2, 1, 1)
+
+        self.label_61 = QLabel(self.gridLayoutWidget_9)
+        self.label_61.setObjectName(u"label_61")
+        sizePolicy.setHeightForWidth(self.label_61.sizePolicy().hasHeightForWidth())
+        self.label_61.setSizePolicy(sizePolicy)
+        self.label_61.setMinimumSize(QSize(0, 60))
+        self.label_61.setMaximumSize(QSize(150, 60))
+        self.label_61.setFont(font1)
+        self.label_61.setStyleSheet(u"QFrame {\n"
+"   background: none;\n"
+"   background-color: rgb(64, 64, 64);\n"
+"   color: rgb(255, 255, 255);\n"
+"   border-radius: 15px;\n"
+"   border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_61.setAlignment(Qt.AlignCenter)
+        self.label_61.setIndent(-1)
+
+        self.gridLayout_10.addWidget(self.label_61, 0, 0, 1, 1)
+
+        self.calib_gain6_field = QPushButton(self.gridLayoutWidget_9)
+        self.calib_gain6_field.setObjectName(u"calib_gain6_field")
+        self.calib_gain6_field.setEnabled(True)
+        self.calib_gain6_field.setMinimumSize(QSize(300, 60))
+        self.calib_gain6_field.setMaximumSize(QSize(300, 60))
+        self.calib_gain6_field.setFont(font1)
+        self.calib_gain6_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_10.addWidget(self.calib_gain6_field, 2, 2, 1, 1)
+
+        self.calib_gain8_field = QPushButton(self.gridLayoutWidget_9)
+        self.calib_gain8_field.setObjectName(u"calib_gain8_field")
+        self.calib_gain8_field.setEnabled(True)
+        self.calib_gain8_field.setMinimumSize(QSize(300, 60))
+        self.calib_gain8_field.setMaximumSize(QSize(300, 60))
+        self.calib_gain8_field.setFont(font1)
+        self.calib_gain8_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout_10.addWidget(self.calib_gain8_field, 4, 2, 1, 1)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_10.addItem(self.verticalSpacer_2, 6, 1, 1, 1)
+
         self.config.raise_()
-        self.menu.raise_()
         self.keyboard.raise_()
+        self.comunication.raise_()
+        self.menu.raise_()
         self.calib.raise_()
+        self.calib_2.raise_()
         self.main.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -1754,11 +1903,12 @@ class Ui_MainWindow(object):
         self.menu_config_button.clicked.connect(self.config.raise_)
         self.menu_calib_button.clicked.connect(self.calib.raise_)
         self.menu_com_button.clicked.connect(self.comunication.raise_)
-        self.calib_back_button.clicked.connect(self.menu.raise_)
+        self.calib_next_button.clicked.connect(self.calib_2.raise_)
         self.com_back_button.clicked.connect(self.menu.raise_)
         self.config_back_button.clicked.connect(self.menu.raise_)
         self.main_home_button.clicked.connect(self.main.raise_)
         self.main_menu_button.clicked.connect(self.menu.raise_)
+        self.calib_back_button.clicked.connect(self.menu.raise_)
 
         self.config_data_rate_field.setCurrentIndex(0)
         self.main_scale_select.setCurrentIndex(0)
@@ -1771,34 +1921,25 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.label_36.setText(QCoreApplication.translate("MainWindow", u"8", None))
-        self.label_19.setText(QCoreApplication.translate("MainWindow", u"Offset", None))
-        self.label_31.setText(QCoreApplication.translate("MainWindow", u"3", None))
         self.label_33.setText(QCoreApplication.translate("MainWindow", u"5", None))
+        self.calib_offset3_field.setText("")
+        self.label_31.setText(QCoreApplication.translate("MainWindow", u"3", None))
+        self.calib_gain1_field.setText("")
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"1", None))
         self.label_18.setText(QCoreApplication.translate("MainWindow", u"Escala", None))
+        self.calib_next_button.setText(QCoreApplication.translate("MainWindow", u"PR\u00d3XIMO", None))
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"2", None))
+        self.calib_gain3_field.setText("")
         self.calib_offset2_field.setText("")
         self.calib_gain4_field.setText("")
-        self.label_17.setText(QCoreApplication.translate("MainWindow", u"2", None))
-        self.calib_gain7_field.setText("")
-        self.label_20.setText(QCoreApplication.translate("MainWindow", u"Ganho", None))
-        self.label_32.setText(QCoreApplication.translate("MainWindow", u"4", None))
-        self.calib_back_button.setText(QCoreApplication.translate("MainWindow", u"Salvar", None))
         self.calib_gain2_field.setText("")
-        self.calib_offset1_field.setText("")
-        self.calib_gain5_field.setText("")
-        self.label_34.setText(QCoreApplication.translate("MainWindow", u"6", None))
-        self.calib_gain8_field.setText("")
-        self.calib_offset8_field.setText("")
-        self.calib_offset7_field.setText("")
-        self.calib_gain6_field.setText("")
-        self.calib_gain1_field.setText("")
-        self.calib_gain3_field.setText("")
         self.calib_offset4_field.setText("")
-        self.label_35.setText(QCoreApplication.translate("MainWindow", u"7", None))
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"1", None))
+        self.label_19.setText(QCoreApplication.translate("MainWindow", u"Offset", None))
+        self.label_20.setText(QCoreApplication.translate("MainWindow", u"Ganho", None))
+        self.calib_gain5_field.setText("")
+        self.label_32.setText(QCoreApplication.translate("MainWindow", u"4", None))
+        self.calib_offset1_field.setText("")
         self.calib_offset5_field.setText("")
-        self.calib_offset6_field.setText("")
-        self.calib_offset3_field.setText("")
         self.com_port_field.setText(QCoreApplication.translate("MainWindow", u"4001", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"IP", None))
         self.com_ip_field.setText(QCoreApplication.translate("MainWindow", u"192.168.0.148", None))
@@ -1875,5 +2016,21 @@ class Ui_MainWindow(object):
         self.menu_com_button.setText(QCoreApplication.translate("MainWindow", u"Comunica\u00e7\u00e3o", None))
         self.menu_config_button.setText(QCoreApplication.translate("MainWindow", u"Configura\u00e7\u00e3o", None))
         self.main_home_button.setText(QCoreApplication.translate("MainWindow", u"VOLTAR", None))
+        self.calib_gain_temp_field.setText("")
+        self.label_60.setText(QCoreApplication.translate("MainWindow", u"6", None))
+        self.label_66.setText(QCoreApplication.translate("MainWindow", u"8", None))
+        self.calib_offset6_field.setText("")
+        self.calib_back_button.setText(QCoreApplication.translate("MainWindow", u"Salvar", None))
+        self.label_65.setText(QCoreApplication.translate("MainWindow", u"7", None))
+        self.label_57.setText(QCoreApplication.translate("MainWindow", u"TEMP", None))
+        self.calib_offset7_field.setText("")
+        self.calib_offset8_field.setText("")
+        self.calib_gain7_field.setText("")
+        self.calib_offset_temp_field.setText("")
+        self.label_58.setText(QCoreApplication.translate("MainWindow", u"Offset", None))
+        self.label_63.setText(QCoreApplication.translate("MainWindow", u"Ganho", None))
+        self.label_61.setText(QCoreApplication.translate("MainWindow", u"Escala", None))
+        self.calib_gain6_field.setText("")
+        self.calib_gain8_field.setText("")
     # retranslateUi
 

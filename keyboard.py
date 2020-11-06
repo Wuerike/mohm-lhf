@@ -39,6 +39,7 @@ class KEYBOARD(QtCore.QObject):
         self.window.calib_offset6_field.clicked.connect(self.keyboard_called)
         self.window.calib_offset7_field.clicked.connect(self.keyboard_called)
         self.window.calib_offset8_field.clicked.connect(self.keyboard_called)
+        self.window.calib_offset_temp_field.clicked.connect(self.keyboard_called)
         self.window.calib_gain1_field.clicked.connect(self.keyboard_called)
         self.window.calib_gain2_field.clicked.connect(self.keyboard_called)
         self.window.calib_gain3_field.clicked.connect(self.keyboard_called)
@@ -47,8 +48,9 @@ class KEYBOARD(QtCore.QObject):
         self.window.calib_gain6_field.clicked.connect(self.keyboard_called)
         self.window.calib_gain7_field.clicked.connect(self.keyboard_called)
         self.window.calib_gain8_field.clicked.connect(self.keyboard_called)
+        self.window.calib_gain_temp_field.clicked.connect(self.keyboard_called)
 
-        # in comunication who calls keyboard
+        # in communication who calls keyboard
         self.window.com_port_field.clicked.connect(self.keyboard_called)
 
         # in config who calls keyboard
@@ -56,12 +58,10 @@ class KEYBOARD(QtCore.QObject):
         self.window.config_aquisitions_field.clicked.connect(self.keyboard_called)
         self.window.config_stabilization_field.clicked.connect(self.keyboard_called)
 
-
     def keyboard_called(self):
         self.last_sender = self.sender()
         self.window.keyboard_field.setPlainText(self.last_sender.text())
         self.window.keyboard.raise_()
-
 
     def keyboard_add(self):
         sender = self.sender()
@@ -77,7 +77,6 @@ class KEYBOARD(QtCore.QObject):
         new_text = old_text + sender.text()
         self.window.keyboard_field.setPlainText(new_text)
 
-
     def keyboard_del(self):
         old_text = self.window.keyboard_field.toPlainText()       
         size = len(old_text)
@@ -90,7 +89,6 @@ class KEYBOARD(QtCore.QObject):
             new_text = old_text[:size-1]
         self.window.keyboard_field.setPlainText(new_text)
 
-
     def keyboard_enter(self):
         self.last_sender.setText(self.window.keyboard_field.toPlainText())
         self.window.keyboard.lower()
@@ -101,4 +99,3 @@ class KEYBOARD(QtCore.QObject):
 
         if (size<1):
             self.window.keyboard_field.setPlainText('-')
-        
