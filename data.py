@@ -1,6 +1,8 @@
 from PySide2 import QtCore
 import socket
+import shutil
 import json
+import os
 
 
 class DATA_MANAGEMENT(QtCore.QObject):
@@ -15,6 +17,7 @@ class DATA_MANAGEMENT(QtCore.QObject):
         self.window.com_back_button.clicked.connect(self.save_comunication)
         self.window.config_back_button.clicked.connect(self.save_config)
 
+        self.check_files()
         self.init_data()
 
     def get_ip_address(self):
@@ -27,6 +30,27 @@ class DATA_MANAGEMENT(QtCore.QObject):
         except:
             ip_address = "NO NETWORK"
         return ip_address
+
+    def check_files(self):
+        main = os.path.isfile('/home/pi/mohm-lhf/data/main.json')
+        calib = os.path.isfile('/home/pi/mohm-lhf/data/calib.json')
+        config = os.path.isfile('/home/pi/mohm-lhf/data/config.json')
+        communication = os.path.isfile('/home/pi/mohm-lhf/data/comunication.json')
+
+        if main and calib and config and communication:
+            #cria um backup dos arquivos existentes e retorna
+            shutil.copyfile('/home/pi/mohm-lhf/data/main.json', '/home/pi/mohm-lhf/data/main.bak')
+            shutil.copyfile('/home/pi/mohm-lhf/data/calib.json', '/home/pi/mohm-lhf/data/calib.bak')
+            shutil.copyfile('/home/pi/mohm-lhf/data/config.json', '/home/pi/mohm-lhf/data/config.bak')
+            shutil.copyfile('/home/pi/mohm-lhf/data/comunication.json', '/home/pi/mohm-lhf/data/comunication.bak')
+            return
+        else:
+            #copia os arquivos de backup e retorna
+            shutil.copyfile('/home/pi/mohm-lhf/data/main.bak', '/home/pi/mohm-lhf/data/main.json')
+            shutil.copyfile('/home/pi/mohm-lhf/data/calib.bak', '/home/pi/mohm-lhf/data/calib.json')
+            shutil.copyfile('/home/pi/mohm-lhf/data/config.bak', '/home/pi/mohm-lhf/data/config.json')
+            shutil.copyfile('/home/pi/mohm-lhf/data/comunication.bak', '/home/pi/mohm-lhf/data/comunication.json')
+            return
 
     def init_data(self):
         with open('/home/pi/mohm-lhf/data/main.json') as main_file:

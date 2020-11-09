@@ -5,6 +5,7 @@ import json
 from time import sleep
 
 mohm = OHMIMETRO()
+mohm.ads_calib()
 
 
 class ButtonWorker(QtCore.QObject):
@@ -39,7 +40,6 @@ class TemperatureWorker(QtCore.QObject):
 
 
 class MEASUREMENT(QtCore.QObject):
-    mohm.ads_calib()
 
     button_worker_init = QtCore.Signal()
     temperature_worker_init = QtCore.Signal()
@@ -212,6 +212,8 @@ class MEASUREMENT(QtCore.QObject):
     def do_measurement(self):
         locker = QtCore.QMutexLocker(self.mutex)
 
+        mohm.ads_calib()
+
         # Get test parameters
         scale = self.window.main_scale_select.currentIndex()
         data_rate = self.window.config_data_rate_field.currentIndex()
@@ -296,7 +298,7 @@ class MEASUREMENT(QtCore.QObject):
         temperature = mohm.get_temperature()
 
         temperature = float(offset_gain[0]) + float(offset_gain[1]) * temperature
-        self.window.setup_actual_temp_field.setText("%.2f" % temperature)
+        self.window.setup_actual_temp_field.setText("%.1f" % temperature)
 
     def get_material_factor(self):
         material = self.window.config_material_field.currentIndex()
