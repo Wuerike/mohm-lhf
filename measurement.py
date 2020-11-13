@@ -153,51 +153,65 @@ class MEASUREMENT(QtCore.QObject):
                 value = value * self.MIL
                 return "%.4fmΩ" % value
             else:
-                return "Out Limit"
+                return "Limite Inf."
 
         elif scale == 2:
-            if value < self.DEZ_MILI:
+            if value > self.UM_MILI and value < self.DEZ_MILI:
                 value = value * self.MIL
                 return "%.3fmΩ" % value
+            elif value < self.UM_MILI:
+                return "Limite Inf."
             else:
-                return "Out Limit"
+                return "Limite Sup."
 
         elif scale == 3:
-            if value < self.CEM_MILI:
+            if value > self.DEZ_MILI and value < self.CEM_MILI:
                 value = value * self.MIL
                 return "%.2fmΩ" % value
+            elif value < self.DEZ_MILI:
+                return "Limite Inf."
             else:
-                return "Out Limit"
+                return "Limite Sup."
 
         elif scale == 4:
-            if value < self.UM:
+            if value > self.CEM_MILI and value < self.UM:
                 return "%.4fΩ" % value
+            elif value < self.CEM_MILI:
+                return "Limite Inf."
             else:
-                return "Out Limit"
+                return "Limite Sup."
 
         elif scale == 5:
-            if value < self.DEZ:
+            if value > self.UM and value < self.DEZ:
                 return "%.3fΩ" % value
+            elif value < self.UM:
+                return "Limite Inf."
             else:
-                return "Out Limit"
+                return "Limite Sup."
 
         elif scale == 6:
-            if value < self.CEM:
+            if value > self.DEZ and value < self.CEM:
                 return "%.2fΩ" % value
+            elif value < self.DEZ:
+                return "Limite Inf."
             else:
-                return "Out Limit"
+                return "Limite Sup."
 
         elif scale == 7:
-            if value < self.MIL:
+            if value > self.CEM and value < self.MIL:
                 return "%.1fΩ" % value
+            elif value < self.CEM:
+                return "Limite Inf."
             else:
-                return "Out Limit"
+                return "Limite Sup."
 
         elif scale == 8:
-            if value < self.DEZ_MIL:
-                return "%fΩ" % value
+            if value > self.MIL and value < self.DEZ_MIL:
+                return "%.fΩ" % value
+            elif value < self.MIL:
+                return "Limite Inf."
             else:
-                return "Out Limit"
+                return "Limite Sup."
 
         else:
             return "ERROR"

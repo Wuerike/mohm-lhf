@@ -138,7 +138,7 @@ class OHMIMETRO(object):
         scale = ESC_1
         while scale <= ESC_8:
             mean_voltage, mean_current = self.get_analog_values(scale, data_rate, stabilization, acquisitions)
-            if mean_voltage <= 4.9:
+            if (mean_voltage <= 4.9 and scale!=ESC_2) or (mean_voltage <= 1 and scale==ESC_2):
                 print(" --- Escala selecionada: ", scale)
                 return scale
             else:
