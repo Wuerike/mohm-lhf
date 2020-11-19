@@ -34,6 +34,7 @@ class DATA_MANAGEMENT(QtCore.QObject):
     def check_files(self):
         main = os.path.isfile('/home/pi/mohm-lhf/data/main.json')
         calib = os.path.isfile('/home/pi/mohm-lhf/data/calib.json')
+        factory_calib = os.path.isfile('/home/pi/mohm-lhf/data/factory_calib.json')
         config = os.path.isfile('/home/pi/mohm-lhf/data/config.json')
         communication = os.path.isfile('/home/pi/mohm-lhf/data/comunication.json')
 
@@ -41,6 +42,7 @@ class DATA_MANAGEMENT(QtCore.QObject):
             #cria um backup dos arquivos existentes e retorna
             shutil.copyfile('/home/pi/mohm-lhf/data/main.json', '/home/pi/mohm-lhf/data/main.bak')
             shutil.copyfile('/home/pi/mohm-lhf/data/calib.json', '/home/pi/mohm-lhf/data/calib.bak')
+            shutil.copyfile('/home/pi/mohm-lhf/data/factory_calib.json', '/home/pi/mohm-lhf/data/factory_calib.bak')
             shutil.copyfile('/home/pi/mohm-lhf/data/config.json', '/home/pi/mohm-lhf/data/config.bak')
             shutil.copyfile('/home/pi/mohm-lhf/data/comunication.json', '/home/pi/mohm-lhf/data/comunication.bak')
             return
@@ -48,6 +50,7 @@ class DATA_MANAGEMENT(QtCore.QObject):
             #copia os arquivos de backup e retorna
             shutil.copyfile('/home/pi/mohm-lhf/data/main.bak', '/home/pi/mohm-lhf/data/main.json')
             shutil.copyfile('/home/pi/mohm-lhf/data/calib.bak', '/home/pi/mohm-lhf/data/calib.json')
+            shutil.copyfile('/home/pi/mohm-lhf/data/factory_calib.bak', '/home/pi/mohm-lhf/data/factory_calib.json')
             shutil.copyfile('/home/pi/mohm-lhf/data/config.bak', '/home/pi/mohm-lhf/data/config.json')
             shutil.copyfile('/home/pi/mohm-lhf/data/comunication.bak', '/home/pi/mohm-lhf/data/comunication.json')
             return

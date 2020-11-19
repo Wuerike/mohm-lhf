@@ -223,6 +223,13 @@ class MEASUREMENT(QtCore.QObject):
             gain = per_scale_calib_data[int(position)]['gain']
             return offset, gain
 
+    def read_factory_calib(self, position):
+        with open('/home/pi/mohm-lhf/data/factory_calib.json') as factory_calib_file:
+            per_scale_calib_data = json.load(factory_calib_file)
+            offset = per_scale_calib_data[int(position)]['offset']
+            gain = per_scale_calib_data[int(position)]['gain']
+            return offset, gain
+
     def do_measurement(self):
         locker = QtCore.QMutexLocker(self.mutex)
 
@@ -237,17 +244,28 @@ class MEASUREMENT(QtCore.QObject):
         print("#####################")
         print("Escala: ", scale, "Taxa: ", data_rate, "Estabilização: ", stabilization, "Aquisições: ", acquisitions)
 
+        # Read resistance
         resistance, scale = mohm.do_measurement(scale, data_rate, stabilization, acquisitions)
-        offset_gain = self.read_one_calib(scale)
-        resistance_calib = float(offset_gain[0]) + float(offset_gain[1]) * resistance
+
+        # Apply factory calib factors
+        factory_offset_gain = self.read_factory_calib(scale)
+        resistance_factory_calib = float(factory_offset_gain[0]) + float(factory_offset_gain[1]) * resistance
+
+        # Apply user calib factors
+        user_offset_gain = self.read_one_calib(scale)
+        resistance_calib = float(user_offset_gain[0]) + float(user_offset_gain[1]) * resistance_factory_calib
+
+        # Apply temperature compensation
         actual_temp = float(self.window.setup_actual_temp_field.text())
         ref_temp = float(self.window.config_temp_ref_field.text())
         material_factor = self.get_material_factor()
         resistance_temp_adjusted = resistance_calib * (1 + material_factor * (ref_temp - actual_temp))
 
+        # Print on log
         print("Temperatura: ", actual_temp)
         print("Resistencia calibrada: ", resistance_temp_adjusted)
 
+        # Set resistance field
         resistance_text = self.resistance_format(resistance_temp_adjusted, scale)
         self.window.main_resistance_field.setText(resistance_text)
         self.add_to_measurement_table(resistance_text)
@@ -304,14 +322,14 @@ class MEASUREMENT(QtCore.QObject):
         locker = QtCore.QMutexLocker(self.mutex)
 
         temp_calib_position = 9
-        offset_gain = self.read_one_calib(temp_calib_position)
+        user_offset_gain = self.read_one_calib(temp_calib_position)
 
         # Done 3 times to avoid temp error after measuring resistance
         temperature = mohm.get_temperature()
         temperature = mohm.get_temperature()
         temperature = mohm.get_temperature()
 
-        temperature = float(offset_gain[0]) + float(offset_gain[1]) * temperature
+        temperature = float(user_offset_gain[0]) + float(user_offset_gain[1]) * temperature
         self.window.setup_actual_temp_field.setText("%.1f" % temperature)
 
     def get_material_factor(self):
