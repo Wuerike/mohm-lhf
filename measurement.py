@@ -323,7 +323,8 @@ class MEASUREMENT(QtCore.QObject):
 
         temp_calib_position = 9
         user_offset_gain = self.read_one_calib(temp_calib_position)
-
+        # Define the data rate to 25 SPS when measuring temperature
+        mohm.set_data_rate('1')
         # Done 3 times to avoid temp error after measuring resistance
         temperature = mohm.get_temperature()
         temperature = mohm.get_temperature()
