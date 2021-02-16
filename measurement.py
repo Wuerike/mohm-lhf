@@ -5,8 +5,6 @@ import json
 from time import sleep
 
 mohm = OHMIMETRO()
-mohm.ads_calib()
-
 
 class ButtonWorker(QtCore.QObject):
     measure = QtCore.Signal()
@@ -24,7 +22,7 @@ class ButtonWorker(QtCore.QObject):
                 self.measure.emit()
             sleep(0.05)
 
-
+''' Temp measurement thread disabled
 class TemperatureWorker(QtCore.QObject):
     get_temperature = QtCore.Signal()
 
@@ -37,12 +35,12 @@ class TemperatureWorker(QtCore.QObject):
         while True:
             self.get_temperature.emit()
             sleep(1)
-
+'''
 
 class MEASUREMENT(QtCore.QObject):
 
     button_worker_init = QtCore.Signal()
-    temperature_worker_init = QtCore.Signal()
+    #temperature_worker_init = QtCore.Signal()
 
     def __init__(self, window):
         super(MEASUREMENT, self).__init__()
@@ -59,7 +57,6 @@ class MEASUREMENT(QtCore.QObject):
         self.MIL = 1000
         self.DEZ_MIL = 10000
 
-        self.mutex = QtCore.QMutex()
         self.next_res_field = None
 
         # New thread creation to the button worker class
@@ -73,14 +70,14 @@ class MEASUREMENT(QtCore.QObject):
         self.button_worker_init.connect(self.button_worker.start_button_check)
 
         # New thread creation to the temperature worker class
-        self.temperature_thread = QtCore.QThread(self)
-        self.temperature_thread.start()
-        self.temperature_worker = TemperatureWorker()
-        self.temperature_worker.moveToThread(self.temperature_thread)
+        #self.temperature_thread = QtCore.QThread(self)
+        #self.temperature_thread.start()
+        #self.temperature_worker = TemperatureWorker()
+        #self.temperature_worker.moveToThread(self.temperature_thread)
         # from worker signal connection
-        self.temperature_worker.get_temperature.connect(self.get_temperature)
+        #self.temperature_worker.get_temperature.connect(self.get_temperature)
         # to worker signal connection
-        self.temperature_worker_init.connect(self.temperature_worker.start_temp_measurement)
+        #self.temperature_worker_init.connect(self.temperature_worker.start_temp_measurement)
 
         # GUI buttons signals connection
         self.window.main_test_button.clicked.connect(self.do_measurement)
@@ -91,7 +88,7 @@ class MEASUREMENT(QtCore.QObject):
 
         # Emit workers init signal
         self.button_worker_init.emit()
-        self.temperature_worker_init.emit()
+        #self.temperature_worker_init.emit()
 
         # Hide the individual test mode on starting
         self.window.individual_test_frame.hide()
@@ -231,9 +228,8 @@ class MEASUREMENT(QtCore.QObject):
             return offset, gain
 
     def do_measurement(self):
-        locker = QtCore.QMutexLocker(self.mutex)
 
-        mohm.ads_calib()
+        self.get_temperature()
 
         # Get test parameters
         scale = self.window.main_scale_select.currentIndex()
@@ -318,8 +314,7 @@ class MEASUREMENT(QtCore.QObject):
             self.window.main_last_res_error_field.setText(max_error+"%")
 
     def get_temperature(self):
-        locker = QtCore.QMutexLocker(self.mutex)
-
+        # Gets temperature calibration factors
         temp_calib_position = 9
         user_offset_gain = self.read_one_calib(temp_calib_position)
 
