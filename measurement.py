@@ -237,15 +237,14 @@ class MEASUREMENT(QtCore.QObject):
 
         # Get test parameters
         scale = self.window.main_scale_select.currentIndex()
-        data_rate = self.window.config_data_rate_field.currentIndex()
         stabilization = float(self.window.config_stabilization_field.text())
         acquisitions = int(self.window.config_aquisitions_field.text())
 
         print("#####################")
-        print("Escala: ", scale, "Taxa: ", data_rate, "Estabilização: ", stabilization, "Aquisições: ", acquisitions)
+        print("Escala: ", scale, "Estabilização: ", stabilization, "Aquisições: ", acquisitions)
 
         # Read resistance
-        resistance, scale = mohm.do_measurement(scale, data_rate, stabilization, acquisitions)
+        resistance, scale = mohm.do_measurement(scale, stabilization, acquisitions)
 
         # Apply factory calib factors
         factory_offset_gain = self.read_factory_calib(scale)
@@ -323,8 +322,7 @@ class MEASUREMENT(QtCore.QObject):
 
         temp_calib_position = 9
         user_offset_gain = self.read_one_calib(temp_calib_position)
-        # Define the data rate to 25 SPS when measuring temperature
-        mohm.set_data_rate('1')
+
         # Done 3 times to avoid temp error after measuring resistance
         temperature = mohm.get_temperature()
         temperature = mohm.get_temperature()

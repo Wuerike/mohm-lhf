@@ -91,7 +91,6 @@ class DATA_MANAGEMENT(QtCore.QObject):
             config_data = json.load(config_file)
 
             self.window.config_temp_ref_field.setText(config_data['temp-ref'])
-            self.window.config_data_rate_field.setCurrentIndex(config_data['data-rate'])
             self.window.config_aquisitions_field.setText(config_data['aquisitions'])
             self.window.config_stabilization_field.setText(config_data['stabilization'])
 
@@ -161,7 +160,6 @@ class DATA_MANAGEMENT(QtCore.QObject):
     def save_config(self):
         config_data = {
             "temp-ref": self.window.config_temp_ref_field.text(),
-            "data-rate": self.window.config_data_rate_field.currentIndex(), 
             "aquisitions": self.window.config_aquisitions_field.text(), 
             "stabilization": self.window.config_stabilization_field.text()
         }

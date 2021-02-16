@@ -112,17 +112,15 @@ class MODBUS(QtCore.QObject):
             self.window.config_material_field.setCurrentIndex(value)
 
         elif (regNum == '3'):
-            value = 0 if ((value<0) or (value>4)) else value
-            self.window.config_data_rate_field.setCurrentIndex(value)
-
-        elif (regNum == '4'):
             value = 1 if ((value<1) or (value>50)) else value
             self.window.config_aquisitions_field.setText(str(value))
 
-        elif (regNum == '5'):
+        elif (regNum == '4'):
             value = 500 if ((value<1) or (value>10000)) else value
             self.window.config_stabilization_field.setText(str(value/1000))
 
+        elif (regNum == '5'):
+            pass
         elif (regNum == '6'):
             pass
         elif (regNum == '7'):
@@ -161,15 +159,12 @@ class MODBUS(QtCore.QObject):
             value = self.window.config_material_field.currentIndex()
 
         elif (regNum == '5'):
-            value = self.window.config_data_rate_field.currentIndex()
-
-        elif (regNum == '6'):
             value = int(self.window.config_aquisitions_field.text())
 
-        elif (regNum == '7'):
+        elif (regNum == '6'):
             value = int(float(self.window.config_stabilization_field.text())*1000)
 
-        elif (regNum == '8'):
+        elif (regNum == '7'):
             value = self.temperature
 
         self.worker.setInputReg(value)

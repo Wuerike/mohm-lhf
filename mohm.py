@@ -83,23 +83,13 @@ class OHMIMETRO(object):
         }
         return ganhos_escala.get(escala, (0, 0))
 
-    # compensates the each shunt and the INA's fixed gain
-    def set_data_rate(self, data_rate):
-        data_rate = str(data_rate)
-        rate_options = {
-            '0': DRATE_2_5,
-            '1': DRATE_5,
-            '2': DRATE_10,
-            '3': DRATE_15,
-            '4': DRATE_25,
-            '5': DRATE_100,
-        }
+    # set the data rate to fixed value of 15SPS
+    def set_data_rate(self):
+        ads.drate = DRATE_15
 
-        ads.drate = rate_options.get(data_rate, DRATE_2_5)
-
-    def get_analog_values(self, scale, data_rate, stabilization, acquisitions):
+    def get_analog_values(self, scale, stabilization, acquisitions):
         # Config data acquisition rate
-        self.set_data_rate(data_rate)
+        self.set_data_rate()
 
         # Select the ohmmeters measurement range
         self.range_select(scale)
@@ -133,11 +123,11 @@ class OHMIMETRO(object):
         return mean_voltage, mean_current
 
     # Auto scale routine
-    def auto_scale_selection(self, data_rate, stabilization, acquisitions):
+    def auto_scale_selection(self, stabilization, acquisitions):
         print(" ---- Realizando seleção de escala automatica ----")
         scale = ESC_1
         while scale <= ESC_8:
-            mean_voltage, mean_current = self.get_analog_values(scale, data_rate, stabilization, acquisitions)
+            mean_voltage, mean_current = self.get_analog_values(scale, stabilization, acquisitions)
             if (mean_voltage <= 4.9 and scale!=ESC_2) or (mean_voltage <= 1 and scale==ESC_2):
                 print(" --- Escala selecionada: ", scale)
                 return scale
@@ -146,12 +136,12 @@ class OHMIMETRO(object):
         return ESC_8
 
     # Resistance measurement routine
-    def do_measurement(self, scale, data_rate, stabilization, acquisitions):
+    def do_measurement(self, scale, stabilization, acquisitions):
 
         if(scale == ESC_OFF):
-            scale = self.auto_scale_selection('2', stabilization, 1)
+            scale = self.auto_scale_selection(stabilization, acquisitions)
 
-        mean_voltage, mean_current = self.get_analog_values(scale, data_rate, stabilization, acquisitions)
+        mean_voltage, mean_current = self.get_analog_values(scale, stabilization, acquisitions)
 
         # Calculate the resistance and the calibrated resistance
         # Uses the INA146/145 gain to find the real voltages before they be amplified
@@ -169,6 +159,8 @@ class OHMIMETRO(object):
         return resistance, scale
 
     def get_temperature(self):
+        self.set_data_rate()
+        self.ads_calib()
         temperature_raw = ads.read_oneshot(TEMPERATURE_CHANNEL)
         temperature_voltage = temperature_raw * ads.v_per_digit
         temperature = 100*temperature_voltage
