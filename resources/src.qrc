@@ -1,0 +1,20 @@
+<RCC>
+  <qresource prefix="main">
+    <file>home_default.png</file>
+    <file>bg_larger.png</file>
+    <file>home_disabled.png</file>
+    <file>home_selected.png</file>
+    <file>inicio_default.png</file>
+    <file>inicio_disabled.png</file>
+    <file>inicio_selected.png</file>
+    <file>setup_default.png</file>
+    <file>setup_disabled.png</file>
+    <file>setup_selected.png</file>
+    <file>arrow_down_black.png</file>
+    <file>arrow_down_white.png</file>
+    <file>calib.png</file>
+    <file>comunicacao.png</file>
+    <file>config.png</file>
+    <file>bg.png</file>
+  </qresource>
+</RCC>

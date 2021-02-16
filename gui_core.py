@@ -26,12 +26,12 @@ class Ui_MainWindow(object):
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"QFrame {\n"
-"   background-color: rgb(0, 0, 0);\n"
-"   border: none;\n"
+"	background-color: rgb(0, 0, 0);\n"
+"	border: none;\n"
 "};\n"
 "\n"
 "QPushButton{\n"
-"   border: none;\n"
+"	border: none;\n"
 "}")
         self.frame = QFrame(self.centralwidget)
         self.frame.setObjectName(u"frame")
@@ -43,7 +43,7 @@ class Ui_MainWindow(object):
         self.calib.setObjectName(u"calib")
         self.calib.setGeometry(QRect(0, 0, 1024, 600))
         self.calib.setStyleSheet(u"QFrame {\n"
-"   background-image: url(:/main/bg_larger.png);\n"
+"	background-image: url(:/main/bg_larger.png);\n"
 "};")
         self.calib.setFrameShape(QFrame.StyledPanel)
         self.calib.setFrameShadow(QFrame.Raised)
@@ -51,7 +51,7 @@ class Ui_MainWindow(object):
         self.frame_14.setObjectName(u"frame_14")
         self.frame_14.setGeometry(QRect(106, 20, 811, 551))
         self.frame_14.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
+"	background: none;\n"
 "};")
         self.frame_14.setFrameShape(QFrame.StyledPanel)
         self.frame_14.setFrameShadow(QFrame.Raised)
@@ -80,11 +80,11 @@ class Ui_MainWindow(object):
         font1.setWeight(75)
         self.label_33.setFont(font1)
         self.label_33.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_33.setAlignment(Qt.AlignCenter)
         self.label_33.setIndent(-1)
@@ -112,11 +112,11 @@ class Ui_MainWindow(object):
         self.label_31.setMaximumSize(QSize(150, 60))
         self.label_31.setFont(font1)
         self.label_31.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_31.setAlignment(Qt.AlignCenter)
         self.label_31.setIndent(-1)
@@ -144,11 +144,11 @@ class Ui_MainWindow(object):
         self.label_16.setMaximumSize(QSize(150, 60))
         self.label_16.setFont(font1)
         self.label_16.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_16.setAlignment(Qt.AlignCenter)
         self.label_16.setIndent(-1)
@@ -163,11 +163,11 @@ class Ui_MainWindow(object):
         self.label_18.setMaximumSize(QSize(150, 60))
         self.label_18.setFont(font1)
         self.label_18.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_18.setAlignment(Qt.AlignCenter)
         self.label_18.setIndent(-1)
@@ -196,11 +196,11 @@ class Ui_MainWindow(object):
         self.label_17.setMaximumSize(QSize(150, 60))
         self.label_17.setFont(font1)
         self.label_17.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_17.setAlignment(Qt.AlignCenter)
         self.label_17.setIndent(-1)
@@ -284,11 +284,11 @@ class Ui_MainWindow(object):
         font2.setWeight(75)
         self.label_19.setFont(font2)
         self.label_19.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_19.setAlignment(Qt.AlignCenter)
         self.label_19.setIndent(-1)
@@ -303,11 +303,11 @@ class Ui_MainWindow(object):
         self.label_20.setMaximumSize(QSize(300, 60))
         self.label_20.setFont(font1)
         self.label_20.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_20.setAlignment(Qt.AlignCenter)
         self.label_20.setIndent(-1)
@@ -335,11 +335,11 @@ class Ui_MainWindow(object):
         self.label_32.setMaximumSize(QSize(150, 60))
         self.label_32.setFont(font1)
         self.label_32.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_32.setAlignment(Qt.AlignCenter)
         self.label_32.setIndent(-1)
@@ -380,7 +380,7 @@ class Ui_MainWindow(object):
         self.comunication.setObjectName(u"comunication")
         self.comunication.setGeometry(QRect(0, 0, 1024, 600))
         self.comunication.setStyleSheet(u"QFrame {\n"
-"   background-image: url(:/main/bg_larger.png);\n"
+"	background-image: url(:/main/bg_larger.png);\n"
 "};")
         self.comunication.setFrameShape(QFrame.StyledPanel)
         self.comunication.setFrameShadow(QFrame.Raised)
@@ -388,7 +388,7 @@ class Ui_MainWindow(object):
         self.frame_13.setObjectName(u"frame_13")
         self.frame_13.setGeometry(QRect(212, 150, 600, 300))
         self.frame_13.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
+"	background: none;\n"
 "};")
         self.frame_13.setFrameShape(QFrame.StyledPanel)
         self.frame_13.setFrameShadow(QFrame.Raised)
@@ -419,11 +419,11 @@ class Ui_MainWindow(object):
         self.label_14.setMaximumSize(QSize(150, 75))
         self.label_14.setFont(font2)
         self.label_14.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_14.setAlignment(Qt.AlignCenter)
         self.label_14.setIndent(-1)
@@ -451,11 +451,11 @@ class Ui_MainWindow(object):
         self.label_15.setMaximumSize(QSize(150, 75))
         self.label_15.setFont(font2)
         self.label_15.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_15.setAlignment(Qt.AlignCenter)
         self.label_15.setIndent(-1)
@@ -480,7 +480,7 @@ class Ui_MainWindow(object):
         self.config.setObjectName(u"config")
         self.config.setGeometry(QRect(0, 0, 1024, 600))
         self.config.setStyleSheet(u"QFrame {\n"
-"   background-image: url(:/main/bg_larger.png);\n"
+"	background-image: url(:/main/bg_larger.png);\n"
 "};")
         self.config.setFrameShape(QFrame.StyledPanel)
         self.config.setFrameShadow(QFrame.Raised)
@@ -488,7 +488,7 @@ class Ui_MainWindow(object):
         self.frame_7.setObjectName(u"frame_7")
         self.frame_7.setGeometry(QRect(152, 85, 720, 430))
         self.frame_7.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
+"	background: none;\n"
 "};")
         self.frame_7.setFrameShape(QFrame.StyledPanel)
         self.frame_7.setFrameShadow(QFrame.Raised)
@@ -498,85 +498,24 @@ class Ui_MainWindow(object):
         self.gridLayout = QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.frame_9 = QFrame(self.gridLayoutWidget)
-        self.frame_9.setObjectName(u"frame_9")
-        self.frame_9.setStyleSheet(u"QComboBox QAbstractItemView {\n"
-"    selection-background-color: #B5BD00;\n"
-"    background-color: #B5BD00;\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid #B5BD00;\n"
-"}\n"
-"\n"
-"QFrame{\n"
-"   background-color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"}\n"
-"\n"
-"")
-        self.frame_9.setFrameShape(QFrame.StyledPanel)
-        self.frame_9.setFrameShadow(QFrame.Raised)
-        self.config_data_rate_field = QComboBox(self.frame_9)
-        self.config_data_rate_field.addItem("")
-        self.config_data_rate_field.addItem("")
-        self.config_data_rate_field.addItem("")
-        self.config_data_rate_field.addItem("")
-        self.config_data_rate_field.addItem("")
-        self.config_data_rate_field.setObjectName(u"config_data_rate_field")
-        self.config_data_rate_field.setGeometry(QRect(0, 10, 200, 50))
-        self.config_data_rate_field.setMinimumSize(QSize(0, 50))
-        self.config_data_rate_field.setMaximumSize(QSize(200, 50))
-        font3 = QFont()
-        font3.setPointSize(25)
-        font3.setBold(True)
-        font3.setUnderline(False)
-        font3.setWeight(75)
-        font3.setKerning(True)
-        self.config_data_rate_field.setFont(font3)
-        self.config_data_rate_field.setFocusPolicy(Qt.NoFocus)
-        self.config_data_rate_field.setStyleSheet(u"QComboBox {\n"
-"   color: rgb(0, 0, 0);\n"
-"   background-color: rgb(255, 255, 255);\n"
-"   border: none;\n"
-"   border-radius: 15px;\n"
-"    padding: 1px 0px 1px 10px; /* This (useless) line resolves a bug with the font color */\n"
-"}\n"
-"\n"
-"QComboBox::drop-down {\n"
-"    width: 140px;\n"
-"    border:0px; /* This seems to replace the whole arrow of the combo box */\n"
-"    margin-right:-47px;\n"
-"    margin-left: -65px;\n"
-"}\n"
-"\n"
-"/* Define a new custom arrow icon for the combo box */\n"
-"QComboBox::down-arrow {\n"
-"   image: url(:/main/arrow_down_black.png);\n"
-"   width: 25px;\n"
-"    height: 25px;\n"
-"}")
-        self.config_data_rate_field.setMaxVisibleItems(8)
-        self.config_data_rate_field.setFrame(True)
-
-        self.gridLayout.addWidget(self.frame_9, 1, 1, 1, 1)
-
-        self.label_5 = QLabel(self.gridLayoutWidget)
-        self.label_5.setObjectName(u"label_5")
-        sizePolicy.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
-        self.label_5.setSizePolicy(sizePolicy)
-        self.label_5.setMinimumSize(QSize(220, 75))
-        self.label_5.setMaximumSize(QSize(600, 75))
-        self.label_5.setFont(font2)
-        self.label_5.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+        self.label_6 = QLabel(self.gridLayoutWidget)
+        self.label_6.setObjectName(u"label_6")
+        sizePolicy.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
+        self.label_6.setSizePolicy(sizePolicy)
+        self.label_6.setMinimumSize(QSize(220, 75))
+        self.label_6.setMaximumSize(QSize(600, 75))
+        self.label_6.setFont(font2)
+        self.label_6.setStyleSheet(u"QFrame {\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
-        self.label_5.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.label_5.setIndent(-1)
+        self.label_6.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_6.setIndent(-1)
 
-        self.gridLayout.addWidget(self.label_5, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_6, 1, 0, 1, 1)
 
         self.label_7 = QLabel(self.gridLayoutWidget)
         self.label_7.setObjectName(u"label_7")
@@ -586,48 +525,16 @@ class Ui_MainWindow(object):
         self.label_7.setMaximumSize(QSize(600, 75))
         self.label_7.setFont(font2)
         self.label_7.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_7.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.label_7.setIndent(-1)
 
-        self.gridLayout.addWidget(self.label_7, 3, 0, 1, 1)
-
-        self.config_aquisitions_field = QPushButton(self.gridLayoutWidget)
-        self.config_aquisitions_field.setObjectName(u"config_aquisitions_field")
-        self.config_aquisitions_field.setEnabled(True)
-        self.config_aquisitions_field.setMinimumSize(QSize(0, 75))
-        self.config_aquisitions_field.setMaximumSize(QSize(200, 75))
-        self.config_aquisitions_field.setFont(font2)
-        self.config_aquisitions_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout.addWidget(self.config_aquisitions_field, 2, 1, 1, 1)
-
-        self.label_3 = QLabel(self.gridLayoutWidget)
-        self.label_3.setObjectName(u"label_3")
-        sizePolicy.setHeightForWidth(self.label_3.sizePolicy().hasHeightForWidth())
-        self.label_3.setSizePolicy(sizePolicy)
-        self.label_3.setMinimumSize(QSize(220, 75))
-        self.label_3.setMaximumSize(QSize(500, 75))
-        self.label_3.setFont(font2)
-        self.label_3.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
-"};")
-        self.label_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.label_3.setIndent(-1)
-
-        self.gridLayout.addWidget(self.label_3, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_7, 2, 0, 1, 1)
 
         self.config_back_button = QPushButton(self.gridLayoutWidget)
         self.config_back_button.setObjectName(u"config_back_button")
@@ -641,39 +548,7 @@ class Ui_MainWindow(object):
 "border-radius: 15px;")
         self.config_back_button.setIconSize(QSize(25, 25))
 
-        self.gridLayout.addWidget(self.config_back_button, 4, 1, 1, 1)
-
-        self.config_stabilization_field = QPushButton(self.gridLayoutWidget)
-        self.config_stabilization_field.setObjectName(u"config_stabilization_field")
-        self.config_stabilization_field.setEnabled(True)
-        self.config_stabilization_field.setMinimumSize(QSize(0, 75))
-        self.config_stabilization_field.setMaximumSize(QSize(200, 75))
-        self.config_stabilization_field.setFont(font2)
-        self.config_stabilization_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"border-radius: 15px;")
-
-        self.gridLayout.addWidget(self.config_stabilization_field, 3, 1, 1, 1)
-
-        self.label_6 = QLabel(self.gridLayoutWidget)
-        self.label_6.setObjectName(u"label_6")
-        sizePolicy.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
-        self.label_6.setSizePolicy(sizePolicy)
-        self.label_6.setMinimumSize(QSize(220, 75))
-        self.label_6.setMaximumSize(QSize(600, 75))
-        self.label_6.setFont(font2)
-        self.label_6.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
-"};")
-        self.label_6.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.label_6.setIndent(-1)
-
-        self.gridLayout.addWidget(self.label_6, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.config_back_button, 3, 1, 1, 1)
 
         self.config_temp_ref_field = QPushButton(self.gridLayoutWidget)
         self.config_temp_ref_field.setObjectName(u"config_temp_ref_field")
@@ -688,11 +563,70 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.config_temp_ref_field, 0, 1, 1, 1)
 
+        self.config_aquisitions_field = QPushButton(self.gridLayoutWidget)
+        self.config_aquisitions_field.setObjectName(u"config_aquisitions_field")
+        self.config_aquisitions_field.setEnabled(True)
+        self.config_aquisitions_field.setMinimumSize(QSize(0, 75))
+        self.config_aquisitions_field.setMaximumSize(QSize(200, 75))
+        self.config_aquisitions_field.setFont(font2)
+        self.config_aquisitions_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout.addWidget(self.config_aquisitions_field, 1, 1, 1, 1)
+
+        self.config_stabilization_field = QPushButton(self.gridLayoutWidget)
+        self.config_stabilization_field.setObjectName(u"config_stabilization_field")
+        self.config_stabilization_field.setEnabled(True)
+        self.config_stabilization_field.setMinimumSize(QSize(0, 75))
+        self.config_stabilization_field.setMaximumSize(QSize(200, 75))
+        self.config_stabilization_field.setFont(font2)
+        self.config_stabilization_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"border: none;\n"
+"border-radius: 15px;")
+
+        self.gridLayout.addWidget(self.config_stabilization_field, 2, 1, 1, 1)
+
+        self.label_3 = QLabel(self.gridLayoutWidget)
+        self.label_3.setObjectName(u"label_3")
+        sizePolicy.setHeightForWidth(self.label_3.sizePolicy().hasHeightForWidth())
+        self.label_3.setSizePolicy(sizePolicy)
+        self.label_3.setMinimumSize(QSize(220, 75))
+        self.label_3.setMaximumSize(QSize(500, 75))
+        self.label_3.setFont(font2)
+        self.label_3.setStyleSheet(u"QFrame {\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
+"};")
+        self.label_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_3.setIndent(-1)
+
+        self.gridLayout.addWidget(self.label_3, 0, 0, 1, 1)
+
+        self.config_exit_button = QPushButton(self.config)
+        self.config_exit_button.setObjectName(u"config_exit_button")
+        self.config_exit_button.setEnabled(True)
+        self.config_exit_button.setGeometry(QRect(964, 10, 50, 50))
+        self.config_exit_button.setMinimumSize(QSize(50, 50))
+        self.config_exit_button.setMaximumSize(QSize(50, 50))
+        self.config_exit_button.setFont(font2)
+        self.config_exit_button.setStyleSheet(u"background-color: None;\n"
+"color: rgb(179, 23, 25);\n"
+"border: 1px solid rgb(179, 23, 25);\n"
+"/*border-radius: 15px;*/")
+        self.config_exit_button.setIconSize(QSize(25, 25))
+        self.config_exit_button.raise_()
+        self.frame_7.raise_()
         self.keyboard = QFrame(self.frame)
         self.keyboard.setObjectName(u"keyboard")
         self.keyboard.setGeometry(QRect(0, 0, 1024, 600))
         self.keyboard.setStyleSheet(u"QFrame {\n"
-"   background-image: url(:/main/bg_larger.png);\n"
+"	background-image: url(:/main/bg_larger.png);\n"
 "};")
         self.keyboard.setFrameShape(QFrame.StyledPanel)
         self.keyboard.setFrameShadow(QFrame.Raised)
@@ -700,9 +634,9 @@ class Ui_MainWindow(object):
         self.frame_15.setObjectName(u"frame_15")
         self.frame_15.setGeometry(QRect(182, 60, 660, 480))
         self.frame_15.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(23, 23, 23);\n"
-"   border-radius: 35px;\n"
+"	background: none;\n"
+"	background-color: rgb(23, 23, 23);\n"
+"	border-radius: 35px;\n"
 "};")
         self.frame_15.setFrameShape(QFrame.StyledPanel)
         self.frame_15.setFrameShadow(QFrame.Raised)
@@ -718,9 +652,9 @@ class Ui_MainWindow(object):
         self.keyboard_field.setObjectName(u"keyboard_field")
         self.keyboard_field.setMinimumSize(QSize(400, 0))
         self.keyboard_field.setMaximumSize(QSize(400, 75))
-        font4 = QFont()
-        font4.setPointSize(40)
-        self.keyboard_field.setFont(font4)
+        font3 = QFont()
+        font3.setPointSize(40)
+        self.keyboard_field.setFont(font3)
         self.keyboard_field.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
 "border-radius: 15px;\n"
 "padding-left: 15px;")
@@ -978,12 +912,12 @@ class Ui_MainWindow(object):
         self.main = QFrame(self.frame)
         self.main.setObjectName(u"main")
         self.main.setGeometry(QRect(0, 0, 1024, 600))
-        font5 = QFont()
-        font5.setPointSize(6)
-        self.main.setFont(font5)
+        font4 = QFont()
+        font4.setPointSize(6)
+        self.main.setFont(font4)
         self.main.setStyleSheet(u"QFrame {\n"
-"   background-image: url(:/main/bg_larger.png);\n"
-"   background-color:rgb(32, 32, 32);\n"
+"	background-image: url(:/main/bg_larger.png);\n"
+"	background-color:rgb(32, 32, 32);\n"
 "}")
         self.main.setFrameShape(QFrame.StyledPanel)
         self.main.setFrameShadow(QFrame.Raised)
@@ -991,7 +925,7 @@ class Ui_MainWindow(object):
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setGeometry(QRect(320, 40, 581, 521))
         self.frame_2.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
+"	background: none;\n"
 "};")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
@@ -1006,11 +940,11 @@ class Ui_MainWindow(object):
         self.main_resistance_field.setEnabled(True)
         self.main_resistance_field.setMinimumSize(QSize(579, 100))
         self.main_resistance_field.setMaximumSize(QSize(579, 100))
-        font6 = QFont()
-        font6.setPointSize(70)
-        font6.setBold(True)
-        font6.setWeight(75)
-        self.main_resistance_field.setFont(font6)
+        font5 = QFont()
+        font5.setPointSize(70)
+        font5.setBold(True)
+        font5.setWeight(75)
+        self.main_resistance_field.setFont(font5)
         self.main_resistance_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);\n"
 "border: none;\n"
@@ -1023,11 +957,11 @@ class Ui_MainWindow(object):
         self.main_test_button.setEnabled(True)
         self.main_test_button.setMinimumSize(QSize(220, 75))
         self.main_test_button.setMaximumSize(QSize(200, 75))
-        font7 = QFont()
-        font7.setPointSize(30)
-        font7.setBold(True)
-        font7.setWeight(75)
-        self.main_test_button.setFont(font7)
+        font6 = QFont()
+        font6.setPointSize(30)
+        font6.setBold(True)
+        font6.setWeight(75)
+        self.main_test_button.setFont(font6)
         self.main_test_button.setStyleSheet(u"background-color: #B5BD00;\n"
 "color: rgb(0,0,0);\n"
 "border: 1px solid #B5BD00;\n"
@@ -1055,11 +989,11 @@ class Ui_MainWindow(object):
         self.label_21.setMaximumSize(QSize(200, 60))
         self.label_21.setFont(font1)
         self.label_21.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_21.setAlignment(Qt.AlignCenter)
         self.label_21.setIndent(-1)
@@ -1071,11 +1005,11 @@ class Ui_MainWindow(object):
         self.main_last_res_field.setEnabled(True)
         self.main_last_res_field.setMinimumSize(QSize(320, 60))
         self.main_last_res_field.setMaximumSize(QSize(16777215, 60))
-        font8 = QFont()
-        font8.setPointSize(40)
-        font8.setBold(True)
-        font8.setWeight(75)
-        self.main_last_res_field.setFont(font8)
+        font7 = QFont()
+        font7.setPointSize(40)
+        font7.setBold(True)
+        font7.setWeight(75)
+        self.main_last_res_field.setFont(font7)
         self.main_last_res_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);\n"
 "border: none;\n"
@@ -1091,11 +1025,11 @@ class Ui_MainWindow(object):
         self.label_24.setMaximumSize(QSize(200, 60))
         self.label_24.setFont(font1)
         self.label_24.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_24.setAlignment(Qt.AlignCenter)
         self.label_24.setIndent(-1)
@@ -1107,7 +1041,7 @@ class Ui_MainWindow(object):
         self.main_2nd_last_res_field.setEnabled(True)
         self.main_2nd_last_res_field.setMinimumSize(QSize(320, 60))
         self.main_2nd_last_res_field.setMaximumSize(QSize(16777215, 60))
-        self.main_2nd_last_res_field.setFont(font8)
+        self.main_2nd_last_res_field.setFont(font7)
         self.main_2nd_last_res_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);\n"
 "border: none;\n"
@@ -1123,11 +1057,11 @@ class Ui_MainWindow(object):
         self.label_22.setMaximumSize(QSize(200, 60))
         self.label_22.setFont(font1)
         self.label_22.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_22.setAlignment(Qt.AlignCenter)
         self.label_22.setIndent(-1)
@@ -1139,7 +1073,7 @@ class Ui_MainWindow(object):
         self.main_3rd_last_res_field.setEnabled(True)
         self.main_3rd_last_res_field.setMinimumSize(QSize(320, 60))
         self.main_3rd_last_res_field.setMaximumSize(QSize(16777215, 60))
-        self.main_3rd_last_res_field.setFont(font8)
+        self.main_3rd_last_res_field.setFont(font7)
         self.main_3rd_last_res_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);\n"
 "border: none;\n"
@@ -1155,11 +1089,11 @@ class Ui_MainWindow(object):
         self.label_23.setMaximumSize(QSize(200, 60))
         self.label_23.setFont(font1)
         self.label_23.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_23.setAlignment(Qt.AlignCenter)
         self.label_23.setIndent(-1)
@@ -1171,7 +1105,7 @@ class Ui_MainWindow(object):
         self.main_last_res_error_field.setEnabled(True)
         self.main_last_res_error_field.setMinimumSize(QSize(320, 60))
         self.main_last_res_error_field.setMaximumSize(QSize(16777215, 60))
-        self.main_last_res_error_field.setFont(font8)
+        self.main_last_res_error_field.setFont(font7)
         self.main_last_res_error_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);\n"
 "border: none;\n"
@@ -1204,7 +1138,7 @@ class Ui_MainWindow(object):
         self.main_rmax_field.setEnabled(True)
         self.main_rmax_field.setMinimumSize(QSize(320, 60))
         self.main_rmax_field.setMaximumSize(QSize(16777215, 60))
-        self.main_rmax_field.setFont(font8)
+        self.main_rmax_field.setFont(font7)
         self.main_rmax_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);\n"
 "border: none;\n"
@@ -1220,11 +1154,11 @@ class Ui_MainWindow(object):
         self.label.setMaximumSize(QSize(200, 60))
         self.label.setFont(font2)
         self.label.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label.setAlignment(Qt.AlignCenter)
         self.label.setIndent(-1)
@@ -1236,7 +1170,7 @@ class Ui_MainWindow(object):
         self.main_rmin_field.setEnabled(True)
         self.main_rmin_field.setMinimumSize(QSize(320, 60))
         self.main_rmin_field.setMaximumSize(QSize(16777215, 60))
-        self.main_rmin_field.setFont(font8)
+        self.main_rmin_field.setFont(font7)
         self.main_rmin_field.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);\n"
 "border: none;\n"
@@ -1252,11 +1186,11 @@ class Ui_MainWindow(object):
         self.label_2.setMaximumSize(QSize(200, 60))
         self.label_2.setFont(font2)
         self.label_2.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_2.setAlignment(Qt.AlignCenter)
         self.label_2.setIndent(-1)
@@ -1282,15 +1216,15 @@ class Ui_MainWindow(object):
         self.widget.setMinimumSize(QSize(200, 60))
         self.widget.setMaximumSize(QSize(200, 60))
         self.widget.setStyleSheet(u"QWidget{\n"
-"   background-color: #B5BD00;\n"
-"   color: rgb(255, 255, 255);\n"
-"   border: 2px solid #B5BD00;\n"
+"	background-color: #B5BD00;\n"
+"	color: rgb(255, 255, 255);\n"
+"	border: 2px solid #B5BD00;\n"
 "}\n"
 "\n"
 "QComboBox QAbstractItemView {\n"
 "    selection-background-color: rgb(64, 64, 64);\n"
 "    background-color: rgb(32,32,32);\n"
-"   border: 2px solid #B5BD00;\n"
+"	border: 2px solid #B5BD00;\n"
 "}")
         self.main_scale_select = QComboBox(self.widget)
         self.main_scale_select.addItem("")
@@ -1306,19 +1240,19 @@ class Ui_MainWindow(object):
         self.main_scale_select.setGeometry(QRect(0, 30, 200, 30))
         self.main_scale_select.setMinimumSize(QSize(200, 30))
         self.main_scale_select.setMaximumSize(QSize(200, 30))
-        font9 = QFont()
-        font9.setPointSize(20)
-        font9.setBold(True)
-        font9.setUnderline(False)
-        font9.setWeight(75)
-        font9.setKerning(True)
-        self.main_scale_select.setFont(font9)
+        font8 = QFont()
+        font8.setPointSize(20)
+        font8.setBold(True)
+        font8.setUnderline(False)
+        font8.setWeight(75)
+        font8.setKerning(True)
+        self.main_scale_select.setFont(font8)
         self.main_scale_select.setFocusPolicy(Qt.NoFocus)
         self.main_scale_select.setStyleSheet(u"QComboBox {\n"
-"   margin-top: -5px;\n"
-"   color: rgb(0,0,0);\n"
-"   background-color: #B5BD00;\n"
-"   border: 1px solid  #B5BD00;\n"
+"	margin-top: -5px;\n"
+"	color: rgb(0,0,0);\n"
+"	background-color: #B5BD00;\n"
+"	border: 1px solid  #B5BD00;\n"
 "    padding: 0px 0px 1px 5px; /* This (useless) line resolves a bug with the font color */\n"
 "}\n"
 "\n"
@@ -1326,7 +1260,7 @@ class Ui_MainWindow(object):
 "    width: 150px;\n"
 "    border:0px; /* This seems to replace the whole arrow of the combo box */\n"
 "    margin-right:-200px;\n"
-"    margin-left: -65px;\n"
+"	 margin-left: -65px;\n"
 "}\n"
 "\n"
 "")
@@ -1337,15 +1271,15 @@ class Ui_MainWindow(object):
         self.label_25.setGeometry(QRect(0, 0, 200, 30))
         self.label_25.setMinimumSize(QSize(200, 30))
         self.label_25.setMaximumSize(QSize(200, 30))
-        font10 = QFont()
-        font10.setPointSize(15)
-        font10.setBold(True)
-        font10.setWeight(75)
-        self.label_25.setFont(font10)
+        font9 = QFont()
+        font9.setPointSize(15)
+        font9.setBold(True)
+        font9.setWeight(75)
+        self.label_25.setFont(font9)
         self.label_25.setStyleSheet(u"QLabel{\n"
-"   background-color: rgb(32, 32, 32);/*rgb(143, 38, 38);*/\n"
-"   color: rgb(255, 255, 255);\n"
-"   border: 2px solid #B5BD00;\n"
+"	background-color: rgb(32, 32, 32);/*rgb(143, 38, 38);*/\n"
+"	color: rgb(255, 255, 255);\n"
+"	border: 2px solid #B5BD00;\n"
 "};")
         self.label_25.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
@@ -1356,26 +1290,26 @@ class Ui_MainWindow(object):
         self.widget_2.setMinimumSize(QSize(200, 60))
         self.widget_2.setMaximumSize(QSize(200, 60))
         self.widget_2.setStyleSheet(u"QWidget{\n"
-"   background-color: #B5BD00;\n"
-"   color: rgb(255, 255, 255);\n"
-"   border: 2px solid #B5BD00;\n"
+"	background-color: #B5BD00;\n"
+"	color: rgb(255, 255, 255);\n"
+"	border: 2px solid #B5BD00;\n"
 "}\n"
 "\n"
 "QComboBox QAbstractItemView {\n"
 "    selection-background-color: rgb(64, 64, 64);\n"
 "    background-color: rgb(32,32,32);\n"
-"   border: 2px solid #B5BD00;\n"
+"	border: 2px solid #B5BD00;\n"
 "}")
         self.label_26 = QLabel(self.widget_2)
         self.label_26.setObjectName(u"label_26")
         self.label_26.setGeometry(QRect(0, 0, 200, 30))
         self.label_26.setMinimumSize(QSize(200, 30))
         self.label_26.setMaximumSize(QSize(200, 30))
-        self.label_26.setFont(font10)
+        self.label_26.setFont(font9)
         self.label_26.setStyleSheet(u"QLabel{\n"
-"   background-color: rgb(32, 32, 32);/*rgb(143, 38, 38);*/\n"
-"   color: rgb(255, 255, 255);\n"
-"   border: 2px solid #B5BD00;\n"
+"	background-color: rgb(32, 32, 32);/*rgb(143, 38, 38);*/\n"
+"	color: rgb(255, 255, 255);\n"
+"	border: 2px solid #B5BD00;\n"
 "};")
         self.label_26.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.config_material_field = QComboBox(self.widget_2)
@@ -1386,13 +1320,13 @@ class Ui_MainWindow(object):
         self.config_material_field.setGeometry(QRect(0, 30, 200, 30))
         self.config_material_field.setMinimumSize(QSize(200, 30))
         self.config_material_field.setMaximumSize(QSize(200, 30))
-        self.config_material_field.setFont(font9)
+        self.config_material_field.setFont(font8)
         self.config_material_field.setFocusPolicy(Qt.NoFocus)
         self.config_material_field.setStyleSheet(u"QComboBox {\n"
-"   margin-top: -5px;\n"
-"   color: rgb(0,0,0);\n"
-"   background-color: #B5BD00;\n"
-"   border: 1px solid  #B5BD00;\n"
+"	margin-top: -5px;\n"
+"	color: rgb(0,0,0);\n"
+"	background-color: #B5BD00;\n"
+"	border: 1px solid  #B5BD00;\n"
 "    padding: 0px 0px 1px 5px; /* This (useless) line resolves a bug with the font color */\n"
 "}\n"
 "\n"
@@ -1400,7 +1334,7 @@ class Ui_MainWindow(object):
 "    width: 150px;\n"
 "    border:0px; /* This seems to replace the whole arrow of the combo box */\n"
 "    margin-right:-200px;\n"
-"    margin-left: -65px;\n"
+"	 margin-left: -65px;\n"
 "}")
         self.config_material_field.setMaxVisibleItems(9)
         self.config_material_field.setFrame(False)
@@ -1412,20 +1346,20 @@ class Ui_MainWindow(object):
         self.widget_4.setMinimumSize(QSize(200, 60))
         self.widget_4.setMaximumSize(QSize(200, 60))
         self.widget_4.setStyleSheet(u"QWidget{\n"
-"   background-color: #B5BD00;\n"
-"   color: rgb(255, 255, 255);\n"
-"   border: 1px solid #B5BD00;\n"
+"	background-color: #B5BD00;\n"
+"	color: rgb(255, 255, 255);\n"
+"	border: 1px solid #B5BD00;\n"
 "}")
         self.label_28 = QLabel(self.widget_4)
         self.label_28.setObjectName(u"label_28")
         self.label_28.setGeometry(QRect(0, 0, 200, 30))
         self.label_28.setMinimumSize(QSize(200, 30))
         self.label_28.setMaximumSize(QSize(200, 30))
-        self.label_28.setFont(font10)
+        self.label_28.setFont(font9)
         self.label_28.setStyleSheet(u"QLabel{\n"
-"   background-color: rgb(32, 32, 32);/*rgb(143, 38, 38);*/\n"
-"   color: rgb(255, 255, 255);\n"
-"   border: 2px solid #B5BD00;\n"
+"	background-color: rgb(32, 32, 32);/*rgb(143, 38, 38);*/\n"
+"	color: rgb(255, 255, 255);\n"
+"	border: 2px solid #B5BD00;\n"
 "};")
         self.label_28.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.main_comparative_button = QPushButton(self.widget_4)
@@ -1436,12 +1370,12 @@ class Ui_MainWindow(object):
         self.main_comparative_button.setMaximumSize(QSize(200, 30))
         self.main_comparative_button.setFont(font1)
         self.main_comparative_button.setStyleSheet(u"QPushButton {\n"
-"   margin-top: -5px;\n"
-"   color: rgb(0,0,0);\n"
-"   background-color:#B5BD00;\n"
-"   border: 1px solid  #B5BD00;\n"
+"	margin-top: -5px;\n"
+"	color: rgb(0,0,0);\n"
+"	background-color:#B5BD00;\n"
+"	border: 1px solid  #B5BD00;\n"
 "    padding: 0px 0px 1px 5px; /* This (useless) line resolves a bug with the font color */\n"
-"   text-align:left;\n"
+"	text-align:left;\n"
 "}")
 
         self.verticalLayout.addWidget(self.widget_4)
@@ -1451,20 +1385,20 @@ class Ui_MainWindow(object):
         self.widget_3.setMinimumSize(QSize(200, 60))
         self.widget_3.setMaximumSize(QSize(200, 60))
         self.widget_3.setStyleSheet(u"QWidget{\n"
-"   background-color: #B5BD00;\n"
-"   color: rgb(255, 255, 255);\n"
-"   border: 1px solid #B5BD00;\n"
+"	background-color: #B5BD00;\n"
+"	color: rgb(255, 255, 255);\n"
+"	border: 1px solid #B5BD00;\n"
 "}")
         self.label_27 = QLabel(self.widget_3)
         self.label_27.setObjectName(u"label_27")
         self.label_27.setGeometry(QRect(0, 0, 200, 30))
         self.label_27.setMinimumSize(QSize(200, 30))
         self.label_27.setMaximumSize(QSize(200, 30))
-        self.label_27.setFont(font10)
+        self.label_27.setFont(font9)
         self.label_27.setStyleSheet(u"QLabel{\n"
-"   background-color: rgb(32, 32, 32);/*rgb(143, 38, 38);*/\n"
-"   color: rgb(255, 255, 255);\n"
-"   border: 2px solid #B5BD00;\n"
+"	background-color: rgb(32, 32, 32);/*rgb(143, 38, 38);*/\n"
+"	color: rgb(255, 255, 255);\n"
+"	border: 2px solid #B5BD00;\n"
 "};")
         self.label_27.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.setup_actual_temp_field = QPushButton(self.widget_3)
@@ -1475,10 +1409,10 @@ class Ui_MainWindow(object):
         self.setup_actual_temp_field.setMaximumSize(QSize(200, 30))
         self.setup_actual_temp_field.setFont(font1)
         self.setup_actual_temp_field.setStyleSheet(u"QPushButton {\n"
-"   margin-top: -5px;\n"
-"   color: rgb(0,0,0);\n"
-"   background-color:#B5BD00;\n"
-"   border: 1px solid  #B5BD00;\n"
+"	margin-top: -5px;\n"
+"	color: rgb(0,0,0);\n"
+"	background-color:#B5BD00;\n"
+"	border: 1px solid  #B5BD00;\n"
 "    padding: 0px 0px 1px 5px; /* This (useless) line resolves a bug with the font color */\n"
 "}")
 
@@ -1517,7 +1451,7 @@ class Ui_MainWindow(object):
         self.menu.setObjectName(u"menu")
         self.menu.setGeometry(QRect(0, 0, 1024, 600))
         self.menu.setStyleSheet(u"QFrame {\n"
-"   background-image: url(:/main/bg_larger.png);\n"
+"	background-image: url(:/main/bg_larger.png);\n"
 "};")
         self.menu.setFrameShape(QFrame.StyledPanel)
         self.menu.setFrameShadow(QFrame.Raised)
@@ -1539,11 +1473,11 @@ class Ui_MainWindow(object):
         self.menu_calib_button.setObjectName(u"menu_calib_button")
         self.menu_calib_button.setGeometry(QRect(0, 30, 201, 101))
         self.menu_calib_button.setMaximumSize(QSize(16777215, 16777215))
-        font11 = QFont()
-        font11.setPointSize(20)
-        font11.setBold(False)
-        font11.setWeight(50)
-        self.menu_calib_button.setFont(font11)
+        font10 = QFont()
+        font10.setPointSize(20)
+        font10.setBold(False)
+        font10.setWeight(50)
+        self.menu_calib_button.setFont(font10)
         self.menu_calib_button.setStyleSheet(u"color: rgb(255, 255, 255);")
         icon1 = QIcon()
         icon1.addFile(u":/main/calib.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -1565,7 +1499,7 @@ class Ui_MainWindow(object):
         self.menu_com_button.setObjectName(u"menu_com_button")
         self.menu_com_button.setGeometry(QRect(0, 30, 201, 101))
         self.menu_com_button.setMaximumSize(QSize(16777215, 16777215))
-        self.menu_com_button.setFont(font11)
+        self.menu_com_button.setFont(font10)
         self.menu_com_button.setStyleSheet(u"color: rgb(255, 255, 255);")
         icon2 = QIcon()
         icon2.addFile(u":/main/comunicacao.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -1587,7 +1521,7 @@ class Ui_MainWindow(object):
         self.menu_config_button.setObjectName(u"menu_config_button")
         self.menu_config_button.setGeometry(QRect(0, 30, 201, 101))
         self.menu_config_button.setMaximumSize(QSize(16777215, 16777215))
-        self.menu_config_button.setFont(font11)
+        self.menu_config_button.setFont(font10)
         self.menu_config_button.setStyleSheet(u"color: rgb(255, 255, 255);")
         icon3 = QIcon()
         icon3.addFile(u":/main/config.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -1615,7 +1549,7 @@ class Ui_MainWindow(object):
         self.calib_2.setObjectName(u"calib_2")
         self.calib_2.setGeometry(QRect(0, 0, 1024, 600))
         self.calib_2.setStyleSheet(u"QFrame {\n"
-"   background-image: url(:/main/bg_larger.png);\n"
+"	background-image: url(:/main/bg_larger.png);\n"
 "};")
         self.calib_2.setFrameShape(QFrame.StyledPanel)
         self.calib_2.setFrameShadow(QFrame.Raised)
@@ -1623,7 +1557,7 @@ class Ui_MainWindow(object):
         self.frame_17.setObjectName(u"frame_17")
         self.frame_17.setGeometry(QRect(106, 20, 811, 551))
         self.frame_17.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
+"	background: none;\n"
 "};")
         self.frame_17.setFrameShape(QFrame.StyledPanel)
         self.frame_17.setFrameShadow(QFrame.Raised)
@@ -1656,11 +1590,11 @@ class Ui_MainWindow(object):
         self.label_60.setMaximumSize(QSize(150, 60))
         self.label_60.setFont(font1)
         self.label_60.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_60.setAlignment(Qt.AlignCenter)
         self.label_60.setIndent(-1)
@@ -1675,11 +1609,11 @@ class Ui_MainWindow(object):
         self.label_66.setMaximumSize(QSize(150, 60))
         self.label_66.setFont(font1)
         self.label_66.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_66.setAlignment(Qt.AlignCenter)
         self.label_66.setIndent(-1)
@@ -1721,11 +1655,11 @@ class Ui_MainWindow(object):
         self.label_65.setMaximumSize(QSize(150, 60))
         self.label_65.setFont(font1)
         self.label_65.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_65.setAlignment(Qt.AlignCenter)
         self.label_65.setIndent(-1)
@@ -1740,11 +1674,11 @@ class Ui_MainWindow(object):
         self.label_57.setMaximumSize(QSize(150, 60))
         self.label_57.setFont(font1)
         self.label_57.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_57.setAlignment(Qt.AlignCenter)
         self.label_57.setIndent(-1)
@@ -1811,11 +1745,11 @@ class Ui_MainWindow(object):
         self.label_58.setMaximumSize(QSize(300, 60))
         self.label_58.setFont(font2)
         self.label_58.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_58.setAlignment(Qt.AlignCenter)
         self.label_58.setIndent(-1)
@@ -1830,11 +1764,11 @@ class Ui_MainWindow(object):
         self.label_63.setMaximumSize(QSize(300, 60))
         self.label_63.setFont(font1)
         self.label_63.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_63.setAlignment(Qt.AlignCenter)
         self.label_63.setIndent(-1)
@@ -1849,11 +1783,11 @@ class Ui_MainWindow(object):
         self.label_61.setMaximumSize(QSize(150, 60))
         self.label_61.setFont(font1)
         self.label_61.setStyleSheet(u"QFrame {\n"
-"   background: none;\n"
-"   background-color: rgb(64, 64, 64);\n"
-"   color: rgb(255, 255, 255);\n"
-"   border-radius: 15px;\n"
-"   border: 1px solid  rgb(64, 64, 64);\n"
+"	background: none;\n"
+"	background-color: rgb(64, 64, 64);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 15px;\n"
+"	border: 1px solid  rgb(64, 64, 64);\n"
 "};")
         self.label_61.setAlignment(Qt.AlignCenter)
         self.label_61.setIndent(-1)
@@ -1890,12 +1824,21 @@ class Ui_MainWindow(object):
 
         self.gridLayout_10.addItem(self.verticalSpacer_2, 6, 1, 1, 1)
 
-        self.config.raise_()
+        self.close = QFrame(self.frame)
+        self.close.setObjectName(u"close")
+        self.close.setGeometry(QRect(0, 0, 1024, 600))
+        self.close.setStyleSheet(u"QFrame {\n"
+"	background-image: url(:/main/bg_larger.png);\n"
+"};")
+        self.close.setFrameShape(QFrame.StyledPanel)
+        self.close.setFrameShadow(QFrame.Raised)
         self.keyboard.raise_()
-        self.comunication.raise_()
         self.menu.raise_()
         self.calib.raise_()
         self.calib_2.raise_()
+        self.comunication.raise_()
+        self.close.raise_()
+        self.config.raise_()
         self.main.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -1910,7 +1853,6 @@ class Ui_MainWindow(object):
         self.main_menu_button.clicked.connect(self.menu.raise_)
         self.calib_back_button.clicked.connect(self.menu.raise_)
 
-        self.config_data_rate_field.setCurrentIndex(0)
         self.main_scale_select.setCurrentIndex(0)
         self.config_material_field.setCurrentIndex(0)
         self.main_menu_button.setDefault(False)
@@ -1945,20 +1887,14 @@ class Ui_MainWindow(object):
         self.com_ip_field.setText(QCoreApplication.translate("MainWindow", u"192.168.0.148", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"PORTA", None))
         self.com_back_button.setText(QCoreApplication.translate("MainWindow", u"Salvar", None))
-        self.config_data_rate_field.setItemText(0, QCoreApplication.translate("MainWindow", u"2.5 SPS", None))
-        self.config_data_rate_field.setItemText(1, QCoreApplication.translate("MainWindow", u"5 SPS", None))
-        self.config_data_rate_field.setItemText(2, QCoreApplication.translate("MainWindow", u"10 SPS", None))
-        self.config_data_rate_field.setItemText(3, QCoreApplication.translate("MainWindow", u"15 SPS", None))
-        self.config_data_rate_field.setItemText(4, QCoreApplication.translate("MainWindow", u"25 SPS", None))
-
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Taxa de aquisi\u00e7\u00e3o", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Tempo de estabiliza\u00e7\u00e3o", None))
-        self.config_aquisitions_field.setText(QCoreApplication.translate("MainWindow", u"1", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Temperatura de refer\u00eancia", None))
-        self.config_back_button.setText(QCoreApplication.translate("MainWindow", u"Salvar", None))
-        self.config_stabilization_field.setText(QCoreApplication.translate("MainWindow", u"0.2", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Numero de aquisi\u00e7\u00f5es", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Tempo de estabiliza\u00e7\u00e3o", None))
+        self.config_back_button.setText(QCoreApplication.translate("MainWindow", u"Salvar", None))
         self.config_temp_ref_field.setText(QCoreApplication.translate("MainWindow", u"25 \u00baC", None))
+        self.config_aquisitions_field.setText(QCoreApplication.translate("MainWindow", u"1", None))
+        self.config_stabilization_field.setText(QCoreApplication.translate("MainWindow", u"0.2", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Temperatura de refer\u00eancia", None))
+        self.config_exit_button.setText(QCoreApplication.translate("MainWindow", u"X", None))
         self.keyboard_field.setPlainText("")
         self.keyboard_del.setText(QCoreApplication.translate("MainWindow", u"DEL", None))
         self.keyboard_9.setText(QCoreApplication.translate("MainWindow", u"9", None))
