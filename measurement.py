@@ -240,7 +240,8 @@ class MEASUREMENT(QtCore.QObject):
         print("Escala: ", scale, "Estabilização: ", stabilization, "Aquisições: ", acquisitions)
 
         # Read resistance
-        resistance, scale = mohm.do_measurement(scale, stabilization, acquisitions)
+        resistance, scale, overflow = mohm.do_measurement(scale, stabilization, acquisitions)
+        self.window.main_scale_select.setCurrentIndex(scale)
 
         # Apply factory calib factors
         factory_offset_gain = self.read_factory_calib(scale)
@@ -260,8 +261,12 @@ class MEASUREMENT(QtCore.QObject):
         print("Temperatura: ", actual_temp)
         print("Resistencia calibrada: ", resistance_temp_adjusted)
 
+        # Set resistance text
+        if overflow:
+            resistance_text = "Limite Sup."
+        else:
+            resistance_text = self.resistance_format(resistance_temp_adjusted, scale)
         # Set resistance field
-        resistance_text = self.resistance_format(resistance_temp_adjusted, scale)
         self.window.main_resistance_field.setText(resistance_text)
         self.add_to_measurement_table(resistance_text)
         self.limit_check(resistance_temp_adjusted)
@@ -297,7 +302,7 @@ class MEASUREMENT(QtCore.QObject):
             resistance_list = []
             total_resistance = 0
             for resistance in (last_resistance, second_last_resistance, third_last_resistance):
-                if resistance != '':
+                if resistance != '' and resistance != 'Limite Inf.' and resistance != 'Limite Sup.':
                     resistance = self.apply_multiplier(resistance)
                     total_resistance += resistance
                     resistance_list.append(resistance)

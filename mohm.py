@@ -143,6 +143,12 @@ class OHMIMETRO(object):
 
         mean_voltage, mean_current = self.get_analog_values(scale, stabilization, acquisitions)
 
+        # Check the overflow
+        if mean_voltage > 4.98:
+            overflow = True
+        else:
+            overflow = False
+
         # Calculate the resistance and the calibrated resistance
         # Uses the INA146/145 gain to find the real voltages before they be amplified
         # Define the proper Ina146 hardware gain
@@ -156,7 +162,7 @@ class OHMIMETRO(object):
         print("Resistencia raw: ", resistance)
 
         # Return the tuple with data
-        return resistance, scale
+        return resistance, scale, overflow
 
     def get_temperature(self):
         self.set_data_rate()
