@@ -80,7 +80,8 @@ class MEASUREMENT(QtCore.QObject):
         #self.temperature_worker_init.connect(self.temperature_worker.start_temp_measurement)
 
         # GUI buttons signals connection
-        self.window.main_test_button.clicked.connect(self.do_measurement)
+        self.window.main_test_button.pressed.connect(self.clear_res_field)
+        self.window.main_test_button.released.connect(self.do_measurement)
         self.window.main_comparative_button.clicked.connect(self.change_test_mode)
         self.window.main_last_res_field.clicked.connect(self.set_next_field)
         self.window.main_2nd_last_res_field.clicked.connect(self.set_next_field)
@@ -92,6 +93,9 @@ class MEASUREMENT(QtCore.QObject):
 
         # Hide the individual test mode on starting
         self.window.individual_test_frame.hide()
+
+    def clear_res_field(self):
+        self.window.main_resistance_field.setText("Medindo")
 
     def change_test_mode(self):
         actual_mode = self.window.main_comparative_button.text()
@@ -183,13 +187,13 @@ class MEASUREMENT(QtCore.QObject):
 
         elif scale == 7:
             if value > self.CEM*0.8:
-                return "%.2fΩ" % value
+                return "%.1fΩ" % value
             else:
                 return "Limite Inf."
 
         elif scale == 8:
             if value > self.MIL*0.8:
-                return "%.2fΩ" % value
+                return "%fΩ" % value
             else:
                 return "Limite Inf."
 
