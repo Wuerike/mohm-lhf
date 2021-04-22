@@ -116,11 +116,11 @@ class MEASUREMENT(QtCore.QObject):
             size = len(value)
 
         if value[size - 1] == 'u':
-            value = float(value[0:size - 1]) / 1000000;
+            value = float(value[0:size - 1]) / 1000000
             return (value)
 
         if value[size - 1] == 'm':
-            value = float(value[0:size - 1]) / 1000;
+            value = float(value[0:size - 1]) / 1000
             return (value)
 
         else:
@@ -150,8 +150,11 @@ class MEASUREMENT(QtCore.QObject):
 
     def resistance_format(self, value, scale):
         if scale == 1:
+            if value > self.CEM_MICRO*0.8:
                 value = value * self.MIL
                 return "%.4fmΩ" % value
+            else:
+                return "Limite Inf."
 
         elif scale == 2:
             if value > self.UM_MILI*0.8:
